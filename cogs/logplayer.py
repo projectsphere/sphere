@@ -34,7 +34,10 @@ class PlayerLoggingCog(commands.Cog):
 
     async def player_autocomplete(self, interaction: discord.Interaction, current: str):
         players = await player_autocomplete(current)
-        choices = [app_commands.Choice(name=player[1], value=player[0]) for player in players]
+        choices = [
+            app_commands.Choice(name=f"{player[1]} (ID: {player[0]})", value=player[0]) 
+            for player in players[:25]
+        ]
         return choices
 
     @app_commands.command(name="lookup", description="Fetch and display player information")
@@ -55,6 +58,7 @@ class PlayerLoggingCog(commands.Cog):
         embed.add_field(name="Location", value=f"({player[6]}, {player[7]})")
         embed.add_field(name="PlayerID", value=f"```{player[0]}```", inline=False)
         embed.add_field(name="PlayerUID", value=f"```{player[3]}```", inline=False)
+        embed.add_field(name="PlayerIP", value=f"```{player[4]}```", inline=False)
         return embed
 
     @log_players.before_loop
