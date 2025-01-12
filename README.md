@@ -13,12 +13,14 @@
  - **Administration Control**: Allows you to kick, ban, and manage players on your server directly from the bot.
  - **Server Query**: Allows you query servers added to the bot.
  - **Global Banlist**: This will allow you to global ban across all your servers using the [Sphere Banlist API](https://github.com/projectsphere/banlist-api).
+ - **VAC Check**: This will run checks on steam users to make sure they're not VAC Banned or spoofing.
 
 ## Environment Variables
 - `BOT_TOKEN`: Your discord bot token generated on the [Discord Developer Portal](https://discord.com/developers/applications).
 - `BOT_PREFIX`: The prefix used for non slash commands. Example `!`
 - `API_URL`: API URL if you setup the [Banlist API](https://github.com/projectsphere/banlist-api).
 - `API_KEY`: The API Key you set for your banlist. This key is used to access the endpoints securely.
+- `STEAM_API_KEY`: Your Steam API key for running checks on spoofers and cheaters.
 
 ## Installation
  1. Create a `.env` file and fill out your `BOT_TOKEN` and `BOT_PREFIX`

@@ -3,3 +3,4 @@ python-dotenv==1.0.1
 palworld-api==1.0.3
 aiohttp==3.10.10
 aiosqlite==0.20.0
+aiocache==0.12.3
