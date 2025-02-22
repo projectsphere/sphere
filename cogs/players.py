@@ -58,7 +58,7 @@ class PlayersCog(commands.Cog):
         player_location = "\n".join([f"`{player['location_x']}`,`{player['location_y']}`" for player in players])
 
         embed.add_field(name="Name", value=player_names if player_names else "No players online", inline=True)
-        embed.add_field(name="Steam", value=player_ids if player_ids else "No players online", inline=True)
+        embed.add_field(name="PlayerID", value=player_ids if player_ids else "No players online", inline=True)
         embed.add_field(name="Location", value=player_location if player_location else "No players online", inline=True)
 
         return embed

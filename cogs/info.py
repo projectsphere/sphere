@@ -39,11 +39,13 @@ class ServerInfoCog(commands.Cog):
             server_metrics = await api.get_server_metrics()
             
             embed = discord.Embed(title=f"{server_info.get('servername', server)}", description=f"{server_info.get('description', 'N/A')}", color=discord.Color.blurple())
-            embed.add_field(name="Players", value=f"{server_metrics.get('currentplayernum', 'N/A')}/{server_metrics.get('maxplayernum', 'N/A')}", inline=False)
-            embed.add_field(name="Version", value=server_info.get('version', 'N/A'), inline=False)
-            embed.add_field(name="Uptime", value=f"{int(server_metrics.get('uptime', 'N/A') / 60)} minutes", inline=False)
-            embed.add_field(name="FPS", value=server_metrics.get('serverfps', 'N/A'), inline=False)
-            embed.add_field(name="Latency", value=f"{server_metrics.get('serverframetime', 'N/A'):.2f} ms", inline=False)
+            embed.add_field(name="Players", value=f"{server_metrics.get('currentplayernum', 'N/A')}/{server_metrics.get('maxplayernum', 'N/A')}", inline=True)
+            embed.add_field(name="Version", value=server_info.get('version', 'N/A'), inline=True)
+            embed.add_field(name="Days Passed", value=server_metrics.get('days', 'N/A'), inline=True)
+            embed.add_field(name="Uptime", value=f"{int(server_metrics.get('uptime', 'N/A') / 60)} minutes", inline=True)
+            embed.add_field(name="FPS", value=server_metrics.get('serverfps', 'N/A'), inline=True)
+            embed.add_field(name="Latency", value=f"{server_metrics.get('serverframetime', 'N/A'):.2f} ms", inline=True)
+            embed.add_field(name="WorldGUID", value=f"`{server_info.get('worldguid', 'N/A')}`", inline=False)
             embed.set_thumbnail(url="https://www.palbot.gg/images/rexavatar.png")
             
             await interaction.followup.send(embed=embed)
