@@ -93,7 +93,7 @@ class ServerQueryCog(commands.Cog):
         server_names = await server_autocomplete(guild_id, current)
         return [app_commands.Choice(name=name, value=name) for name in server_names]
     
-    query_group = app_commands.Group(name="query", description="Query the server for information", default_permissions=discord.Permissions(administrator=True))
+    query_group = app_commands.Group(name="query", description="Query the server for information", default_permissions=discord.Permissions(administrator=True), guild_only=True)
 
     @query_group.command(name="add", description="Set the channel to query and log server info")
     @app_commands.describe(server="The name of the server", channel="The channel to log events in")

@@ -31,6 +31,7 @@ class ControlCog(commands.Cog):
     @app_commands.describe(server="The name of the server", message="The message to announce")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def announce(self, interaction: discord.Interaction, server: str, message: str):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
@@ -48,6 +49,7 @@ class ControlCog(commands.Cog):
     @app_commands.describe(server="The name of the server", message="The message to display before shutdown", seconds="The number of seconds before shutdown")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def shutdown(self, interaction: discord.Interaction, server: str, message: str, seconds: int):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
@@ -65,6 +67,7 @@ class ControlCog(commands.Cog):
     @app_commands.describe(server="The name of the server")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def stop(self, interaction: discord.Interaction, server: str):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
@@ -82,6 +85,7 @@ class ControlCog(commands.Cog):
     @app_commands.describe(server="The name of the server")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def save(self, interaction: discord.Interaction, server: str):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)

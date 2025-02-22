@@ -19,6 +19,7 @@ class ServerInfoCog(commands.Cog):
     @app_commands.describe(server="The name of the server to get info for.")
     @app_commands.default_permissions(administrator=True)
     @app_commands.autocomplete(server=server_autocomplete)
+    @app_commands.guild_only()
     async def server_info(self, interaction: discord.Interaction, server: str):
         try:
             guild_id = interaction.guild.id

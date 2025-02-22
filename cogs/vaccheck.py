@@ -127,4 +127,7 @@ class VACCheckCog(commands.Cog):
         await self.bot.wait_until_ready()
 
 async def setup(bot):
+    if not os.getenv("STEAM_API_KEY"):
+        logging.error("Steam API Key is not set. VAC Check cog will not be loaded.")
+        return
     await bot.add_cog(VACCheckCog(bot))

@@ -64,7 +64,7 @@ class EventsCog(commands.Cog):
         server_names = await server_autocomplete(guild_id, current)
         return [app_commands.Choice(name=name, value=name) for name in server_names]
     
-    log_group = app_commands.Group(name="logs", description="Log player join/leave events", default_permissions=discord.Permissions(administrator=True))
+    log_group = app_commands.Group(name="logs", description="Log player join/leave events", default_permissions=discord.Permissions(administrator=True), guild_only=True)
 
     @log_group.command(name="set", description="Set the logging channel for player join/leave events")
     @app_commands.describe(server="The name of the server", channel="The channel to log events in")

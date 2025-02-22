@@ -31,6 +31,7 @@ class PlayersCog(commands.Cog):
     @app_commands.describe(server="The name of the server to retrieve the player list from")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def player_list(self, interaction: discord.Interaction, server: str):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)

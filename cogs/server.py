@@ -17,6 +17,7 @@ class ServerManagementCog(commands.Cog):
     # The devs need a "health" api endpoint to check if RESTAPI is up...
     @app_commands.command(name="addserver", description="Add a server configuration")
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def add_server_command(self, interaction: discord.Interaction):
         modal = AddServerModal(title="Add Server")
 
@@ -53,6 +54,7 @@ class ServerManagementCog(commands.Cog):
     @app_commands.autocomplete(server=server_names)
     @app_commands.describe(server="Server to remove")
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def remove_server_command(self, interaction: discord.Interaction, server: str):
         await interaction.response.defer(ephemeral=True)
         try:

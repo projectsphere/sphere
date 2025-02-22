@@ -43,6 +43,7 @@ class PlayerLoggingCog(commands.Cog):
     @app_commands.command(name="lookup", description="Fetch and display player information")
     @app_commands.autocomplete(user=player_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def player_lookup(self, interaction: discord.Interaction, user: str):
         player = await fetch_player(user)
         if player:

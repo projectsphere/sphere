@@ -37,6 +37,7 @@ class AdminCog(commands.Cog):
     @app_commands.describe(server="The name of the server", player_id="The player ID to kick", reason="The reason for the kick")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def kick_player(self, interaction: discord.Interaction, server: str, player_id: str, reason: str):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
@@ -54,6 +55,7 @@ class AdminCog(commands.Cog):
     @app_commands.describe(server="The name of the server", player_id="The player ID to ban", reason="The reason for the ban")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def ban_player(self, interaction: discord.Interaction, server: str, player_id: str, reason: str):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
@@ -72,6 +74,7 @@ class AdminCog(commands.Cog):
     @app_commands.describe(server="The name of the server", player_id="The player ID to unban")
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def unban_player(self, interaction: discord.Interaction, server: str, player_id: str):
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
@@ -88,6 +91,7 @@ class AdminCog(commands.Cog):
     # Uploads ban logs as a text file
     @app_commands.command(name="bans", description="List all banned players.")
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def list_bans(self, interaction: discord.Interaction):
         bans = await fetch_bans()
         if bans:
@@ -102,6 +106,7 @@ class AdminCog(commands.Cog):
 
     @app_commands.command(name="clearbans", description="Clear ban history from the database.")
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def clear_bans_command(self, interaction: discord.Interaction):
         await clear_bans()
         await interaction.response.send_message("All bans have been cleared.", ephemeral=True)

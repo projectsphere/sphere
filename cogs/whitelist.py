@@ -61,6 +61,7 @@ class WhitelistCog(commands.Cog):
     @app_commands.command(name="add", description="Add a player to the whitelist.")
     @app_commands.describe(playerid="The playerid of the player to whitelist.")
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def whitelist_add(self, interaction: discord.Interaction, playerid: str):
         try:
             await add_whitelist(playerid, True)
@@ -72,6 +73,7 @@ class WhitelistCog(commands.Cog):
     @app_commands.command(name="remove", description="Remove a player from the whitelist.")
     @app_commands.describe(playerid="The playerid of the player to remove from the whitelist.")
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def whitelist_remove(self, interaction: discord.Interaction, playerid: str):
         try:
             await remove_whitelist(playerid)
@@ -89,6 +91,7 @@ class WhitelistCog(commands.Cog):
     @app_commands.describe(server_name="The name of the server to enable the whitelist for.")
     @app_commands.autocomplete(server_name=server_names)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def enable_whitelist(self, interaction: discord.Interaction, server_name: str):
         try:
             await whitelist_set(interaction.guild_id, server_name, True)
@@ -101,6 +104,7 @@ class WhitelistCog(commands.Cog):
     @app_commands.describe(server_name="The name of the server to disable the whitelist for.")
     @app_commands.autocomplete(server_name=server_names)
     @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
     async def disable_whitelist(self, interaction: discord.Interaction, server_name: str):
         try:
             await whitelist_set(interaction.guild_id, server_name, False)
