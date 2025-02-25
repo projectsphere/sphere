@@ -1,6 +1,6 @@
 # Project Sphere Palworld
  > [!WARNING]  
- > Still in development, use at your own risk!
+ > This bot is still in development, but it's in a usable state. No support will be provided unless it's for bug reports or feature requests.
 
  This bot is designed to be a server management replacement for my current [Palbot](https://github.com/dkoz/palworld-palbot) project. Unlike Palbot, which only supports Steam servers, this new project is created to support both Xbox and Steam servers.
 
@@ -13,7 +13,8 @@
  - **Administration Control**: Allows you to kick, ban, and manage players on your server directly from the bot.
  - **Server Query**: Allows you query servers added to the bot.
  - **Global Banlist**: This will allow you to global ban across all your servers using the [Sphere Banlist API](https://github.com/projectsphere/banlist-api).
- - **VAC Check**: This will run checks on steam users to make sure they're not VAC Banned or spoofing.
+ - **VAC Check**: This will run checks on steam users to make sure they're not VAC Banned or spoofing. (Experimental)
+ - **Null Check**: This will check for players joining without a valid user id and kick them. (Experimental)
 
 ## Environment Variables
 - `BOT_TOKEN`: Your discord bot token generated on the [Discord Developer Portal](https://discord.com/developers/applications).
