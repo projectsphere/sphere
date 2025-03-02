@@ -5,3 +5,5 @@
 *.json
 /cogs-dev/*
 /venv/*
+
+!/gamedata/*
