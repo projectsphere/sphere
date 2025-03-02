@@ -24,9 +24,10 @@ class RconCog(commands.Cog):
         server_names = await server_autocomplete(guild_id, current)
         return [app_commands.Choice(name=name, value=name) for name in server_names[:25]]
 
-    @app_commands.command(name="rcon", description="Kill nearest base")
+    @app_commands.command(name="rcon", description="Send an RCON command to a server")
     @app_commands.describe(command="RCON Command", server="Server")
     @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.guild_only()
     async def rconcommand(self, interaction: discord.Interaction, command: str, server: str):
         await interaction.response.defer(ephemeral=True)
         if not interaction.guild:
