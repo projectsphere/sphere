@@ -22,7 +22,7 @@ class PlayerLoggingCog(commands.Cog):
     async def log_players(self):
         servers = await fetch_all_servers()
         for server in servers:
-            guild_id, server_name, host, password, api_port = server
+            guild_id, server_name, host, password, api_port, rcon_port = server
             try:
                 api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
                 player_list = await api.get_player_list()

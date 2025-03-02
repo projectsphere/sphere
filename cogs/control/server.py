@@ -28,6 +28,7 @@ class ServerManagementCog(commands.Cog):
             host = modal.children[1].value
             password = modal.children[2].value
             api_port = int(modal.children[3].value) if modal.children[3].value else None
+            rcon_port = int(modal.children[4].value) if modal.children[4].value else None
 
             try:
                 await add_server(
@@ -35,7 +36,8 @@ class ServerManagementCog(commands.Cog):
                     server_name,
                     host,
                     password,
-                    api_port
+                    api_port,
+                    rcon_port
                 )
                 await modal_interaction.followup.send("Server added successfully.", ephemeral=True)
             except Exception as e:

@@ -25,7 +25,7 @@ class ServerQueryCog(commands.Cog):
     async def update_messages(self):
         servers = await fetch_all_servers()
         for server in servers:
-            guild_id, server_name, host, password, api_port = server
+            guild_id, server_name, host, password, api_port, rcon_port = server
             message_ids = await fetch_query(guild_id, server_name)
             if message_ids:
                 channel_id, message_id, player_message_id = message_ids

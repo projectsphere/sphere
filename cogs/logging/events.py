@@ -24,7 +24,7 @@ class EventsCog(commands.Cog):
     async def log_players(self):
         servers = await fetch_all_servers()
         for server in servers:
-            guild_id, server_name, host, password, api_port = server
+            guild_id, server_name, host, password, api_port, rcon_port = server
             log_channel_id = await fetch_logchannel(guild_id, server_name)
             if log_channel_id:
                 channel = self.bot.get_channel(log_channel_id)

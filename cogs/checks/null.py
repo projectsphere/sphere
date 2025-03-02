@@ -17,7 +17,7 @@ class NullPlayerCheck(commands.Cog):
     async def check_players(self):
         servers = await fetch_all_servers()
         for server in servers:
-            guild_id, server_name, host, password, api_port = server
+            guild_id, server_name, host, password, api_port, rcon_port = server
             log_channel_id = await fetch_logchannel(guild_id, server_name)
             log_channel = self.bot.get_channel(log_channel_id) if log_channel_id else None
 

@@ -29,7 +29,7 @@ class WhitelistCog(commands.Cog):
     async def check_whitelist(self):
         servers = await fetch_all_servers()
         for server in servers:
-            guild_id, server_name, host, password, api_port = server
+            guild_id, server_name, host, password, api_port, rcon_port = server
             if not await whitelist_get(guild_id, server_name):
                 continue
             

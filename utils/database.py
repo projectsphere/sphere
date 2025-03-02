@@ -19,6 +19,7 @@ async def initialize_db():
             host TEXT NOT NULL,
             password TEXT NOT NULL,
             api_port INTEGER,
+            rcon_port INTEGER,
             PRIMARY KEY (guild_id, server_name)
         )""",
         """CREATE TABLE IF NOT EXISTS players (
@@ -118,12 +119,12 @@ async def fetch_all_servers():
         await conn.close()
         return servers
 
-async def add_server(guild_id, server_name, host, password, api_port):
+async def add_server(guild_id, server_name, host, password, api_port, rcon_port):
     conn = await db_connection()
     if conn is not None:
         cursor = await conn.cursor()
-        await cursor.execute("INSERT INTO servers (guild_id, server_name, host, password, api_port) VALUES (?, ?, ?, ?, ?)",
-                       (guild_id, server_name, host, password, api_port))
+        await cursor.execute("INSERT INTO servers (guild_id, server_name, host, password, api_port, rcon_port) VALUES (?, ?, ?, ?, ?, ?)",
+                       (guild_id, server_name, host, password, api_port, rcon_port))
         await conn.commit()
         await conn.close()
 
@@ -131,7 +132,7 @@ async def fetch_server_details(guild_id, server_name):
     conn = await db_connection()
     if conn is not None:
         cursor = await conn.cursor()
-        await cursor.execute("SELECT guild_id, server_name, host, password, api_port FROM servers WHERE guild_id = ? AND server_name = ?", (guild_id, server_name))
+        await cursor.execute("SELECT guild_id, server_name, host, password, api_port, rcon_port FROM servers WHERE guild_id = ? AND server_name = ?", (guild_id, server_name))
         server_details = await cursor.fetchone()
         await conn.close()
         return server_details
