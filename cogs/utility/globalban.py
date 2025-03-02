@@ -9,8 +9,8 @@ from utils.pagination import Pagination, PaginationView
 class GlobalBan(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.api_url = os.getenv("API_URL", "http://localhost:5000")
-        self.bearer_token = os.getenv("API_KEY", "No token found")
+        self.api_url = os.getenv("API_URL")
+        self.bearer_token = os.getenv("API_KEY")
 
     async def api_request(self, method: str, endpoint: str, json: dict = None, params: dict = None):
         url = f"{self.api_url}{endpoint}"
@@ -89,4 +89,11 @@ class GlobalBan(commands.Cog):
             await interaction.followup.send(f"An error occurred while fetching banned users: {str(e)}", ephemeral=True)
 
 async def setup(bot):
+    api_url = os.getenv("API_URL")
+    api_key = os.getenv("API_KEY")
+
+    if not api_url or not api_key:
+        logging.error("GlobalBan not loaded due to missing api key and url.")
+        return
+
     await bot.add_cog(GlobalBan(bot))

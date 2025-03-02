@@ -90,6 +90,23 @@ class PalDefenderCog(commands.Cog):
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], f"killnearestbase {radius}")
         await interaction.followup.send(response, ephemeral=True)
 
+    @app_commands.command(name="getbase", description="Get nearest base")
+    @app_commands.describe(radius="Radius", server="Server")
+    @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
+    async def getnearestbase(self, interaction: discord.Interaction, radius: str, server: str):
+        await interaction.response.defer(ephemeral=True)
+        if not interaction.guild:
+            await interaction.followup.send("No guild.", ephemeral=True)
+            return
+        info = await self.get_server_info(interaction.guild.id, server)
+        if not info:
+            await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
+            return
+        response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], f"getnearestbase {radius}")
+        await interaction.followup.send(response, ephemeral=True)
+
     @app_commands.command(name="givepal", description="Give a Pal")
     @app_commands.describe(steamid="SteamID", palid="Pal name", level="Level", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, palid=autocomplete_pal)
@@ -135,6 +152,30 @@ class PalDefenderCog(commands.Cog):
         cmd = f"give {steamid} {item_data['id']} {amount}"
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
         embed = discord.Embed(title=f"GiveItem on {server}")
+        embed.description = response
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
+    @app_commands.command(name="deleteitem", description="Delete an item")
+    @app_commands.describe(steamid="SteamID", itemid="Item name", amount="Amount.", server="Server")
+    @app_commands.autocomplete(server=autocomplete_server, itemid=autocomplete_item)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
+    async def deleteitem(self, interaction: discord.Interaction, steamid: str, itemid: str, amount: str, server: str):
+        await interaction.response.defer(ephemeral=True)
+        if not interaction.guild:
+            await interaction.followup.send("No guild.", ephemeral=True)
+            return
+        info = await self.get_server_info(interaction.guild.id, server)
+        if not info:
+            await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
+            return
+        item_data = next((x for x in self.items if x["name"] == itemid), None)
+        if not item_data:
+            await interaction.followup.send(f"Item not found: {itemid}", ephemeral=True)
+            return
+        cmd = f"delitem {steamid} {item_data['id']} {amount}"
+        response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
+        embed = discord.Embed(title=f"DeleteItem on {server}")
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
