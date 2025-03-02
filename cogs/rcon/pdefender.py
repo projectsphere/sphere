@@ -7,7 +7,7 @@ import asyncio
 from utils.rconutility import RconUtility
 from utils.database import fetch_server_details, server_autocomplete
 
-class PalguardCog(commands.Cog):
+class PalDefenderCog(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.rcon = RconUtility()
@@ -132,4 +132,4 @@ class PalguardCog(commands.Cog):
         await interaction.followup.send(embed=embed, ephemeral=True)
 
 async def setup(bot: commands.Bot):
-    await bot.add_cog(PalguardCog(bot))
+    await bot.add_cog(PalDefenderCog(bot))
