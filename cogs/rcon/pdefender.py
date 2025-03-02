@@ -72,6 +72,21 @@ class PalguardCog(commands.Cog):
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], "reloadcfg")
         await interaction.followup.send(response, ephemeral=True)
 
+    @app_commands.command(name="destroybase", description="Kill nearest base")
+    @app_commands.describe(radius="Radius", server="Server")
+    @app_commands.autocomplete(server=autocomplete_server)
+    async def killnearestbase(self, interaction: discord.Interaction, radius: str, server: str):
+        await interaction.response.defer(ephemeral=True)
+        if not interaction.guild:
+            await interaction.followup.send("No guild.", ephemeral=True)
+            return
+        info = await self.get_server_info(interaction.guild.id, server)
+        if not info:
+            await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
+            return
+        response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], f"killnearestbase {radius}")
+        await interaction.followup.send(response, ephemeral=True)
+
     @app_commands.command(name="givepal", description="Give a Pal")
     @app_commands.describe(steamid="SteamID", palid="Pal name", level="Level", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, palid=autocomplete_pal)

@@ -31,3 +31,4 @@
 
 ## This project runs my libaries.
  - **Palworld API Wrapper** - A python library that acts as a wrapper for the Palworld server REST API.
+ - **GameRCON** - An asynchronous RCON library designed to handle multiple RCON tasks across numerous servers.
