@@ -68,6 +68,10 @@ async def initialize_db():
         cursor = await conn.cursor()
         for command in commands:
             await cursor.execute(command)
+        try:
+            await cursor.execute("ALTER TABLE servers ADD COLUMN rcon_port INTEGER")
+        except:
+            pass
         await conn.commit()
         await conn.close()
 
