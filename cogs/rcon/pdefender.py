@@ -59,6 +59,7 @@ class PalDefenderCog(commands.Cog):
     @app_commands.command(name="reloadcfg", description="Reload server config")
     @app_commands.describe(server="Server name")
     @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def reloadcfg(self, interaction: discord.Interaction, server: str):
         await interaction.response.defer(ephemeral=True)
@@ -75,6 +76,7 @@ class PalDefenderCog(commands.Cog):
     @app_commands.command(name="destroybase", description="Kill nearest base")
     @app_commands.describe(radius="Radius", server="Server")
     @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def killnearestbase(self, interaction: discord.Interaction, radius: str, server: str):
         await interaction.response.defer(ephemeral=True)
@@ -91,6 +93,7 @@ class PalDefenderCog(commands.Cog):
     @app_commands.command(name="givepal", description="Give a Pal")
     @app_commands.describe(steamid="SteamID", palid="Pal name", level="Level", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, palid=autocomplete_pal)
+    @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def givepal(self, interaction: discord.Interaction, steamid: str, palid: str, level: str, server: str):
         await interaction.response.defer(ephemeral=True)
@@ -114,6 +117,7 @@ class PalDefenderCog(commands.Cog):
     @app_commands.command(name="giveitem", description="Give an item")
     @app_commands.describe(steamid="SteamID", itemid="Item name", amount="Amount", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, itemid=autocomplete_item)
+    @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def giveitem(self, interaction: discord.Interaction, steamid: str, itemid: str, amount: str, server: str):
         await interaction.response.defer(ephemeral=True)
