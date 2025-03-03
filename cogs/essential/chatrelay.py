@@ -1,10 +1,9 @@
 import discord
 from discord.ext import commands
 import os
-from utils.database import get_server_details
-from utils.rconutility import RconUtility
-import utils.settings as s
 import logging
+from palworld_api import PalworldAPI
+from utils.database import fetch_server_details
 
 sftp_channel_id = os.getenv("CHATLOG_CHANNEL")
 server_name = os.getenv("CHATLOG_SERVER")
@@ -14,35 +13,33 @@ class ChatRelayCog(commands.Cog):
         self.bot = bot
         self.sftp_channel_id = sftp_channel_id
         self.server_name = server_name
-        self.rcon_util = RconUtility()
 
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
         if message.author.bot:
             return
-
-        if message.channel.id != self.sftp_channel_id:
+        if not message.guild:
             return
-
+        if str(message.channel.id) != str(self.sftp_channel_id):
+            return
         if not message.content:
             return
-
-        server_details = await get_server_details(self.server_name)
-        if not server_details:
+        details = await fetch_server_details(message.guild.id, self.server_name)
+        if not details:
             return
-
+        host = details[2]
+        password = details[3]
+        api_port = details[4]
+        server_url = f"http://{host}:{api_port}"
         broadcast_message = f"[{message.author.name}]: {message.content}"
-        server_info = {
-            "name": self.server_name,
-            "host": server_details[0],
-            "port": server_details[1],
-            "password": server_details[2],
-        }
-
-        await self.rcon_util.rcon_command(server_info, f"Broadcast {broadcast_message}")
+        api = PalworldAPI(server_url, "admin", password)
+        await api.make_announcement(broadcast_message)
 
 async def setup(bot):
-    if not os.getenv("CHATLOG_CHANNEL"):
-        logging.error("Chat log channel env variable not set. Chat feed will not be loaded.")
+    if not sftp_channel_id:
+        logging.error("CHATLOG_CHANNEL not set.")
+        return
+    if not server_name:
+        logging.error("CHATLOG_SERVER not set.")
         return
     await bot.add_cog(ChatRelayCog(bot))
