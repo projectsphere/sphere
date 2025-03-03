@@ -7,7 +7,7 @@ def setup_logging():
     if not os.path.exists('logs'):
         os.makedirs('logs')
 
-    log_filename = f"palbot_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+    log_filename = f"sphere_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
     log_path = os.path.join('logs', log_filename)
 
     log_handler = RotatingFileHandler(
@@ -25,7 +25,7 @@ def setup_logging():
 
 def clean_old_logs(directory, max_logs):
     log_files = sorted(
-        [os.path.join(directory, f) for f in os.listdir(directory) if f.startswith("palbot_") and f.endswith(".log")],
+        [os.path.join(directory, f) for f in os.listdir(directory) if f.startswith("sphere_") and f.endswith(".log")],
         key=os.path.getctime,
         reverse=True
     )

@@ -5,9 +5,10 @@ import re
 import logging
 import os
 import asyncio
+import utils.settings as s
 
-log_directory = os.getenv("CHATLOG_PATH")
-webhook_url = os.getenv("CHATLOG_WEBHOOKURL")
+log_directory = s.chatlog_channel
+webhook_url = s.chatlog_webhook
 
 class ChatFeedCog(commands.Cog):
     def __init__(self, bot):
@@ -86,6 +87,6 @@ class ChatFeedCog(commands.Cog):
 
 async def setup(bot):
     if not os.getenv("CHATLOG_PATH") or not os.getenv("CHATLOG_WEBHOOKURL"):
-        logging.error("Chatlog path or webhook URL not set.")
+        logging.error("CHATLOG_PATH and CHATLOG_WEBHOOKURL must be set.")
         return
     await bot.add_cog(ChatFeedCog(bot))

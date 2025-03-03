@@ -4,9 +4,10 @@ import os
 import logging
 from palworld_api import PalworldAPI
 from utils.database import fetch_server_details
+import utils.settings as s
 
-sftp_channel_id = os.getenv("CHATLOG_CHANNEL")
-server_name = os.getenv("CHATLOG_SERVER")
+sftp_channel_id = s.chatlog_channel
+server_name = s.chatlog_server
 
 class ChatRelayCog(commands.Cog):
     def __init__(self, bot):

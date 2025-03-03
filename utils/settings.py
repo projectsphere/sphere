@@ -5,6 +5,10 @@ from utils.database import initialize_db
 load_dotenv()
 bot_token = os.getenv('BOT_TOKEN', "No token found")
 bot_prefix = os.getenv('BOT_PREFIX', "!")
+chatlog_channel = os.getenv('CHATLOG_CHANNEL')
+chatlog_server = os.getenv('CHATLOG_SERVER')
+chatlog_path = os.getenv('CHATLOG_PATH')
+chatlog_webhook = os.getenv('CHATLOG_WEBHOOKURL')
 
 async def setup_hook(bot):
     await initialize_db()
