@@ -7,7 +7,7 @@ import os
 import asyncio
 import utils.settings as s
 
-log_directory = s.chatlog_channel
+log_directory = s.chatlog_path
 webhook_url = s.chatlog_webhook
 
 class ChatFeedCog(commands.Cog):

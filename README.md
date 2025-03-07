@@ -16,6 +16,7 @@
  - **PalDefender**: Gives basic functionality of PalDefender rcon commands.
  - **VAC Check**: This will run checks on steam users to make sure they're not VAC Banned or spoofing. (Experimental)
  - **Null Check**: This will check for players joining without a valid user id and kick them. (Experimental)
+ - **Chat Relay/Feed**: Send and receive chats from the server to discord and vice versa.
 
 ## Environment Variables
 - `BOT_TOKEN`: Your discord bot token generated on the [Discord Developer Portal](https://discord.com/developers/applications).

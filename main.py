@@ -23,7 +23,6 @@ async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     await bot.change_presence(activity=discord.Game(name="Palworld"))
 
-# These are commands for development purposes only
 @bot.command()
 @commands.is_owner()
 async def load(ctx, extension):
