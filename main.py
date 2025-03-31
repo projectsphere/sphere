@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import utils.settings as settings
 from utils.errorhandling import setup_logging
-from utils.constants import SPHERE_START
+import utils.constants as c
 
 setup_logging()
 
@@ -17,7 +17,7 @@ bot.setup_hook = lambda: settings.setup_hook(bot)
 
 @bot.event
 async def on_ready():
-    print(SPHERE_START)
+    print(f'{c.SPHERE_MESSAGE}')
     print(f"Your bot is in {len(bot.guilds)} servers and serving {len(bot.users)} users.")
     print(f"Invite link: {discord.utils.oauth_url(bot.user.id, permissions=discord.Permissions(permissions=8))}")
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')

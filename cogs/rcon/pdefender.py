@@ -179,5 +179,24 @@ class PalDefenderCog(commands.Cog):
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
+    @app_commands.command(name="exportguilds", description="Export guilds")
+    @app_commands.describe(server="Server")
+    @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
+    async def exportguilds(self, interaction: discord.Interaction, server: str):
+        await interaction.response.defer(ephemeral=True)
+        if not interaction.guild:
+            await interaction.followup.send("No guild.", ephemeral=True)
+            return
+        info = await self.get_server_info(interaction.guild.id, server)
+        if not info:
+            await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
+            return
+        response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], "exportguilds")
+        embed = discord.Embed(title=f"ExportGuilds on {server}")
+        embed.description = response
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
 async def setup(bot: commands.Bot):
     await bot.add_cog(PalDefenderCog(bot))
