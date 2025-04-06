@@ -1,4 +1,4 @@
-discord.py==2.5.0
+discord.py==2.5.2
 python-dotenv==1.0.1
 palworld-api==1.0.3
 gamercon-async==1.0.7
