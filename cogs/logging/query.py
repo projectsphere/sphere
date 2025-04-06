@@ -10,6 +10,7 @@ from utils.database import (
     fetch_all_servers
 )
 from palworld_api import PalworldAPI
+import utils.constants as c
 import logging
 import asyncio
 
@@ -71,12 +72,14 @@ class ServerQueryCog(commands.Cog):
             description=f"{server_info.get('description', 'N/A')}",
             color=discord.Color.blurple()
         )
-        embed.add_field(name="Players", value=f"{server_metrics.get('currentplayernum', 'N/A')}/{server_metrics.get('maxplayernum', 'N/A')}", inline=False)
-        embed.add_field(name="Version", value=server_info.get('version', 'N/A'), inline=False)
-        embed.add_field(name="Uptime", value=f"{int(server_metrics.get('uptime', 'N/A') / 60)} minutes", inline=False)
-        embed.add_field(name="FPS", value=server_metrics.get('serverfps', 'N/A'), inline=False)
-        embed.add_field(name="Latency", value=f"{server_metrics.get('serverframetime', 'N/A'):.2f} ms", inline=False)
-        embed.set_thumbnail(url="https://www.palbot.gg/images/rexavatar.png")
+        embed.add_field(name="Players", value=f"{server_metrics.get('currentplayernum', 'N/A')}/{server_metrics.get('maxplayernum', 'N/A')}", inline=True)
+        embed.add_field(name="Version", value=server_info.get('version', 'N/A'), inline=True)
+        embed.add_field(name="Days Passed", value=server_metrics.get('days', 'N/A'), inline=True)
+        embed.add_field(name="Uptime", value=f"{int(server_metrics.get('uptime', 'N/A') / 60)} minutes", inline=True)
+        embed.add_field(name="FPS", value=server_metrics.get('serverfps', 'N/A'), inline=True)
+        embed.add_field(name="Latency", value=f"{server_metrics.get('serverframetime', 'N/A'):.2f} ms", inline=True)
+        embed.add_field(name="WorldGUID", value=f"`{server_info.get('worldguid', 'N/A')}`", inline=False)
+        embed.set_thumbnail(url=c.SPHERE_THUMBNAIL)
         return embed
 
     def create_player_embed(self, player_list):
@@ -102,8 +105,27 @@ class ServerQueryCog(commands.Cog):
         try:
             await interaction.response.defer(ephemeral=True)
             guild_id = interaction.guild.id
-            message = await channel.send("Setting up server info...")
-            player_message = await channel.send("Setting up player info...")
+
+            server_config = await fetch_server_details(guild_id, server)
+            if not server_config:
+                await interaction.followup.send(f"Server '{server}' configuration not found.", ephemeral=True)
+                return
+
+            host = server_config[2]
+            password = server_config[3]
+            api_port = server_config[4]
+
+            api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+            server_info = await api.get_server_info()
+            server_metrics = await api.get_server_metrics()
+            player_list = await api.get_player_list()
+
+            server_embed = self.create_server_embed(server, server_info, server_metrics)
+            player_embed = self.create_player_embed(player_list)
+
+            message = await channel.send(embed=server_embed)
+            player_message = await channel.send(embed=player_embed)
+
             await add_query(guild_id, channel.id, server, message.id, player_message.id)
             await interaction.followup.send(f"Query channel for server `{server}` set to {channel.mention}.", ephemeral=True)
         except Exception as e:
