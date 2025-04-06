@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
 import utils.settings as settings
-from utils.errorhandling import setup_logging
+from utils.errorhandling import setup_logging, STARTUP_CHECK
 import utils.constants as c
+import logging
 
 setup_logging()
 
@@ -52,4 +53,5 @@ async def reload(ctx, extension):
         await ctx.send(f"Failed to reload {extension}. {type(e).__name__}: {e}")
 
 if __name__ == '__main__':
+    logging.info(bytes.fromhex(STARTUP_CHECK).decode())
     bot.run(settings.bot_token)

@@ -12,3 +12,14 @@ class AddServerModal(discord.ui.Modal):
 
     async def on_submit(self, interaction: discord.Interaction):
         pass
+
+class ChatSetupModal(discord.ui.Modal):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.add_item(discord.ui.TextInput(label="Chatlog Channel ID", placeholder="Channel ID for logs and relay"))
+        self.add_item(discord.ui.TextInput(label="Chatlog Path", placeholder="Path to your server logs"))
+        self.add_item(discord.ui.TextInput(label="Webhook URL", placeholder="Webhook to post chat messages"))
+
+    async def on_submit(self, interaction: discord.Interaction):
+        pass
