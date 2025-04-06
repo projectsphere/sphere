@@ -19,7 +19,10 @@ def setup_logging():
     log_formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s')
     log_handler.setFormatter(log_formatter)
 
-    logging.basicConfig(level=logging.INFO, handlers=[log_handler])
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.INFO)
+    root_logger.handlers = []
+    root_logger.addHandler(log_handler)
 
     clean_old_logs('logs', 10)
 

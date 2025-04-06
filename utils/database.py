@@ -61,6 +61,10 @@ async def initialize_db():
             message_id INTEGER NOT NULL,
             player_message_id INTEGER NOT NULL,
             PRIMARY KEY (guild_id, server_name)
+        )""",
+        """CREATE TABLE IF NOT EXISTS player_tracking (
+            guild_id INTEGER PRIMARY KEY,
+            enabled BOOLEAN NOT NULL
         )"""
     ]
     conn = await db_connection()
@@ -227,6 +231,25 @@ async def delete_query(guild_id, server_name):
         await cursor.execute("DELETE FROM query_logs WHERE guild_id = ? AND server_name = ?", (guild_id, server_name))
         await conn.commit()
         await conn.close()
+
+async def set_tracking(guild_id, enabled: bool):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("""
+            INSERT OR REPLACE INTO player_tracking (guild_id, enabled) VALUES (?, ?)
+        """, (guild_id, enabled))
+        await conn.commit()
+        await conn.close()
+
+async def get_tracking():
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT guild_id FROM player_tracking WHERE enabled = 1")
+        rows = await cursor.fetchall()
+        await conn.close()
+        return [row[0] for row in rows]
 
 if __name__ == "__main__":
     import asyncio
