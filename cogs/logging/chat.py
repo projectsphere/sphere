@@ -6,7 +6,13 @@ import re
 import logging
 import os
 import asyncio
-from utils.database import get_chat, set_chat, delete_chat, fetch_server_details, server_autocomplete
+from utils.database import (
+    get_chat,
+    set_chat,
+    delete_chat,
+    fetch_server_details,
+    server_autocomplete
+)
 from palworld_api import PalworldAPI
 from utils.servermodal import ChatSetupModal
 
