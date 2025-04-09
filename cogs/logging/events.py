@@ -9,7 +9,6 @@ from utils.database import (
     server_autocomplete
 )
 from palworld_api import PalworldAPI
-import datetime
 import logging
 
 class EventsCog(commands.Cog):

@@ -66,12 +66,13 @@ async def initialize_db():
             guild_id INTEGER PRIMARY KEY,
             enabled BOOLEAN NOT NULL
         )""",
-        """CREATE TABLE IF NOT EXISTS chat_config (
-            guild_id INTEGER PRIMARY KEY,
+        """CREATE TABLE IF NOT EXISTS chat_settings (
+            guild_id INTEGER NOT NULL,
             server_name TEXT NOT NULL,
             log_channel_id INTEGER NOT NULL,
             log_path TEXT NOT NULL,
-            webhook_url TEXT NOT NULL
+            webhook_url TEXT NOT NULL,
+            PRIMARY KEY (guild_id, server_name)
         )"""
     ]
     conn = await db_connection()
@@ -263,7 +264,7 @@ async def set_chat(guild_id, server_name, chat_channel_id, log_path, webhook_url
     if conn:
         cursor = await conn.cursor()
         await cursor.execute("""
-            INSERT OR REPLACE INTO chat_config (
+            INSERT OR REPLACE INTO chat_settings (
                 guild_id, server_name, log_channel_id, log_path, webhook_url
             ) VALUES (?, ?, ?, ?, ?)
         """, (guild_id, server_name, chat_channel_id, log_path, webhook_url))
@@ -276,17 +277,17 @@ async def get_chat(guild_id):
         cursor = await conn.cursor()
         await cursor.execute("""
             SELECT server_name, log_channel_id, log_path, webhook_url
-            FROM chat_config WHERE guild_id = ?
+            FROM chat_settings WHERE guild_id = ?
         """, (guild_id,))
         result = await cursor.fetchone()
         await conn.close()
         return result
 
-async def delete_chat(guild_id):
+async def delete_chat(guild_id, server_name):
     conn = await db_connection()
     if conn:
         cursor = await conn.cursor()
-        await cursor.execute("DELETE FROM chat_config WHERE guild_id = ?", (guild_id,))
+        await cursor.execute("DELETE FROM chat_settings WHERE guild_id = ? AND server_name = ?", (guild_id, server_name))
         await conn.commit()
         await conn.close()
 
