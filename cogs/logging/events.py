@@ -9,6 +9,7 @@ from utils.database import (
     server_autocomplete
 )
 from palworld_api import PalworldAPI
+import datetime
 import logging
 
 class EventsCog(commands.Cog):
@@ -44,11 +45,11 @@ class EventsCog(commands.Cog):
 
                         for userId, accountName in joined_players:
                             join_text = f"Player `{accountName} ({userId})` has joined {server_name}."
-                            join = discord.Embed(title="Player Joined", description=join_text , color=discord.Color.green())
+                            join = discord.Embed(title="Player Joined", description=join_text , color=discord.Color.green(), timestamp=discord.utils.utcnow())
                             await channel.send(embed=join)
                         for userId, accountName in left_players:
                             left_text = f"Player `{accountName} ({userId})` has left {server_name}."
-                            left = discord.Embed(title="Player Left", description=left_text, color=discord.Color.red())
+                            left = discord.Embed(title="Player Left", description=left_text, color=discord.Color.red(), timestamp=discord.utils.utcnow())
                             await channel.send(embed=left)
 
                         self.player_cache[server_name] = current_players

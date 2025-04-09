@@ -47,7 +47,7 @@ class WhitelistCog(commands.Cog):
                         
                         if log_channel:
                             kick_message = f"Player `{playerid}` was kicked from server {server_name} for not being whitelisted."
-                            embed = discord.Embed(title="Whitelist Check", description=kick_message, color=discord.Color.red())
+                            embed = discord.Embed(title="Whitelist Check", description=kick_message, color=discord.Color.red(), timestamp=discord.utils.utcnow())
                             await log_channel.send(embed=embed)
 
                 logging.info(f"Whitelist checked for server '{server_name}'.")

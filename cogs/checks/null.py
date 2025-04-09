@@ -34,7 +34,8 @@ class NullPlayerCheck(commands.Cog):
                             embed = discord.Embed(
                                 title="Invalid ID Detected",
                                 description=f"Player `{playerid}` was kicked from server {server_name} due to an invalid ID.",
-                                color=discord.Color.red()
+                                color=discord.Color.red(),
+                                timestamp=discord.utils.utcnow()
                             )
                             await log_channel.send(embed=embed)
 
