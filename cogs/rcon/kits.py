@@ -124,11 +124,11 @@ class KitsCog(commands.Cog):
         return [app_commands.Choice(name=x, value=x) for x in results[:25]]
 
     @app_commands.command(name="givekit", description="Give a kit to a user")
-    @app_commands.describe(steamid="User's SteamID", kit_name="Kit Name", server="Server Name")
+    @app_commands.describe(userid="User ID", kit_name="Kit Name", server="Server Name")
     @app_commands.autocomplete(server=autocomplete_server, kit_name=autocomplete_kits)
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
-    async def givekit(self, interaction: discord.Interaction, steamid: str, kit_name: str, server: str):
+    async def givekit(self, interaction: discord.Interaction, userid: str, kit_name: str, server: str):
         await interaction.response.defer(ephemeral=True)
         if not interaction.guild:
             await interaction.followup.send("No guild.", ephemeral=True)
@@ -148,10 +148,10 @@ class KitsCog(commands.Cog):
             await interaction.followup.send("Commands data is not valid JSON.", ephemeral=True)
             return
         for cmd_template in commands_list:
-            final_cmd = cmd_template.format(steamid=steamid)
+            final_cmd = cmd_template.format(userid=userid)
             await self.rcon.rcon_command(server_info["host"], server_info["port"], server_info["password"], final_cmd)
             await asyncio.sleep(1)
-        await interaction.followup.send(f"Kit '{kit_name}' given to {steamid} on '{server}'.", ephemeral=True)
+        await interaction.followup.send(f"Kit '{kit_name}' given to {userid} on '{server}'.", ephemeral=True)
 
     @app_commands.command(name="managekit", description="Create or update a kit.")
     @app_commands.describe(kit_name="Kit name (optional). If it exists, it will be loaded.")

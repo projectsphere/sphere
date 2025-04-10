@@ -108,11 +108,11 @@ class PalDefenderCog(commands.Cog):
         await interaction.followup.send(response, ephemeral=True)
 
     @app_commands.command(name="givepal", description="Give a Pal")
-    @app_commands.describe(steamid="SteamID", palid="Pal name", level="Level", server="Server")
+    @app_commands.describe(userid="User ID", palid="Pal name", level="Level", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, palid=autocomplete_pal)
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
-    async def givepal(self, interaction: discord.Interaction, steamid: str, palid: str, level: str, server: str):
+    async def givepal(self, interaction: discord.Interaction, userid: str, palid: str, level: str, server: str):
         await interaction.response.defer(ephemeral=True)
         if not interaction.guild:
             await interaction.followup.send("No guild.", ephemeral=True)
@@ -125,18 +125,18 @@ class PalDefenderCog(commands.Cog):
         if not pal_data:
             await interaction.followup.send(f"Pal not found: {palid}", ephemeral=True)
             return
-        cmd = f"givepal {steamid} {pal_data['id']} {level}"
+        cmd = f"givepal {userid} {pal_data['id']} {level}"
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
         embed = discord.Embed(title=f"GivePal on {server}")
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
     @app_commands.command(name="giveitem", description="Give an item")
-    @app_commands.describe(steamid="SteamID", itemid="Item name", amount="Amount", server="Server")
+    @app_commands.describe(userid="User ID", itemid="Item name", amount="Amount", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, itemid=autocomplete_item)
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
-    async def giveitem(self, interaction: discord.Interaction, steamid: str, itemid: str, amount: str, server: str):
+    async def giveitem(self, interaction: discord.Interaction, userid: str, itemid: str, amount: str, server: str):
         await interaction.response.defer(ephemeral=True)
         if not interaction.guild:
             await interaction.followup.send("No guild.", ephemeral=True)
@@ -149,18 +149,18 @@ class PalDefenderCog(commands.Cog):
         if not item_data:
             await interaction.followup.send(f"Item not found: {itemid}", ephemeral=True)
             return
-        cmd = f"give {steamid} {item_data['id']} {amount}"
+        cmd = f"give {userid} {item_data['id']} {amount}"
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
         embed = discord.Embed(title=f"GiveItem on {server}")
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
     @app_commands.command(name="deleteitem", description="Delete an item")
-    @app_commands.describe(steamid="SteamID", itemid="Item name", amount="Amount.", server="Server")
+    @app_commands.describe(userid="User ID", itemid="Item name", amount="Amount.", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, itemid=autocomplete_item)
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
-    async def deleteitem(self, interaction: discord.Interaction, steamid: str, itemid: str, amount: str, server: str):
+    async def deleteitem(self, interaction: discord.Interaction, userid: str, itemid: str, amount: str, server: str):
         await interaction.response.defer(ephemeral=True)
         if not interaction.guild:
             await interaction.followup.send("No guild.", ephemeral=True)
@@ -173,9 +173,49 @@ class PalDefenderCog(commands.Cog):
         if not item_data:
             await interaction.followup.send(f"Item not found: {itemid}", ephemeral=True)
             return
-        cmd = f"delitem {steamid} {item_data['id']} {amount}"
+        cmd = f"delitem {userid} {item_data['id']} {amount}"
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
         embed = discord.Embed(title=f"DeleteItem on {server}")
+        embed.description = response
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
+    @app_commands.command(name="givexp", description="Give experience")
+    @app_commands.describe(userid="User ID", amount="Amount", server="Server")
+    @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
+    async def givexp(self, interaction: discord.Interaction, userid: str, amount: str, server: str):
+        await interaction.response.defer(ephemeral=True)
+        if not interaction.guild:
+            await interaction.followup.send("No guild.", ephemeral=True)
+            return
+        info = await self.get_server_info(interaction.guild.id, server)
+        if not info:
+            await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
+            return
+        cmd = f"give_exp {userid} {amount}"
+        response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
+        embed = discord.Embed(title=f"GiveEXP on {server}")
+        embed.description = response
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
+    # export pals player userid
+    @app_commands.command(name="exportpals", description="Export pals")
+    @app_commands.describe(userid="User ID", server="Server")
+    @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
+    async def exportpals(self, interaction: discord.Interaction, userid: str, server: str):
+        await interaction.response.defer(ephemeral=True)
+        if not interaction.guild:
+            await interaction.followup.send("No guild.", ephemeral=True)
+            return
+        info = await self.get_server_info(interaction.guild.id, server)
+        if not info:
+            await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
+            return
+        response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], f"exportpals {userid}")
+        embed = discord.Embed(title=f"ExportPals on {server}")
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
