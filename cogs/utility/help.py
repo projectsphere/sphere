@@ -2,6 +2,7 @@ from discord.ext import commands
 from discord import app_commands
 import discord
 import sys
+import utils.constants as c
 from utils.pagination import Pagination, PaginationView
 
 class HelpCog(commands.Cog):
@@ -40,14 +41,15 @@ class HelpCog(commands.Cog):
         bot_owner = await self.bot.application_info()
 
         embed = discord.Embed(
-            title="Project Sphere",
+            title=c.SPHERE_NAME,
             description="This bot was created for managing palworld servers. Keep up to date on the latest changes and updates on the [GitHub](https://github.com/projectsphere/sphere).",
             color=discord.Color.blurple(),
             url="https://github.com/projectsphere/sphere"
         )
         embed.add_field(name="Instance Owner", value=f"{bot_owner.owner.name}", inline=True)
-        embed.add_field(name="Version", value="1.0 Beta", inline=True)
+        embed.add_field(name="Version", value=f"v{c.SPHERE_VERSION}", inline=True)
         embed.add_field(name="Python", value=f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}", inline=True)
+        embed.set_thumbnail(url=c.SPHERE_THUMBNAIL)
         await interaction.followup.send(embed=embed)
 
 async def setup(bot):
