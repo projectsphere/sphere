@@ -66,7 +66,8 @@ class BackupCog(commands.Cog):
         names = await server_autocomplete(guild_id, current)
         return [app_commands.Choice(name=n, value=n) for n in names]
 
-    @app_commands.command(name="setupbackup")
+    @app_commands.command(name="setupbackup", description="Setup backup for a server.")
+    @app_commands.describe(server="Select the server name")
     @app_commands.autocomplete(server=server_names)
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
@@ -86,7 +87,8 @@ class BackupCog(commands.Cog):
         modal = BackupModal(title=server, on_submit_callback=handle_submit)
         await interaction.response.send_modal(modal)
 
-    @app_commands.command(name="removebackup")
+    @app_commands.command(name="removebackup", description="Remove backup config for a server.")
+    @app_commands.describe(server="Select the server name to remove")
     @app_commands.autocomplete(server=server_names)
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
