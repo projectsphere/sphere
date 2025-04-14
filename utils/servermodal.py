@@ -23,3 +23,14 @@ class ChatSetupModal(discord.ui.Modal):
 
     async def on_submit(self, interaction: discord.Interaction):
         pass
+
+class BackupModal(discord.ui.Modal):
+    def __init__(self, *args, on_submit_callback=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.on_submit_callback = on_submit_callback
+        self.add_item(discord.ui.TextInput(label="Channel ID", placeholder="Destination channel ID"))
+        self.add_item(discord.ui.TextInput(label="Save Path", placeholder="Full path to save folder"))
+        self.add_item(discord.ui.TextInput(label="Interval (minutes)", placeholder="Backup interval in minutes"))
+
+    async def on_submit(self, interaction: discord.Interaction):
+        await self.on_submit_callback(interaction, self)

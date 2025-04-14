@@ -73,6 +73,14 @@ async def initialize_db():
             log_path TEXT NOT NULL,
             webhook_url TEXT NOT NULL,
             PRIMARY KEY (guild_id, server_name)
+        )""",
+        """CREATE TABLE IF NOT EXISTS backups (
+            guild_id INTEGER NOT NULL,
+            server_name TEXT NOT NULL,
+            path TEXT NOT NULL,
+            channel_id INTEGER NOT NULL,
+            interval_minutes INTEGER NOT NULL,
+            PRIMARY KEY (guild_id, server_name)
         )"""
     ]
     conn = await db_connection()
@@ -288,6 +296,40 @@ async def delete_chat(guild_id, server_name):
     if conn:
         cursor = await conn.cursor()
         await cursor.execute("DELETE FROM chat_settings WHERE guild_id = ? AND server_name = ?", (guild_id, server_name))
+        await conn.commit()
+        await conn.close()
+
+async def set_backup(guild_id, server_name, path, channel_id, interval_minutes):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("""
+            INSERT OR REPLACE INTO backups (guild_id, server_name, path, channel_id, interval_minutes)
+            VALUES (?, ?, ?, ?, ?)
+        """, (guild_id, server_name, path, channel_id, interval_minutes))
+        await conn.commit()
+        await conn.close()
+
+async def all_backups():
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("""
+            SELECT guild_id, server_name, path, channel_id, interval_minutes
+            FROM backups
+        """)
+        rows = await cursor.fetchall()
+        await conn.close()
+        return rows
+
+async def del_backup(guild_id, server_name):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("""
+            DELETE FROM backups
+            WHERE guild_id = ? AND server_name = ?
+        """, (guild_id, server_name))
         await conn.commit()
         await conn.close()
 
