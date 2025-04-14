@@ -33,16 +33,17 @@ class ControlCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def announce(self, interaction: discord.Interaction, server: str, message: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
             if error:
-                await interaction.response.send_message(error, ephemeral=True)
+                await interaction.followup.send(error, ephemeral=True)
                 return
             
             await api.make_announcement(message)
-            await interaction.response.send_message(f"Announcement sent: {message}", ephemeral=True)
+            await interaction.followup.send(f"Announcement sent: {message}", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
 
     @app_commands.command(name="shutdown", description="Shutdown the server.")
@@ -51,16 +52,17 @@ class ControlCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def shutdown(self, interaction: discord.Interaction, server: str, message: str, seconds: int):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
             if error:
-                await interaction.response.send_message(error, ephemeral=True)
+                await interaction.followup.send(error, ephemeral=True)
                 return
             
             await api.shutdown_server(seconds, message)
-            await interaction.response.send_message(f"Server will shutdown in {seconds} seconds: {message}", ephemeral=True)
+            await interaction.followup.send(f"Server will shutdown in {seconds} seconds: {message}", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
 
     @app_commands.command(name="stop", description="Stop the server.")
@@ -69,16 +71,17 @@ class ControlCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def stop(self, interaction: discord.Interaction, server: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
             if error:
-                await interaction.response.send_message(error, ephemeral=True)
+                await interaction.followup.send(error, ephemeral=True)
                 return
             
             response = await api.stop_server()
-            await interaction.response.send_message(f"Server stopped: {response}", ephemeral=True)
+            await interaction.followup.send(f"Server stopped: {response}", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
 
     @app_commands.command(name="save", description="Save the server state.")
@@ -87,16 +90,17 @@ class ControlCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def save(self, interaction: discord.Interaction, server: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
             if error:
-                await interaction.response.send_message(error, ephemeral=True)
+                await interaction.followup.send(error, ephemeral=True)
                 return
             
             response = await api.save_server_state()
-            await interaction.response.send_message(f"Server state saved: {response}", ephemeral=True)
+            await interaction.followup.send(f"Server state saved: {response}", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
     
 async def setup(bot):

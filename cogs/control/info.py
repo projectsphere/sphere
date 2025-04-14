@@ -21,14 +21,13 @@ class ServerInfoCog(commands.Cog):
     @app_commands.autocomplete(server=server_autocomplete)
     @app_commands.guild_only()
     async def server_info(self, interaction: discord.Interaction, server: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             guild_id = interaction.guild.id
             server_config = await fetch_server_details(guild_id, server)
             if not server_config:
-                await interaction.response.send_message(f"Server '{server}' configuration not found.", ephemeral=True)
+                await interaction.followup.send(f"Server '{server}' configuration not found.", ephemeral=True)
                 return
-            
-            await interaction.response.defer()
             
             host = server_config[2]
             password = server_config[3]

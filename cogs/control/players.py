@@ -33,21 +33,22 @@ class PlayersCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def player_list(self, interaction: discord.Interaction, server: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             api, error = await self.get_api_instance(interaction.guild.id, server)
             if error:
-                await interaction.response.send_message(error, ephemeral=True)
+                await interaction.followup.send(error, ephemeral=True)
                 return
             
             player_list = await api.get_player_list()
             if player_list and 'players' in player_list:
                 embed = self.playerlist_embed(server, player_list['players'])
-                await interaction.response.send_message(embed=embed, ephemeral=True)
+                await interaction.followup.send(embed=embed, ephemeral=True)
             else:
-                await interaction.response.send_message(f"No players found on server '{server}'.", ephemeral=True)
+                await interaction.followup.send(f"No players found on server '{server}'.", ephemeral=True)
                 logging.info(f"No players found on server '{server}'.")
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred while fetching player list: {str(e)}")
 
     def playerlist_embed(self, server_name, players):

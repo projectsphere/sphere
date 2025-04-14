@@ -24,7 +24,6 @@ class WhitelistCog(commands.Cog):
     def cog_unload(self):
         self.check_whitelist.cancel()
 
-    # So much easier than RCON. lol
     @tasks.loop(seconds=60)
     async def check_whitelist(self):
         servers = await fetch_all_servers()
@@ -63,11 +62,12 @@ class WhitelistCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def whitelist_add(self, interaction: discord.Interaction, playerid: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             await add_whitelist(playerid, True)
-            await interaction.response.send_message(f"Player {playerid} has been added to the whitelist.", ephemeral=True)
+            await interaction.followup.send(f"Player {playerid} has been added to the whitelist.", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
 
     @app_commands.command(name="remove", description="Remove a player from the whitelist.")
@@ -75,11 +75,12 @@ class WhitelistCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def whitelist_remove(self, interaction: discord.Interaction, playerid: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             await remove_whitelist(playerid)
-            await interaction.response.send_message(f"Player {playerid} has been removed from the whitelist.", ephemeral=True)
+            await interaction.followup.send(f"Player {playerid} has been removed from the whitelist.", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
 
     async def server_names(self, interaction: discord.Interaction, current: str):
@@ -93,11 +94,12 @@ class WhitelistCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def enable_whitelist(self, interaction: discord.Interaction, server_name: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             await whitelist_set(interaction.guild_id, server_name, True)
-            await interaction.response.send_message(f"Whitelist has been enabled for server {server_name}.", ephemeral=True)
+            await interaction.followup.send(f"Whitelist has been enabled for server {server_name}.", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
 
     @app_commands.command(name="disable", description="Disable whitelist for a server.")
@@ -106,11 +108,12 @@ class WhitelistCog(commands.Cog):
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
     async def disable_whitelist(self, interaction: discord.Interaction, server_name: str):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             await whitelist_set(interaction.guild_id, server_name, False)
-            await interaction.response.send_message(f"Whitelist has been disabled for server {server_name}.", ephemeral=True)
+            await interaction.followup.send(f"Whitelist has been disabled for server {server_name}.", ephemeral=True)
         except Exception as e:
-            await interaction.response.send_message(f"An unexpected error occurred: {str(e)}", ephemeral=True)
+            await interaction.followup.send(f"An unexpected error occurred: {str(e)}", ephemeral=True)
             logging.error(f"An unexpected error occurred: {str(e)}")
 
 async def setup(bot):
