@@ -1,5 +1,6 @@
 import aiosqlite
 import os
+import datetime
 
 DATABASE_PATH = os.path.join('data', 'palworld.db')
 
@@ -81,6 +82,11 @@ async def initialize_db():
             channel_id INTEGER NOT NULL,
             interval_minutes INTEGER NOT NULL,
             PRIMARY KEY (guild_id, server_name)
+        )""",
+        """CREATE TABLE IF NOT EXISTS player_sessions (
+            user_id TEXT PRIMARY KEY,
+            total_time INTEGER NOT NULL DEFAULT 0,
+            session_start TIMESTAMP
         )"""
     ]
     conn = await db_connection()
@@ -248,6 +254,7 @@ async def delete_query(guild_id, server_name):
         await conn.commit()
         await conn.close()
 
+# Status Tracking
 async def set_tracking(guild_id, enabled: bool):
     conn = await db_connection()
     if conn:
@@ -267,6 +274,7 @@ async def get_tracking():
         await conn.close()
         return [row[0] for row in rows]
     
+# Chat Relay/Feed  
 async def set_chat(guild_id, server_name, chat_channel_id, log_path, webhook_url):
     conn = await db_connection()
     if conn:
@@ -299,6 +307,7 @@ async def delete_chat(guild_id, server_name):
         await conn.commit()
         await conn.close()
 
+# Backups
 async def set_backup(guild_id, server_name, path, channel_id, interval_minutes):
     conn = await db_connection()
     if conn:
@@ -332,6 +341,71 @@ async def del_backup(guild_id, server_name):
         """, (guild_id, server_name))
         await conn.commit()
         await conn.close()
+
+# Player Time Tracking
+async def start_session(user_id: str, session_start: str):
+    conn = await db_connection()
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT user_id FROM player_sessions WHERE user_id = ?", (user_id,))
+        row = await cursor.fetchone()
+        if row:
+            await cursor.execute("UPDATE player_sessions SET session_start = ? WHERE user_id = ?", (session_start, user_id))
+        else:
+            await cursor.execute("INSERT INTO player_sessions (user_id, total_time, session_start) VALUES (?, 0, ?)", (user_id, session_start))
+        await conn.commit()
+        await conn.close()
+
+async def update_active_session(user_id: str, new_time: str):
+    conn = await db_connection()
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT session_start, total_time FROM player_sessions WHERE user_id = ?", (user_id,))
+        row = await cursor.fetchone()
+        if row and row[0]:
+            dt_start = datetime.datetime.fromisoformat(row[0])
+            dt_new = datetime.datetime.fromisoformat(new_time)
+            diff = int((dt_new - dt_start).total_seconds())
+            new_total = row[1] + diff
+            await cursor.execute("UPDATE player_sessions SET total_time = ?, session_start = ? WHERE user_id = ?", (new_total, new_time, user_id))
+        await conn.commit()
+        await conn.close()
+
+async def end_session(user_id: str, session_end: str):
+    conn = await db_connection()
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT session_start, total_time FROM player_sessions WHERE user_id = ?", (user_id,))
+        row = await cursor.fetchone()
+        if row and row[0]:
+            dt_start = datetime.datetime.fromisoformat(row[0])
+            dt_end = datetime.datetime.fromisoformat(session_end)
+            diff = int((dt_end - dt_start).total_seconds())
+            new_total = row[1] + diff
+            await cursor.execute("UPDATE player_sessions SET total_time = ?, session_start = NULL WHERE user_id = ?", (new_total, user_id))
+        await conn.commit()
+        await conn.close()
+
+async def get_active_sessions():
+    conn = await db_connection()
+    active = {}
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT user_id, session_start FROM player_sessions WHERE session_start IS NOT NULL")
+        rows = await cursor.fetchall()
+        for row in rows:
+            active[row[0]] = row[1]
+        await conn.close()
+    return active
+
+async def get_player_session(user_id: str):
+    conn = await db_connection()
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT user_id, total_time, session_start FROM player_sessions WHERE user_id = ?", (user_id,))
+        row = await cursor.fetchone()
+        await conn.close()
+        return row
 
 if __name__ == "__main__":
     import asyncio
