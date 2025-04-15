@@ -1,5 +1,6 @@
 import aiosqlite
 import os
+from datetime import datetime, timezone
 
 DATABASE_PATH = os.path.join('data', 'palworld.db')
 
@@ -32,6 +33,12 @@ async def initialize_db():
             location_x REAL NOT NULL,
             location_y REAL NOT NULL,
             level INTEGER NOT NULL
+        )""",
+        """CREATE TABLE IF NOT EXISTS player_playtimes (
+            server_name TEXT NOT NULL,
+            user_id TEXT NOT NULL,
+            total_playtime INTEGER NOT NULL DEFAULT 0,
+            PRIMARY KEY (server_name, user_id)
         )""",
         """CREATE TABLE IF NOT EXISTS whitelist (
             player_id TEXT PRIMARY KEY,
@@ -81,6 +88,12 @@ async def initialize_db():
             channel_id INTEGER NOT NULL,
             interval_minutes INTEGER NOT NULL,
             PRIMARY KEY (guild_id, server_name)
+        )""",
+        """CREATE TABLE IF NOT EXISTS active_sessions (
+            server_name TEXT NOT NULL,
+            user_id TEXT NOT NULL,
+            join_time INTEGER NOT NULL,
+            PRIMARY KEY (server_name, user_id)
         )"""
     ]
     conn = await db_connection()
@@ -185,7 +198,7 @@ async def server_autocomplete(guild_id, current):
         servers = await cursor.fetchall()
         await conn.close()
         return [server[0] for server in servers]
-    
+
 # Server Logs
 async def add_logchannel(guild_id, channel_id, server_name):
     conn = await db_connection()
@@ -214,7 +227,7 @@ async def fetch_logchannel(guild_id, server_name):
         result = await cursor.fetchone()
         await conn.close()
         return result[0] if result else None
-    
+
 # Query Server
 async def add_query(guild_id, channel_id, server_name, message_id, player_message_id):
     conn = await db_connection()
@@ -266,7 +279,7 @@ async def get_tracking():
         rows = await cursor.fetchall()
         await conn.close()
         return [row[0] for row in rows]
-    
+
 async def set_chat(guild_id, server_name, chat_channel_id, log_path, webhook_url):
     conn = await db_connection()
     if conn:
@@ -332,6 +345,114 @@ async def del_backup(guild_id, server_name):
         """, (guild_id, server_name))
         await conn.commit()
         await conn.close()
+
+async def update_player_playtime(server_name: str, user_id: str, session_seconds: int):
+    conn = await db_connection()
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute(
+            """
+            INSERT INTO player_playtimes (server_name, user_id, total_playtime)
+            VALUES (?, ?, ?)
+            ON CONFLICT(server_name, user_id) DO UPDATE SET total_playtime = total_playtime + ?
+            """, 
+            (server_name, user_id, session_seconds, session_seconds)
+        )
+        await conn.commit()
+        await conn.close()
+
+async def fetch_player_playtime(server_name: str, user_id: str):
+    conn = await db_connection()
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT total_playtime FROM player_playtimes WHERE server_name = ? AND user_id = ?", (server_name, user_id))
+        result = await cursor.fetchone()
+        await conn.close()
+        return result[0] if result else 0
+
+async def fetch_playtime_leaderboard(server_name: str, limit: int = 10):
+    conn = await db_connection()
+    if conn is not None:
+        cursor = await conn.cursor()
+        await cursor.execute(
+            """
+            SELECT pp.user_id, pp.total_playtime, IFNULL(p.name, pp.user_id)
+            FROM player_playtimes pp
+            LEFT JOIN players p ON pp.user_id = p.user_id
+            WHERE pp.server_name = ?
+            ORDER BY pp.total_playtime DESC
+            LIMIT ?
+            """, 
+            (server_name, limit)
+        )
+        rows = await cursor.fetchall()
+        await conn.close()
+        return rows
+
+async def add_active_session(server_name: str, user_id: str, join_time: int):
+    """Persist the active session with join_time as Unix timestamp."""
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute(
+            """
+            INSERT OR REPLACE INTO active_sessions (server_name, user_id, join_time)
+            VALUES (?, ?, ?)
+            """,
+            (server_name, user_id, join_time)
+        )
+        await conn.commit()
+        await conn.close()
+
+async def remove_active_session(server_name: str, user_id: str):
+    """Remove a stored active session."""
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute(
+            """
+            DELETE FROM active_sessions
+            WHERE server_name = ? AND user_id = ?
+            """,
+            (server_name, user_id)
+        )
+        await conn.commit()
+        await conn.close()
+
+async def load_active_sessions(server_name: str):
+    """Load active sessions from the database; returns a dict {user_id: join_time (as UTC datetime)}."""
+    conn = await db_connection()
+    sessions = {}
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute(
+            """
+            SELECT user_id, join_time FROM active_sessions
+            WHERE server_name = ?
+            """,
+            (server_name,)
+        )
+        rows = await cursor.fetchall()
+        await conn.close()
+        for user_id, ts in rows:
+            sessions[user_id] = datetime.fromtimestamp(ts, tz=timezone.utc)
+    return sessions
+
+async def load_total_playtimes_for_server(server_name: str) -> dict:
+    """Return a dictionary {user_id: total_playtime_in_seconds} for the given server."""
+    conn = await db_connection()
+    totals = {}
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute(
+            "SELECT user_id, total_playtime FROM player_playtimes WHERE server_name = ?",
+            (server_name,)
+        )
+        rows = await cursor.fetchall()
+        await conn.close()
+        for user_id, total in rows:
+            totals[user_id] = total
+    return totals
 
 if __name__ == "__main__":
     import asyncio
