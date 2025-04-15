@@ -23,6 +23,7 @@ class ChatCog(commands.Cog):
         self.last_processed_line = {}
         self.first_check_done = {}
         self.blocked_phrases = ["/adminpassword", "/creativemenu", "/"]
+        self.group_filter = ["local", "guild"]
         self.check_logs.start()
 
     def cog_unload(self):
@@ -78,9 +79,11 @@ class ChatCog(commands.Cog):
 
     async def process_and_send(self, line, webhook_url, server_name):
         try:
-            match = re.search(r"\[Chat::(?:Global|Local|Guild)\]\['([^']+)'.*\]: (.*)", line)
+            match = re.search(r"\[Chat::(Global|Local|Guild)\]\['([^']+)'.*?\]: (.*)", line)
             if match:
-                username, message = match.groups()
+                group, username, message = match.groups()
+                if group.lower() in self.group_filter:
+                    return
                 if any(bp in message for bp in self.blocked_phrases):
                     return
                 async with aiohttp.ClientSession() as session:
