@@ -17,7 +17,7 @@
  - **VAC Check**: This will run checks on steam users to make sure they're not VAC Banned or spoofing. (Experimental)
  - **Null Check**: This will check for players joining without a valid user id and kick them. (Experimental)
  - **Cross Server Chat**: Send and receive chats from the server to discord and vice versa.
- - **Timed Backups**: Create backups of your server and send them to a discord channel at timed intervals.
+ - **Scheduled Backups**: Create backups of your server and send them to a discord channel at timed intervals.
 
 ## Environment Variables
 - `BOT_TOKEN`: Your discord bot token generated on the [Discord Developer Portal](https://discord.com/developers/applications).

@@ -1,7 +1,7 @@
 discord.py==2.5.2
-python-dotenv==1.0.1
-palworld-api==1.0.3
+python-dotenv==1.1.0
+palworld-api==1.0.5
 gamercon-async==1.0.7
-aiohttp==3.10.10
-aiosqlite==0.20.0
+aiohttp==3.11.16
+aiosqlite==0.21.0
 aiocache==0.12.3
