@@ -5,7 +5,11 @@ from utils.database import (
     add_server,
     remove_server,
     server_autocomplete,
-    remove_whitelist_status
+    remove_whitelist_status,
+    delete_chat,
+    del_backup,
+    delete_query,
+    remove_logchannel
 )
 from utils.servermodal import AddServerModal
 import logging
@@ -62,6 +66,10 @@ class ServerManagementCog(commands.Cog):
         try:
             await remove_server(interaction.guild_id, server)
             await remove_whitelist_status(interaction.guild_id, server)
+            await delete_chat(interaction.guild_id, server)
+            await del_backup(interaction.guild_id, server)
+            await delete_query(interaction.guild_id, server)
+            await remove_logchannel(interaction.guild_id, server)
             await interaction.followup.send("Server removed successfully.")
         except Exception as e:
             await interaction.followup.send(f"Failed to remove server: {e}", ephemeral=True)
