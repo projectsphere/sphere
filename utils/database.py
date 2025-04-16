@@ -295,7 +295,7 @@ async def get_chat(guild_id):
             SELECT server_name, log_channel_id, log_path, webhook_url
             FROM chat_settings WHERE guild_id = ?
         """, (guild_id,))
-        result = await cursor.fetchone()
+        result = await cursor.fetchall()
         await conn.close()
         return result
 

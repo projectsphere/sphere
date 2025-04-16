@@ -32,50 +32,52 @@ class ChatCog(commands.Cog):
     @tasks.loop(seconds=8)
     async def check_logs(self):
         for guild in self.bot.guilds:
-            config = await get_chat(guild.id)
-            if not config:
+            configs = await get_chat(guild.id)
+            if not configs:
                 continue
 
-            server_name, chat_channel_id, log_path, webhook_url = config
+            for config in configs:
+                server_name, chat_channel_id, log_path, webhook_url = config
 
-            try:
-                files = sorted(
-                    [f for f in os.listdir(log_path) if f.endswith(".txt") or f.endswith(".log")],
-                    key=lambda x: os.stat(os.path.join(log_path, x)).st_mtime,
-                    reverse=True
-                )
-                if not files:
-                    continue
-
-                newest_file = os.path.join(log_path, files[0])
-                if self.current_log_file.get(guild.id) != newest_file:
-                    self.current_log_file[guild.id] = newest_file
-                    self.last_processed_line[guild.id] = None
-                    self.first_check_done[guild.id] = False
-
-                with open(newest_file, "r", encoding="utf-8", errors="ignore") as file:
-                    content = file.read()
-                    lines = content.splitlines()
-
-                if not self.first_check_done.get(guild.id, False):
-                    if lines:
-                        self.last_processed_line[guild.id] = lines[-1]
-                    self.first_check_done[guild.id] = True
-                    continue
-
-                new_lines_start = False
-                for line in lines:
-                    if line == self.last_processed_line.get(guild.id):
-                        new_lines_start = True
+                try:
+                    files = sorted(
+                        [f for f in os.listdir(log_path) if f.endswith(".txt") or f.endswith(".log")],
+                        key=lambda x: os.stat(os.path.join(log_path, x)).st_mtime,
+                        reverse=True
+                    )
+                    if not files:
                         continue
-                    if new_lines_start or self.last_processed_line.get(guild.id) is None:
-                        if "[Chat::" in line:
-                            await self.process_and_send(line, webhook_url, server_name)
 
-                if lines:
-                    self.last_processed_line[guild.id] = lines[-1]
-            except Exception as e:
-                logging.error(f"Log check failed for guild {guild.id}: {e}")
+                    newest_file = os.path.join(log_path, files[0])
+                    key = f"{guild.id}_{server_name}"
+                    if self.current_log_file.get(key) != newest_file:
+                        self.current_log_file[key] = newest_file
+                        self.last_processed_line[key] = None
+                        self.first_check_done[key] = False
+
+                    with open(newest_file, "r", encoding="utf-8", errors="ignore") as file:
+                        content = file.read()
+                        lines = content.splitlines()
+
+                    if not self.first_check_done.get(key, False):
+                        if lines:
+                            self.last_processed_line[key] = lines[-1]
+                        self.first_check_done[key] = True
+                        continue
+
+                    new_lines_start = False
+                    for line in lines:
+                        if line == self.last_processed_line.get(key):
+                            new_lines_start = True
+                            continue
+                        if new_lines_start or self.last_processed_line.get(key) is None:
+                            if "[Chat::" in line:
+                                await self.process_and_send(line, webhook_url, server_name)
+
+                    if lines:
+                        self.last_processed_line[key] = lines[-1]
+                except Exception as e:
+                    logging.error(f"Log check failed for guild {guild.id} - {server_name}: {e}")
 
     async def process_and_send(self, line, webhook_url, server_name):
         try:
@@ -97,23 +99,26 @@ class ChatCog(commands.Cog):
         if message.author.bot or not message.guild or not message.content:
             return
 
-        config = await get_chat(message.guild.id)
-        if not config:
+        configs = await get_chat(message.guild.id)
+        if not configs:
             return
 
-        server_name, chat_channel_id, log_path, webhook_url = config
-        if str(message.channel.id) != str(chat_channel_id):
-            return
+        for config in configs:
+            server_name, chat_channel_id, log_path, webhook_url = config
 
-        details = await fetch_server_details(message.guild.id, server_name)
-        if not details:
-            return
+            if message.channel.id != int(chat_channel_id):
+                continue
 
-        host = details[2]
-        password = details[3]
-        api_port = details[4]
-        api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
-        await api.make_announcement(f"[{message.author.name}]: {message.content}")
+            details = await fetch_server_details(message.guild.id, server_name)
+            if not details:
+                continue
+
+            host = details[2]
+            password = details[3]
+            api_port = details[4]
+
+            api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+            await api.make_announcement(f"[{message.author.name}]: {message.content}")
 
     async def server_names(self, interaction: discord.Interaction, current: str):
         guild_id = interaction.guild.id
