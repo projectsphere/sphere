@@ -120,6 +120,8 @@ class ChatCog(commands.Cog):
             api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
             await api.make_announcement(f"[{message.author.name}]: {message.content}")
 
+            break
+
     async def server_names(self, interaction: discord.Interaction, current: str):
         guild_id = interaction.guild.id
         server_names = await server_autocomplete(guild_id, current)

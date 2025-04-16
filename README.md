@@ -14,7 +14,6 @@
  - **Server Query**: Allows you query servers added to the bot.
  - **Global Banlist**: This will allow you to global ban across all your servers using the [Sphere Banlist API](https://github.com/projectsphere/banlist-api).
  - **PalDefender**: Gives basic functionality of PalDefender rcon commands.
- - **VAC Check**: This will run checks on steam users to make sure they're not VAC Banned or spoofing. (Experimental)
  - **Null Check**: This will check for players joining without a valid user id and kick them. (Experimental)
  - **Cross Server Chat**: Send and receive chats from the server to discord and vice versa.
  - **Scheduled Backups**: Create backups of your server and send them to a discord channel at timed intervals.
