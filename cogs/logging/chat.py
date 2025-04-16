@@ -120,18 +120,16 @@ class ChatCog(commands.Cog):
             api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
             await api.make_announcement(f"[{message.author.name}]: {message.content}")
 
-            break
-
     async def server_names(self, interaction: discord.Interaction, current: str):
         guild_id = interaction.guild.id
         server_names = await server_autocomplete(guild_id, current)
         return [app_commands.Choice(name=name, value=name) for name in server_names]
 
-    @app_commands.command(name="setupchat", description="Configure chat feed and relay")
+    chat_group = app_commands.Group(name="chat", description="Configure chat feed and relay", default_permissions=discord.Permissions(administrator=True), guild_only=True)
+
+    @chat_group.command(name="setup", description="Configure chat feed and relay")
     @app_commands.describe(server="Select the server name")
     @app_commands.autocomplete(server=server_names)
-    @app_commands.default_permissions(administrator=True)
-    @app_commands.guild_only()
     async def setupchat(self, interaction: discord.Interaction, server: str):
         modal = ChatSetupModal(title="Setup Chat Feed/Relay")
 
@@ -158,11 +156,9 @@ class ChatCog(commands.Cog):
         modal.on_submit = on_submit_override
         await interaction.response.send_modal(modal)
 
-    @app_commands.command(name="removechat", description="Remove chat config for a server")
+    @chat_group.command(name="remove", description="Remove chat config for a server")
     @app_commands.describe(server="Select the server name to remove")
     @app_commands.autocomplete(server=server_names)
-    @app_commands.default_permissions(administrator=True)
-    @app_commands.guild_only()
     async def removechat(self, interaction: discord.Interaction, server: str):
         try:
             await delete_chat(interaction.guild.id, server)
@@ -170,6 +166,23 @@ class ChatCog(commands.Cog):
         except Exception as e:
             await interaction.response.send_message(f"Failed to remove chat config: {e}", ephemeral=True)
             logging.error(f"Failed to remove chat config: {e}")
+
+    @chat_group.command(name="wipe", description="Remove all chat configs for this server")
+    async def wipechat(self, interaction: discord.Interaction):
+        try:
+            configs = await get_chat(interaction.guild.id)
+            if not configs:
+                await interaction.response.send_message("No chat configs found to wipe.", ephemeral=True)
+                return
+
+            for config in configs:
+                server_name = config[0]
+                await delete_chat(interaction.guild.id, server_name)
+
+            await interaction.response.send_message("All chat configs wiped for this server.", ephemeral=True)
+        except Exception as e:
+            await interaction.response.send_message(f"Failed to wipe chat configs: {e}", ephemeral=True)
+            logging.error(f"Failed to wipe chat configs: {e}")
 
     @check_logs.before_loop
     async def before_check_logs(self):

@@ -66,11 +66,11 @@ class BackupCog(commands.Cog):
         names = await server_autocomplete(guild_id, current)
         return [app_commands.Choice(name=n, value=n) for n in names]
 
-    @app_commands.command(name="setupbackup", description="Setup backup for a server.")
+    backup_group = app_commands.Group(name="backup", description="Manage backup settings", default_permissions=discord.Permissions(administrator=True), guild_only=True)
+
+    @backup_group.command(name="setup", description="Setup backup for a server.")
     @app_commands.describe(server="Select the server name")
     @app_commands.autocomplete(server=server_names)
-    @app_commands.default_permissions(administrator=True)
-    @app_commands.guild_only()
     async def setupbackup(self, interaction: discord.Interaction, server: str):
         async def handle_submit(modal_interaction: discord.Interaction, modal: BackupModal):
             await modal_interaction.response.defer(ephemeral=True)
@@ -87,11 +87,9 @@ class BackupCog(commands.Cog):
         modal = BackupModal(title=server, on_submit_callback=handle_submit)
         await interaction.response.send_modal(modal)
 
-    @app_commands.command(name="removebackup", description="Remove backup config for a server.")
+    @backup_group.command(name="remove", description="Remove backup config for a server.")
     @app_commands.describe(server="Select the server name to remove")
     @app_commands.autocomplete(server=server_names)
-    @app_commands.default_permissions(administrator=True)
-    @app_commands.guild_only()
     async def removebackup(self, interaction: discord.Interaction, server: str):
         try:
             await del_backup(interaction.guild.id, server)
@@ -100,6 +98,24 @@ class BackupCog(commands.Cog):
         except Exception as e:
             logging.error(f"Error removing backup: {e}")
             await interaction.response.send_message("Failed to remove backup config.", ephemeral=True)
+
+    @backup_group.command(name="wipe", description="Remove all backup configs for this server")
+    async def wipebackups(self, interaction: discord.Interaction):
+        try:
+            data = await all_backups()
+            deleted = False
+            for row in data:
+                gid, name, *_ = row
+                if gid == interaction.guild.id:
+                    await del_backup(gid, name)
+                    deleted = True
+            if deleted:
+                await interaction.response.send_message("All backup configs wiped for this server.", ephemeral=True)
+            else:
+                await interaction.response.send_message("No backup configs found to wipe.", ephemeral=True)
+        except Exception as e:
+            logging.error(f"Error wiping backups: {e}")
+            await interaction.response.send_message("Failed to wipe backup configs.", ephemeral=True)
 
     @runloop.before_loop
     async def before_runloop(self):
