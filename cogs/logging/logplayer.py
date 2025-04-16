@@ -28,6 +28,10 @@ class PlayerLoggingCog(commands.Cog):
     async def log_players(self):
         servers = await fetch_all_servers()
         now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+        if not hasattr(self, 'server_online_cache'):
+            self.server_online_cache = {}
+
         for server in servers:
             guild_id, server_name, host, password, api_port, rcon_port = server
             online_players = set()
@@ -37,22 +41,27 @@ class PlayerLoggingCog(commands.Cog):
                 for player in player_list['players']:
                     await add_player(player)
                     online_players.add(player['userId'])
-            except Exception as e:
-                active_sessions = await get_active_sessions()
-                for uid in active_sessions:
-                    await end_session(uid, now)
-                logging.error(f"API unreachable for '{server_name}', all sessions ended: {str(e)}")
-                continue
 
-            active_sessions = await get_active_sessions()
-            for uid in online_players:
-                if uid not in active_sessions:
-                    await start_session(uid, now)
-                else:
-                    await update_active_session(uid, now)
-            for uid in active_sessions:
-                if uid not in online_players:
-                    await end_session(uid, now)
+                self.server_online_cache[server_name] = online_players
+
+                active_sessions = await get_active_sessions()
+                for uid in online_players:
+                    if uid not in active_sessions:
+                        await start_session(uid, now)
+                    else:
+                        await update_active_session(uid, now)
+
+                previous_players = self.server_online_cache.get(server_name, set())
+                for uid in previous_players:
+                    if uid not in online_players:
+                        await end_session(uid, now)
+
+            except Exception as e:
+                if server_name in self.server_online_cache:
+                    for uid in self.server_online_cache[server_name]:
+                        await end_session(uid, now)
+                    del self.server_online_cache[server_name]
+                logging.error(f"API unreachable for '{server_name}', sessions ended for tracked users: {str(e)}")
 
     async def player_autocomplete(self, interaction: discord.Interaction, current: str):
         players = await player_autocomplete(current)
