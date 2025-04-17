@@ -39,7 +39,7 @@ class NullPlayerCheck(commands.Cog):
                             )
                             await log_channel.send(embed=embed)
 
-                logging.info(f"Checked null players for server '{server_name}'.")
+                # logging.info(f"Checked null players for server '{server_name}'.")
             except Exception as e:
                 logging.error(f"Error checking null players for server '{server_name}': {str(e)}")
 
