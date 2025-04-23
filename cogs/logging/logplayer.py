@@ -34,27 +34,25 @@ class PlayerLoggingCog(commands.Cog):
 
         for server in servers:
             guild_id, server_name, host, password, api_port, rcon_port = server
-            online_players = set()
             try:
                 api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
                 player_list = await api.get_player_list()
+                current_online = set(player['userId'] for player in player_list['players'])
+                previous_online = self.server_online_cache.get(server_name, set())
+                self.server_online_cache[server_name] = current_online
+
                 for player in player_list['players']:
                     await add_player(player)
-                    online_players.add(player['userId'])
-
-                self.server_online_cache[server_name] = online_players
 
                 active_sessions = await get_active_sessions()
-                for uid in online_players:
+                for uid in current_online:
                     if uid not in active_sessions:
                         await start_session(uid, now)
                     else:
                         await update_active_session(uid, now)
 
-                previous_players = self.server_online_cache.get(server_name, set())
-                for uid in previous_players:
-                    if uid not in online_players:
-                        await end_session(uid, now)
+                for uid in previous_online - current_online:
+                    await end_session(uid, now)
 
             except Exception as e:
                 if server_name in self.server_online_cache:
