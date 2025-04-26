@@ -9,9 +9,11 @@ from utils.database import (
     set_backup,
     del_backup,
     all_backups,
-    server_autocomplete
+    server_autocomplete,
+    fetch_server_details
 )
 from utils.servermodal import BackupModal
+from palworld_api import PalworldAPI
 
 class BackupCog(commands.Cog):
     def __init__(self, bot):
@@ -33,6 +35,26 @@ class BackupCog(commands.Cog):
                 self.last_run[key] = 0
             if now - self.last_run[key] >= interval * 60:
                 self.last_run[key] = now
+
+                try:
+                    server_config = await fetch_server_details(gid, name)
+                    if not server_config:
+                        continue
+
+                    host = server_config[2]
+                    password = server_config[3]
+                    api_port = server_config[4]
+
+                    api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+                    info = await api.get_server_info()
+
+                    if not info or "version" not in info:
+                        logging.error(f"Skipping backup for {name}: Invalid API response.")
+                        continue
+                except Exception as e:
+                    logging.error(f"Skipping backup for {name} because API unreachable: {e}")
+                    continue
+
                 channel = self.bot.get_channel(cid)
                 if channel:
                     zip_name = f"{name}_{datetime.datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.zip"
