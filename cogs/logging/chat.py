@@ -117,7 +117,7 @@ class ChatCog(commands.Cog):
             password = details[3]
             api_port = details[4]
 
-            api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+            api = PalworldAPI(f"http://{host}:{api_port}", password)
             await api.make_announcement(f"[{message.author.name}]: {message.content}")
 
     async def server_names(self, interaction: discord.Interaction, current: str):

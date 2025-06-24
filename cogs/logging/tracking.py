@@ -28,7 +28,7 @@ class PlayerTrackerCog(commands.Cog):
                     guild_id, _, host, password, api_port, _ = server
                     if guild_id not in guilds:
                         continue
-                    api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+                    api = PalworldAPI(f"http://{host}:{api_port}", password)
                     metrics = await api.get_server_metrics()
                     total_players += metrics.get('currentplayernum', 0)
                 except Exception as e:

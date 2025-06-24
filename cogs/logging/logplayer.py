@@ -35,7 +35,7 @@ class PlayerLoggingCog(commands.Cog):
         for server in servers:
             guild_id, server_name, host, password, api_port, rcon_port = server
             try:
-                api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+                api = PalworldAPI(f"http://{host}:{api_port}", password)
                 player_list = await api.get_player_list()
                 current_online = set(player['userId'] for player in player_list['players'])
                 previous_online = self.server_online_cache.get(server_name, set())

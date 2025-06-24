@@ -22,7 +22,7 @@ class NullPlayerCheck(commands.Cog):
             log_channel = self.bot.get_channel(log_channel_id) if log_channel_id else None
 
             try:
-                api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+                api = PalworldAPI(f"http://{host}:{api_port}", password)
                 player_list = await api.get_player_list()
                 for player in player_list['players']:
                     playerid = player['userId']

@@ -30,7 +30,7 @@ class EventsCog(commands.Cog):
                 channel = self.bot.get_channel(log_channel_id)
                 if channel:
                     try:
-                        api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+                        api = PalworldAPI(f"http://{host}:{api_port}", password)
                         player_list = await api.get_player_list()
                         current_players = {(player['userId'], player['accountName']) for player in player_list['players']}
 

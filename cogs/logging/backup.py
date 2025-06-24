@@ -45,7 +45,7 @@ class BackupCog(commands.Cog):
                     password = server_config[3]
                     api_port = server_config[4]
 
-                    api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+                    api = PalworldAPI(f"http://{host}:{api_port}", password)
                     info = await api.get_server_info()
 
                     if not info or "version" not in info:

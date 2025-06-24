@@ -37,7 +37,7 @@ class ServerQueryCog(commands.Cog):
                         if not server_config:
                             continue
 
-                        api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+                        api = PalworldAPI(f"http://{host}:{api_port}", password)
                         server_info = await api.get_server_info()
                         server_metrics = await api.get_server_metrics()
                         player_list = await api.get_player_list()
@@ -115,7 +115,7 @@ class ServerQueryCog(commands.Cog):
             password = server_config[3]
             api_port = server_config[4]
 
-            api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+            api = PalworldAPI(f"http://{host}:{api_port}", password)
             server_info = await api.get_server_info()
             server_metrics = await api.get_server_metrics()
             player_list = await api.get_player_list()

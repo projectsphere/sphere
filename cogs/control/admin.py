@@ -24,7 +24,7 @@ class AdminCog(commands.Cog):
         password = server_config[3]
         api_port = server_config[4]
         
-        api = PalworldAPI(f"http://{host}:{api_port}", "admin", password)
+        api = PalworldAPI(f"http://{host}:{api_port}", password)
         return api, None
 
     async def server_autocomplete(self, interaction: discord.Interaction, current: str):
