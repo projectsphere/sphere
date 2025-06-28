@@ -2,7 +2,7 @@
  > [!WARNING]  
  > This bot is still in development, but it's in a usable state. No support will be provided unless it's for bug reports or feature requests.
 
- This bot is designed to be a server management replacement for my current [Palbot](https://github.com/dkoz/palworld-palbot) project. Unlike Palbot, which only supports Steam servers, this new project is created to support both Xbox and Steam servers.
+ This bot is designed to be a server management replacement for my current [Palbot](https://github.com/dkoz/palworld-palbot) project. Unlike Palbot, which only supports Steam servers, this new project is created to support all platforms (steam, xbox, mac, and ps5).
 
 ## Features:
  - **Server Management**: Ability to control your servers directly from the bot.
@@ -23,7 +23,6 @@
 - `BOT_PREFIX`: The prefix used for non slash commands. Example `!`
 - `API_URL`: API URL if you setup the [Banlist API](https://github.com/projectsphere/banlist-api).
 - `API_KEY`: The API Key you set for your banlist. This key is used to access the endpoints securely.
-- `STEAM_API_KEY`: Your Steam API key for running checks on spoofers and cheaters.
 
 ## Installation
  1. Create a `.env` file and fill out your `BOT_TOKEN` and `BOT_PREFIX`

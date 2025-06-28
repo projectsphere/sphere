@@ -11,5 +11,4 @@ services:
       - BOT_PREFIX
       - API_KEY
       - API_URL
-      - STEAM_API_KEY
     restart: unless-stopped

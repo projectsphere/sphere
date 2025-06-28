@@ -45,7 +45,7 @@ class GlobalBan(commands.Cog):
     async def unban_user(self, interaction: discord.Interaction, user_id: str):
         await interaction.response.defer(ephemeral=True)
         try:
-            await self.api_request("POST", "/api/unbanuser", params={"steamid": user_id})
+            await self.api_request("POST", "/api/unbanuser", params={"userid": user_id})
             await interaction.followup.send(f"User with ID `{user_id}` has been unbanned successfully.", ephemeral=True)
         except Exception as e:
             logging.error(f"Failed to unban user: {e}")

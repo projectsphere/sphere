@@ -13,6 +13,7 @@ from utils.database import (
     get_active_sessions,
     get_player_session
 )
+from utils.whitelist import is_whitelisted
 from palworld_api import PalworldAPI
 import logging
 
@@ -77,6 +78,7 @@ class PlayerLoggingCog(commands.Cog):
         player = await fetch_player(user)
         if player:
             session = await get_player_session(user)
+            whitelisted = await is_whitelisted(player[0])
             now = datetime.datetime.now(datetime.timezone.utc)
             total = session[1]
             if session[2]:
@@ -89,16 +91,17 @@ class PlayerLoggingCog(commands.Cog):
                 time_str = f"`{m}m {s}s`"
             else:
                 time_str = f"`{h}h {m}m {s}s`"
-            embed = self.player_embed(player, time_str)
+            embed = self.player_embed(player, time_str, whitelisted)
             await interaction.response.send_message(embed=embed, ephemeral=True)
         else:
             await interaction.response.send_message("Player not found.", ephemeral=True)
 
-    def player_embed(self, player, time_str):
+    def player_embed(self, player, time_str, whitelisted):
         embed = discord.Embed(title=f"Player: {player[1]} ({player[2]})", color=discord.Color.blurple())
         embed.add_field(name="Level", value=player[8])
         embed.add_field(name="Ping", value=player[5])
         embed.add_field(name="Location", value=f"({player[6]}, {player[7]})")
+        embed.add_field(name="Whitelisted", value="Yes" if whitelisted else "No")
         embed.add_field(name="PlayerID", value=f"```{player[0]}```", inline=False)
         embed.add_field(name="PlayerUID", value=f"```{player[3]}```", inline=False)
         embed.add_field(name="PlayerIP", value=f"```{player[4]}```", inline=False)
