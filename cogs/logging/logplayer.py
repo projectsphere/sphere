@@ -7,10 +7,7 @@ from utils.database import (
     fetch_all_servers,
     fetch_player,
     player_autocomplete,
-    start_session,
-    update_active_session,
-    end_session,
-    get_active_sessions,
+    track_sessions,
     get_player_session
 )
 from utils.whitelist import is_whitelisted
@@ -45,27 +42,18 @@ class PlayerLoggingCog(commands.Cog):
                 for player in player_list['players']:
                     await add_player(player)
 
-                active_sessions = await get_active_sessions()
-                for uid in current_online:
-                    if uid not in active_sessions:
-                        await start_session(uid, now)
-                    else:
-                        await update_active_session(uid, now)
-
-                for uid in previous_online - current_online:
-                    await end_session(uid, now)
+                await track_sessions(current_online, previous_online, now)
 
             except Exception as e:
                 if server_name in self.server_online_cache:
-                    for uid in self.server_online_cache[server_name]:
-                        await end_session(uid, now)
+                    await track_sessions(set(), self.server_online_cache[server_name], now)
                     del self.server_online_cache[server_name]
                 logging.error(f"API unreachable for '{server_name}', sessions ended for tracked users: {str(e)}")
 
     async def player_autocomplete(self, interaction: discord.Interaction, current: str):
         players = await player_autocomplete(current)
         choices = [
-            app_commands.Choice(name=f"{player[1]} (ID: {player[0]})", value=player[0]) 
+            app_commands.Choice(name=f"{player[1]} (ID: {player[0]})", value=player[0])
             for player in players[:25]
         ]
         return choices
@@ -80,17 +68,14 @@ class PlayerLoggingCog(commands.Cog):
             session = await get_player_session(user)
             whitelisted = await is_whitelisted(player[0])
             now = datetime.datetime.now(datetime.timezone.utc)
-            total = session[1]
-            if session[2]:
+            total = session[1] if session else 0
+            if session and session[2]:
                 dt_start = datetime.datetime.fromisoformat(session[2])
                 total += int((now - dt_start).total_seconds())
             h = total // 3600
             m = (total % 3600) // 60
             s = total % 60
-            if h == 0:
-                time_str = f"`{m}m {s}s`"
-            else:
-                time_str = f"`{h}h {m}m {s}s`"
+            time_str = f"`{h}h {m}m {s}s`" if h else f"`{m}m {s}s`"
             embed = self.player_embed(player, time_str, whitelisted)
             await interaction.response.send_message(embed=embed, ephemeral=True)
         else:
