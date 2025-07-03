@@ -43,18 +43,22 @@ class PalDefenderCog(commands.Cog):
     async def autocomplete_pal(self, interaction: discord.Interaction, current: str):
         results = []
         for pal in self.pals:
-            pal_name = pal.get("name", "")
-            if current.lower() in pal_name.lower():
-                results.append(pal_name)
-        return [app_commands.Choice(name=name, value=name) for name in results[:25]]
+            name = pal.get("name", "")
+            dev_name = pal.get("dev_name", "")
+            if current.lower() in name.lower() or current.lower() in dev_name.lower():
+                display = f"{name} ({dev_name})"
+                results.append(app_commands.Choice(name=display, value=name))
+        return results[:25]
 
     async def autocomplete_item(self, interaction: discord.Interaction, current: str):
         results = []
         for item in self.items:
-            item_name = item.get("name", "")
-            if current.lower() in item_name.lower():
-                results.append(item_name)
-        return [app_commands.Choice(name=name, value=name) for name in results[:25]]
+            name = item.get("name", "")
+            item_id = item.get("id", "")
+            if current.lower() in name.lower() or current.lower() in item_id.lower():
+                display = f"{name} ({item_id})"
+                results.append(app_commands.Choice(name=display, value=item_id))
+        return results[:25]
 
     @app_commands.command(name="reloadcfg", description="Reload server config")
     @app_commands.describe(server="Server name")
