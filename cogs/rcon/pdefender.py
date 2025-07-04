@@ -39,7 +39,7 @@ class PalDefenderCog(commands.Cog):
         guild_id = interaction.guild.id if interaction.guild else 0
         server_names = await server_autocomplete(guild_id, current)
         return [app_commands.Choice(name=name, value=name) for name in server_names[:25]]
- 
+
     async def autocomplete_pal(self, interaction: discord.Interaction, current: str):
         results = []
         for pal in self.pals:
@@ -47,7 +47,7 @@ class PalDefenderCog(commands.Cog):
             dev_name = pal.get("dev_name", "")
             if current.lower() in name.lower() or current.lower() in dev_name.lower():
                 display = f"{name} ({dev_name})"
-                results.append(app_commands.Choice(name=display, value=name))
+                results.append(app_commands.Choice(name=display, value=dev_name))
         return results[:25]
 
     async def autocomplete_item(self, interaction: discord.Interaction, current: str):
@@ -125,11 +125,11 @@ class PalDefenderCog(commands.Cog):
         if not info:
             await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
             return
-        pal_data = next((x for x in self.pals if x["name"] == palid), None)
+        pal_data = next((x for x in self.pals if x["dev_name"] == palid or x["name"] == palid), None)
         if not pal_data:
             await interaction.followup.send(f"Pal not found: {palid}", ephemeral=True)
             return
-        cmd = f"givepal {userid} {pal_data['id']} {level}"
+        cmd = f"givepal {userid} {pal_data['dev_name']} {level}"
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
         embed = discord.Embed(title=f"GivePal on {server}")
         embed.description = response
@@ -149,7 +149,7 @@ class PalDefenderCog(commands.Cog):
         if not info:
             await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
             return
-        item_data = next((x for x in self.items if x["name"] == itemid), None)
+        item_data = next((x for x in self.items if x["id"] == itemid or x["name"] == itemid), None)
         if not item_data:
             await interaction.followup.send(f"Item not found: {itemid}", ephemeral=True)
             return
@@ -173,7 +173,7 @@ class PalDefenderCog(commands.Cog):
         if not info:
             await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
             return
-        item_data = next((x for x in self.items if x["name"] == itemid), None)
+        item_data = next((x for x in self.items if x["id"] == itemid or x["name"] == itemid), None)
         if not item_data:
             await interaction.followup.send(f"Item not found: {itemid}", ephemeral=True)
             return
