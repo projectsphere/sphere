@@ -23,7 +23,7 @@ class PalDefenderCog(commands.Cog):
     def load_pals(self):
         path = os.path.join("gamedata", "pals.json")
         with open(path, "r", encoding="utf-8") as f:
-            self.pals = json.load(f).get("creatures", [])
+            self.pals = json.load(f).get("pals", [])
 
     def load_items(self):
         path = os.path.join("gamedata", "items.json")
@@ -44,11 +44,11 @@ class PalDefenderCog(commands.Cog):
         results = []
         for pal in self.pals:
             name = pal.get("name", "")
-            dev_name = pal.get("dev_name", "")
+            dev_name = pal.get("id", "")
             if current.lower() in name.lower() or current.lower() in dev_name.lower():
                 display = f"{name} ({dev_name})"
                 results.append(app_commands.Choice(name=display, value=dev_name))
-        return results[:25]
+        return results[:15]
 
     async def autocomplete_item(self, interaction: discord.Interaction, current: str):
         results = []
@@ -58,7 +58,7 @@ class PalDefenderCog(commands.Cog):
             if current.lower() in name.lower() or current.lower() in item_id.lower():
                 display = f"{name} ({item_id})"
                 results.append(app_commands.Choice(name=display, value=item_id))
-        return results[:25]
+        return results[:15]
 
     @app_commands.command(name="reloadcfg", description="Reload server config")
     @app_commands.describe(server="Server name")
@@ -125,7 +125,7 @@ class PalDefenderCog(commands.Cog):
         if not info:
             await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
             return
-        pal_data = next((x for x in self.pals if x["dev_name"] == palid or x["name"] == palid), None)
+        pal_data = next((x for x in self.pals if x["id"] == palid or x["name"] == palid), None)
         if not pal_data:
             await interaction.followup.send(f"Pal not found: {palid}", ephemeral=True)
             return
