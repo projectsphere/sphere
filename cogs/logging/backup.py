@@ -77,6 +77,22 @@ class BackupCog(commands.Cog):
                                 z.write(level_sav, "Level.sav")
                             if os.path.isfile(meta_sav):
                                 z.write(meta_sav, "LevelMeta.sav")
+
+                        file_size = os.path.getsize(zip_path)
+                        timestamp_dt = discord.utils.utcnow()
+                        discord_ts = f"<t:{int(timestamp_dt.timestamp())}:F>"
+
+                        embed = discord.Embed(
+                            title=f"Backup Completed - {name}",
+                            color=discord.Color.blurple(),
+                            description=f"Backup created successfully for **{name}**.\n"
+                        )
+                        embed.add_field(name="Filename", value=zip_name, inline=False)
+                        embed.add_field(name="Size", value=f"{file_size / 1024:.2f} KB", inline=False)
+                        embed.add_field(name="Time", value=discord_ts, inline=False)
+                        embed.set_footer(text=discord.utils.utcnow())
+
+                        await channel.send(embed=embed)
                         await channel.send(file=discord.File(zip_path))
                         os.remove(zip_path)
                         logging.info(f"Backup created and uploaded: {zip_path}")
