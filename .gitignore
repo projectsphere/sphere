@@ -4,5 +4,6 @@
 *.db
 *.json
 /venv/*
+/map/*
 
 !/gamedata/*
