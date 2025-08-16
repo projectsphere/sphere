@@ -6,6 +6,8 @@ from paramiko import SSHClient, AutoAddPolicy
 import logging
 import os
 import asyncio
+from utils.database import fetch_server_details
+from palworld_api import PalworldAPI
 
 # Cog for SFTP based chat feed.
 sftp_host = os.getenv("SFTP_HOST", "")
@@ -14,6 +16,8 @@ sftp_password = os.getenv("SFTP_PASSWORD", "")
 sftp_port = int(os.getenv("SFTP_PORT", 2022))
 sftp_path = os.getenv("SFTP_PATH", "Pal/Binaries/Win64/PalDefender/Logs")
 sftp_webhook = os.getenv("SFTP_WEBHOOK", "")
+sftp_channel = os.getenv("SFTP_CHANNEL", "")
+sftp_servername = os.getenv("SFTP_SERVERNAME", "")
 
 class ChatLogCog(commands.Cog):
     def __init__(self, bot):
@@ -108,6 +112,19 @@ class ChatLogCog(commands.Cog):
                         logging.info(f"Error sending message to webhook: {response.status} - {await response.text()}")
         except Exception as e:
             logging.error(f"Error processing and sending log line: {e}")
+
+    @commands.Cog.listener()
+    async def on_message(self, message: discord.Message):
+        if message.author.bot or not message.guild or not message.content:
+            return
+        if sftp_channel and message.channel.id == int(sftp_channel) and sftp_servername:
+            details = await fetch_server_details(message.guild.id, sftp_servername)
+            if details:
+                host = details[2]
+                password = details[3]
+                api_port = details[4]
+                api = PalworldAPI(f"http://{host}:{api_port}", password)
+                await api.make_announcement(f"[{message.author.name}]: {message.content}")
 
     @check_logs.before_loop
     async def before_check_logs(self):
