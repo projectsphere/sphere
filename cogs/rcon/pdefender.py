@@ -129,7 +129,7 @@ class PalDefenderCog(commands.Cog):
         if not pal_data:
             await interaction.followup.send(f"Pal not found: {palid}", ephemeral=True)
             return
-        cmd = f"givepal {userid} {pal_data['dev_name']} {level}"
+        cmd = f"givepal {userid} {pal_data['id']} {level}"
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], cmd)
         embed = discord.Embed(title=f"GivePal on {server}")
         embed.description = response
