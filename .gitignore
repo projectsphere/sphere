@@ -3,6 +3,7 @@
 *.log
 *.db
 *.json
+*.yml
 /venv/*
 /map/*
 

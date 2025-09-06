@@ -2,7 +2,7 @@
  > [!WARNING]  
  > This bot is still in development, but it's in a usable state. No support will be provided unless it's for bug reports or feature requests.
 
- This bot is designed to be a server management replacement for my current [Palbot](https://github.com/dkoz/palworld-palbot) project. Unlike Palbot, which only supports Steam servers, this new project is created to support all platforms (steam, xbox, mac, and ps5).
+ Sphere is a Discord bot for Palworld servers. It lets you control servers, log players, manage bans and whitelists, cross-server chat, backups, and more. The SFTP branch adds support for reading server logs and chat directly over SFTP.
 
 ## Features:
  - **Server Management**: Ability to control your servers directly from the bot.
@@ -28,6 +28,30 @@
  1. Create a `.env` file and fill out your `BOT_TOKEN` and `BOT_PREFIX`
  2. Run the bot with `python main.py`
  3. Use `/help` to see all available commands on the bot.
+
+## Example YML Configuration
+SFTP configuration is done through a yaml file named `sftp.yml`. Below is an example configuration for multiple servers. 
+ ```YML
+ servers:
+  - name: "AlphaServer"
+    host: "192.168.1.10"
+    port: 2022
+    username: "user1"
+    password: "password1"
+    path: "Pal/Binaries/Win64/PalDefender/Logs"
+    webhook: "https://discord.com/api/webhooks/111111111111111111/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    channel: 111111111111111111
+
+  - name: "BetaServer"
+    host: "192.168.1.20"
+    port: 2022
+    username: "user2"
+    password: "password2"
+    path: "Pal/Binaries/Win64/PalDefender/Logs"
+    webhook: "https://discord.com/api/webhooks/222222222222222222/BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+    channel: 222222222222222222
+ ```
+
 
 ## This project runs my libaries.
  - **Palworld API Wrapper** - A python library that acts as a wrapper for the Palworld server REST API.
