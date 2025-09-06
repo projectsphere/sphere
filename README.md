@@ -17,6 +17,7 @@
  - **Null Check**: This will check for players joining without a valid user id and kick them. (Experimental)
  - **Cross Server Chat**: Send and receive chats from the server to discord and vice versa.
  - **Scheduled Backups**: Create backups of your server and send them to a discord channel at timed intervals.
+ - **SFTP Support**: Securely connect to your servers via SFTP for automated save checks, remote file transfers, and backup uploads.
 
 ## Environment Variables
 - `BOT_TOKEN`: Your discord bot token generated on the [Discord Developer Portal](https://discord.com/developers/applications).
@@ -33,7 +34,7 @@
 SFTP configuration is done through a yaml file named `sftp.yml`. Below is an example configuration for multiple servers. 
  ```YML
  servers:
-  - name: "AlphaServer"
+  - name: "Palworld Server"
     host: "192.168.1.10"
     port: 2022
     username: "user1"
@@ -41,18 +42,9 @@ SFTP configuration is done through a yaml file named `sftp.yml`. Below is an exa
     path: "Pal/Binaries/Win64/PalDefender/Logs"
     webhook: "https://discord.com/api/webhooks/111111111111111111/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     channel: 111111111111111111
-    backup_path: "Pal/Saved/SaveGames/0/0000000000000001"
+    save_path: "Pal/Saved/SaveGames/0/0000000000000001"
     backup_channel: 111111111111111111
     backup_interval: 300
-
-  - name: "BetaServer"
-    host: "192.168.1.20"
-    port: 2022
-    username: "user2"
-    password: "password2"
-    path: "Pal/Binaries/Win64/PalDefender/Logs"
-    webhook: "https://discord.com/api/webhooks/222222222222222222/BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
-    channel: 222222222222222222
  ```
 
 
