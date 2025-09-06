@@ -41,6 +41,9 @@ SFTP configuration is done through a yaml file named `sftp.yml`. Below is an exa
     path: "Pal/Binaries/Win64/PalDefender/Logs"
     webhook: "https://discord.com/api/webhooks/111111111111111111/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     channel: 111111111111111111
+    backup_path: "Pal/Saved/SaveGames/0/0000000000000001"
+    backup_channel: 111111111111111111
+    backup_interval: 300
 
   - name: "BetaServer"
     host: "192.168.1.20"
@@ -54,5 +57,5 @@ SFTP configuration is done through a yaml file named `sftp.yml`. Below is an exa
 
 
 ## This project runs my libaries.
- - **Palworld API Wrapper** - A python library that acts as a wrapper for the Palworld server REST API.
+ - **Palworld API** - A python library that acts as a wrapper for the Palworld server REST API.
  - **GameRCON** - An asynchronous RCON library designed to handle multiple RCON tasks across numerous servers.

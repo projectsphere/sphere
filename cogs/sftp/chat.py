@@ -147,6 +147,6 @@ class SFTPChatCog(commands.Cog):
 
 async def setup(bot):
     if not os.path.exists(CONFIG_FILE):
-        logging.warning("sftp.yml not found, SFTP Chat will not be loaded.")
+        logging.warning("sftp.yml not found, SFTP Chat cog not loaded.")
         return
     await bot.add_cog(SFTPChatCog(bot))
