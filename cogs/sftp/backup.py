@@ -71,7 +71,7 @@ class SFTPBackupCog(commands.Cog):
         sftp = None
         try:
             ssh, sftp = self._sftp_connect(cfg)
-            remote_root = cfg.get("backup_path") or ""
+            remote_root = cfg.get("save_path") or ""
             if not remote_root:
                 return False
             players_dir = f"{remote_root}/Players"
