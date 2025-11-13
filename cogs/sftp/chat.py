@@ -27,8 +27,8 @@ class SFTPChatCog(commands.Cog):
         self.first_check_done = {}
         self.tasks = {}
         self.interval = 15
-        self.blocked_phrases = ["/adminpassword", "/creativemenu", "/"]
-        self._chat_regex = re.compile(r"\[Chat::(?:Global|Local|Guild)\]\['([^']+)'.*\]: (.*)")
+        self.blocked_phrases = ["/adminpassword", "/creativemenu", "/", "!"]
+        self._chat_regex = re.compile(r"\[Chat::(?:Global|Local)\]\['([^']+)'.*\]: (.*)")
 
     async def cog_load(self):
         for cfg in self.config:
