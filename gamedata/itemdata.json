@@ -1,6 +1,10 @@
 {
     "items": [
         {
+            "name": "Gold Coin",
+            "id": "Money"
+        },
+        {
             "name": "Pal Sphere",
             "id": "PalSphere"
         },
@@ -141,11 +145,11 @@
             "id": "FishingBait_1"
         },
         {
-            "name": "High Quality Bait +1",
+            "name": "High Quality Bait",
             "id": "FishingBait_2"
         },
         {
-            "name": "Deluxe Bait +2",
+            "name": "Deluxe Bait",
             "id": "FishingBait_3"
         },
         {
@@ -193,11 +197,11 @@
             "id": "Axe_Tier_01"
         },
         {
-            "name": "Refined Metal Axe +1",
+            "name": "Refined Metal Axe",
             "id": "Axe_Tier_02"
         },
         {
-            "name": "Axe4 +2",
+            "name": "Axe4",
             "id": "Axe_Tier_03"
         },
         {
@@ -213,8 +217,12 @@
             "id": "Pickaxe_Tier_01"
         },
         {
-            "name": "Refined Metal Pickaxe +1",
+            "name": "Refined Metal Pickaxe",
             "id": "Pickaxe_Tier_02"
+        },
+        {
+            "name": "en Text +2",
+            "id": "Pickaxe_Tier_03"
         },
         {
             "name": "Pal Metal Pickaxe",
@@ -225,11 +233,11 @@
             "id": "Spear"
         },
         {
-            "name": "Metal Spear +1",
+            "name": "Metal Spear",
             "id": "Spear_2"
         },
         {
-            "name": "Refined Metal Spear +2",
+            "name": "Refined Metal Spear",
             "id": "Spear_3"
         },
         {
@@ -453,19 +461,19 @@
             "id": "DecalGun_1"
         },
         {
-            "name": "Decal Gun 2 +1",
+            "name": "Decal Gun 2",
             "id": "DecalGun_2"
         },
         {
-            "name": "Decal Gun 3 +2",
+            "name": "Decal Gun 3",
             "id": "DecalGun_3"
         },
         {
-            "name": "Decal Gun 4 +3",
+            "name": "Decal Gun 4",
             "id": "DecalGun_4"
         },
         {
-            "name": "Decal Gun 5 +4",
+            "name": "Decal Gun 5",
             "id": "DecalGun_5"
         },
         {
@@ -493,7 +501,7 @@
             "id": "PalDopingShot"
         },
         {
-            "name": "Megaboost Gun +1",
+            "name": "Megaboost Gun",
             "id": "PalDopingShot_2"
         },
         {
@@ -519,6 +527,10 @@
         {
             "name": "Ultra Grappling Gun",
             "id": "GrapplingGun5"
+        },
+        {
+            "name": "Ballistic Shield",
+            "id": "HandgunShield"
         },
         {
             "name": "Makeshift Shotgun",
@@ -771,6 +783,10 @@
         {
             "name": "Rocket Launcher",
             "id": "Launcher_Default"
+        },
+        {
+            "name": "en Text",
+            "id": "Launcher_Meat"
         },
         {
             "name": "Rocket Launcher +1",
@@ -1105,11 +1121,51 @@
             "id": "YakushimaBlade005"
         },
         {
+            "name": "Marksman Revolver",
+            "id": "OctaviaRevolver"
+        },
+        {
+            "name": "Marksman Revolver +1",
+            "id": "OctaviaRevolver_2"
+        },
+        {
+            "name": "Marksman Revolver +2",
+            "id": "OctaviaRevolver_3"
+        },
+        {
+            "name": "Marksman Revolver +3",
+            "id": "OctaviaRevolver_4"
+        },
+        {
+            "name": "Marksman Revolver +4",
+            "id": "OctaviaRevolver_5"
+        },
+        {
+            "name": "Core Eject Shotgun",
+            "id": "OctaviaShotgun"
+        },
+        {
+            "name": "Core Eject Shotgun +1",
+            "id": "OctaviaShotgun_2"
+        },
+        {
+            "name": "Core Eject Shotgun +2",
+            "id": "OctaviaShotgun_3"
+        },
+        {
+            "name": "Core Eject Shotgun +3",
+            "id": "OctaviaShotgun_4"
+        },
+        {
+            "name": "Core Eject Shotgun +4",
+            "id": "OctaviaShotgun_5"
+        },
+        {
             "name": "Beginner Fishing Rod (Chillet)",
             "id": "FishingRod_01_1"
         },
         {
-            "name": "Beginner Fishing Rod (Gumoss) +1",
+            "name": "Beginner Fishing Rod (Gumoss)",
             "id": "FishingRod_01_2"
         },
         {
@@ -1117,7 +1173,7 @@
             "id": "FishingRod_02_1"
         },
         {
-            "name": "Intermediate Fishing Rod (Croajiro) +1",
+            "name": "Intermediate Fishing Rod (Croajiro)",
             "id": "FishingRod_02_2"
         },
         {
@@ -1125,7 +1181,7 @@
             "id": "FishingRod_03_1"
         },
         {
-            "name": "Advanced Fishing Rod (Depresso) +1",
+            "name": "Advanced Fishing Rod (Depresso)",
             "id": "FishingRod_03_2"
         },
         {
@@ -1177,16 +1233,20 @@
             "id": "Shield_01"
         },
         {
-            "name": "Mega Shield +1",
+            "name": "Mega Shield",
             "id": "Shield_02"
         },
         {
-            "name": "Giga Shield +2",
+            "name": "Giga Shield",
             "id": "Shield_03"
         },
         {
-            "name": "Hyper Shield +3",
+            "name": "Hyper Shield",
             "id": "Shield_04"
+        },
+        {
+            "name": "en Text +4",
+            "id": "Shield_05"
         },
         {
             "name": "Ultra Shield",
@@ -1675,6 +1735,26 @@
         {
             "name": "Hallowed Plate Mail +4",
             "id": "YakushimaArmor001_5"
+        },
+        {
+            "name": "Depresso Armor",
+            "id": "Player_Outfit_Kigurumi001"
+        },
+        {
+            "name": "V1 Armor",
+            "id": "Octavia001_Armor"
+        },
+        {
+            "name": "V1 Armor +4",
+            "id": "Octavia001_Armor_5"
+        },
+        {
+            "name": "V2 Armor",
+            "id": "Octavia002_Armor"
+        },
+        {
+            "name": "V2 Armor +4",
+            "id": "Octavia002_Armor_5"
         },
         {
             "name": "Feathered Hair Band",
@@ -2341,7 +2421,7 @@
             "id": "HeadEquip033"
         },
         {
-            "name": "Witch's Crown (Ultra)",
+            "name": "Witch's Crown",
             "id": "HeadEquip001_purple"
         },
         {
@@ -2351,6 +2431,14 @@
         {
             "name": "Xenolord's head",
             "id": "HeadEquip044"
+        },
+        {
+            "name": "Moon Lord Mask",
+            "id": "YakushimaHeadEquip005"
+        },
+        {
+            "name": "Crown of Salvation",
+            "id": "HeadEquip046"
         },
         {
             "name": "Zoe Hat",
@@ -2385,8 +2473,8 @@
             "id": "YakushimaHeadEquip006"
         },
         {
-            "name": "Moon Lord Mask",
-            "id": "YakushimaHeadEquip005"
+            "name": "Depresso Helmet",
+            "id": "HeadEquip045"
         },
         {
             "name": "Life Pendant",
@@ -2637,104 +2725,104 @@
             "id": "Otomo_ElementBoost_Normal_1"
         },
         {
-            "name": "Fire Support Whistle",
-            "id": "Otomo_ElementBoost_Fire_1"
-        },
-        {
-            "name": "Water Support Whistle",
-            "id": "Otomo_ElementBoost_Water_1"
-        },
-        {
-            "name": "Electric Support Whistle",
-            "id": "Otomo_ElementBoost_Electricity_1"
-        },
-        {
-            "name": "Grass Support Whistle",
-            "id": "Otomo_ElementBoost_Leaf_1"
-        },
-        {
-            "name": "Ice Support Whistle",
-            "id": "Otomo_ElementBoost_Ice_1"
-        },
-        {
-            "name": "Ground Support Whistle",
-            "id": "Otomo_ElementBoost_Earth_1"
-        },
-        {
-            "name": "Dark Support Whistle",
-            "id": "Otomo_ElementBoost_Dark_1"
-        },
-        {
-            "name": "Dragon Support Whistle",
-            "id": "Otomo_ElementBoost_Dragon_1"
-        },
-        {
             "name": "Neutral Support Whistle +1",
             "id": "Otomo_ElementBoost_Normal_2"
-        },
-        {
-            "name": "Fire Support Whistle +1",
-            "id": "Otomo_ElementBoost_Fire_2"
-        },
-        {
-            "name": "Water Support Whistle +1",
-            "id": "Otomo_ElementBoost_Water_2"
-        },
-        {
-            "name": "Electric Support Whistle +1",
-            "id": "Otomo_ElementBoost_Electricity_2"
-        },
-        {
-            "name": "Grass Support Whistle +1",
-            "id": "Otomo_ElementBoost_Leaf_2"
-        },
-        {
-            "name": "Ice Support Whistle +1",
-            "id": "Otomo_ElementBoost_Ice_2"
-        },
-        {
-            "name": "Ground Support Whistle +1",
-            "id": "Otomo_ElementBoost_Earth_2"
-        },
-        {
-            "name": "Dark Support Whistle +1",
-            "id": "Otomo_ElementBoost_Dark_2"
-        },
-        {
-            "name": "Dragon Support Whistle +1",
-            "id": "Otomo_ElementBoost_Dragon_2"
         },
         {
             "name": "Neutral Support Whistle +2",
             "id": "Otomo_ElementBoost_Normal_3"
         },
         {
+            "name": "Fire Support Whistle",
+            "id": "Otomo_ElementBoost_Fire_1"
+        },
+        {
+            "name": "Fire Support Whistle +1",
+            "id": "Otomo_ElementBoost_Fire_2"
+        },
+        {
             "name": "Fire Support Whistle +2",
             "id": "Otomo_ElementBoost_Fire_3"
+        },
+        {
+            "name": "Water Support Whistle",
+            "id": "Otomo_ElementBoost_Water_1"
+        },
+        {
+            "name": "Water Support Whistle +1",
+            "id": "Otomo_ElementBoost_Water_2"
         },
         {
             "name": "Water Support Whistle +2",
             "id": "Otomo_ElementBoost_Water_3"
         },
         {
+            "name": "Electric Support Whistle",
+            "id": "Otomo_ElementBoost_Electricity_1"
+        },
+        {
+            "name": "Electric Support Whistle +1",
+            "id": "Otomo_ElementBoost_Electricity_2"
+        },
+        {
             "name": "Electric Support Whistle +2",
             "id": "Otomo_ElementBoost_Electricity_3"
+        },
+        {
+            "name": "Grass Support Whistle",
+            "id": "Otomo_ElementBoost_Leaf_1"
+        },
+        {
+            "name": "Grass Support Whistle +1",
+            "id": "Otomo_ElementBoost_Leaf_2"
         },
         {
             "name": "Grass Support Whistle +2",
             "id": "Otomo_ElementBoost_Leaf_3"
         },
         {
+            "name": "Ice Support Whistle",
+            "id": "Otomo_ElementBoost_Ice_1"
+        },
+        {
+            "name": "Ice Support Whistle +1",
+            "id": "Otomo_ElementBoost_Ice_2"
+        },
+        {
             "name": "Ice Support Whistle +2",
             "id": "Otomo_ElementBoost_Ice_3"
+        },
+        {
+            "name": "Ground Support Whistle",
+            "id": "Otomo_ElementBoost_Earth_1"
+        },
+        {
+            "name": "Ground Support Whistle +1",
+            "id": "Otomo_ElementBoost_Earth_2"
         },
         {
             "name": "Ground Support Whistle +2",
             "id": "Otomo_ElementBoost_Earth_3"
         },
         {
+            "name": "Dark Support Whistle",
+            "id": "Otomo_ElementBoost_Dark_1"
+        },
+        {
+            "name": "Dark Support Whistle +1",
+            "id": "Otomo_ElementBoost_Dark_2"
+        },
+        {
             "name": "Dark Support Whistle +2",
             "id": "Otomo_ElementBoost_Dark_3"
+        },
+        {
+            "name": "Dragon Support Whistle",
+            "id": "Otomo_ElementBoost_Dragon_1"
+        },
+        {
+            "name": "Dragon Support Whistle +1",
+            "id": "Otomo_ElementBoost_Dragon_2"
         },
         {
             "name": "Dragon Support Whistle +2",
@@ -2797,184 +2885,40 @@
             "id": "Glider_Tera"
         },
         {
-            "name": "Hot Milk",
-            "id": "HotMilk"
+            "name": "Cake",
+            "id": "Cake"
         },
         {
-            "name": "Baked Mushroom",
-            "id": "BakedMushroom"
+            "name": "Mammorest Curry",
+            "id": "Curry"
         },
         {
-            "name": "Baked Berries",
-            "id": "Baked_Berries"
+            "name": "Broncherry Fried Noodles",
+            "id": "Yakisoba"
         },
         {
-            "name": "Fried Egg",
-            "id": "FriedEggs"
+            "name": "BLT",
+            "id": "BLT"
         },
         {
-            "name": "Bread",
-            "id": "Pan"
+            "name": "Hamburger",
+            "id": "Hamburger"
         },
         {
-            "name": "French Fries",
-            "id": "PotatoChips"
+            "name": "Mozzarina Cheeseburger",
+            "id": "Cheeseburger_2"
         },
         {
-            "name": "Pancake",
-            "id": "Pancake"
+            "name": "Roast Reindrix",
+            "id": "BakedMeat_IceDeer"
         },
         {
-            "name": "Grilled Galeclaw",
-            "id": "BakedMeat_Eagle"
+            "name": "Broncherry Rib Roast",
+            "id": "BakedMeat_SakuraSaurus"
         },
         {
-            "name": "Grilled Kelpsea",
-            "id": "BakedMeat_Kelpie"
-        },
-        {
-            "name": "Grilled Chikipi",
-            "id": "BakedMeat_ChickenPal"
-        },
-        {
-            "name": "Jam-Filled Bun",
-            "id": "JamBun"
-        },
-        {
-            "name": "Mushroom Soup",
-            "id": "MushroomSoup"
-        },
-        {
-            "name": "Lamball Kebab",
-            "id": "BakedMeat_SheepBall"
-        },
-        {
-            "name": "Stir-Fried Vegetables",
-            "id": "StirFriedVegetables"
-        },
-        {
-            "name": "Marinated Mushrooms",
-            "id": "MarinatedMushrooms"
-        },
-        {
-            "name": "Roast Rushoar",
-            "id": "BakedMeat_Boar"
-        },
-        {
-            "name": "Omelet",
-            "id": "Omelet"
-        },
-        {
-            "name": "Roast Eikthyrdeer",
-            "id": "BakedMeat_Deer"
-        },
-        {
-            "name": "Broiled Dumud",
-            "id": "BakedMeat_LazyCatfish"
-        },
-        {
-            "name": "Mozzarina Steak",
-            "id": "BakedMeat_CowPal"
-        },
-        {
-            "name": "Herb Roasted Caprity",
-            "id": "BakedMeat_BerryGoat"
-        },
-        {
-            "name": "Salad",
-            "id": "Salad"
-        },
-        {
-            "name": "Stir-Fried Veggies",
-            "id": "FriedVegetables"
-        },
-        {
-            "name": "Stewed Galeclaw",
-            "id": "Eaglestew"
-        },
-        {
-            "name": "Chikipi Sauté",
-            "id": "ChickenSaute"
-        },
-        {
-            "name": "Herb Roasted Lamball",
-            "id": "GrilledSheepHerbs"
-        },
-        {
-            "name": "Hot Dog",
-            "id": "HotDog"
-        },
-        {
-            "name": "Fried Kelpsea",
-            "id": "FriedKelpie"
-        },
-        {
-            "name": "Fried Chikipi",
-            "id": "FriedChicken"
-        },
-        {
-            "name": "Gratin",
-            "id": "Gratin"
-        },
-        {
-            "name": "Spring Rolls",
-            "id": "SpringRolls"
-        },
-        {
-            "name": "Rushoar Gyoza",
-            "id": "Gyoza"
-        },
-        {
-            "name": "Carbonara",
-            "id": "Carbonara"
-        },
-        {
-            "name": "Reindrix Stew",
-            "id": "StewedIceDeer"
-        },
-        {
-            "name": "Rushoar Hot Dog +1",
-            "id": "HotDog_2"
-        },
-        {
-            "name": "Minestrone",
-            "id": "Minestrone"
-        },
-        {
-            "name": "Grilled Lamball",
-            "id": "GenghisKhan"
-        },
-        {
-            "name": "Galeclaw Nikujaga",
-            "id": "MeatAndPotatoes"
-        },
-        {
-            "name": "Mozzarina Hamburger +1",
-            "id": "Hamburger_2"
-        },
-        {
-            "name": "Rushoar Bacon 'n' Eggs",
-            "id": "BaconEggs"
-        },
-        {
-            "name": "Dumud Chowder",
-            "id": "Chowder"
-        },
-        {
-            "name": "Eikthyrdeer Loco Moco",
-            "id": "DeerLocoMoco"
-        },
-        {
-            "name": "Mushroom Quiche",
-            "id": "Quiche"
-        },
-        {
-            "name": "Pizza",
-            "id": "Pizza"
-        },
-        {
-            "name": "Bolognese Sauce",
-            "id": "MeatSauce"
+            "name": "Mammorest Steak",
+            "id": "BakedMeat_GrassMammoth"
         },
         {
             "name": "Mushroom Stew",
@@ -2985,184 +2929,328 @@
             "id": "DeerStew"
         },
         {
-            "name": "Mammorest Steak",
-            "id": "BakedMeat_GrassMammoth"
+            "name": "Bolognese Sauce",
+            "id": "MeatSauce"
         },
         {
-            "name": "Broncherry Rib Roast",
-            "id": "BakedMeat_SakuraSaurus"
+            "name": "Pizza",
+            "id": "Pizza"
         },
         {
-            "name": "Roast Reindrix",
-            "id": "BakedMeat_IceDeer"
-        },
-        {
-            "name": "Mozzarina Cheeseburger +1",
-            "id": "Cheeseburger_2"
-        },
-        {
-            "name": "Hamburger",
-            "id": "Hamburger"
-        },
-        {
-            "name": "BLT",
-            "id": "BLT"
-        },
-        {
-            "name": "Broncherry Fried Noodles",
-            "id": "Yakisoba"
-        },
-        {
-            "name": "Mammorest Curry",
-            "id": "Curry"
-        },
-        {
-            "name": "Cake",
-            "id": "Cake"
-        },
-        {
-            "name": "Fried Gloopie Balls",
-            "id": "OctopusGirl_Takoyaki"
-        },
-        {
-            "name": "Jelliette's Jiggly Jelly",
-            "id": "JellyfishFairy_jelly"
-        },
-        {
-            "name": "Jellroy's Jolly Jelly",
-            "id": "JellyfishGhost_jelly"
-        },
-        {
-            "name": "Munchill Steak",
-            "id": "BakedMeat_IceCrocodile"
-        },
-        {
-            "name": "Seafood Salad",
-            "id": "Seafood_Salada"
-        },
-        {
-            "name": "Flour",
-            "id": "Flour"
-        },
-        {
-            "name": "Cotton Candy",
-            "id": "Sweet"
-        },
-        {
-            "name": "Wheat",
-            "id": "Wheat"
-        },
-        {
-            "name": "Onion",
-            "id": "Onion"
-        },
-        {
-            "name": "Carrot",
-            "id": "Carrot"
-        },
-        {
-            "name": "Honey",
-            "id": "Honey"
-        },
-        {
-            "name": "Potato",
-            "id": "Potato"
-        },
-        {
-            "name": "Milk",
-            "id": "Milk"
-        },
-        {
-            "name": "Mushroom",
-            "id": "Mushroom"
-        },
-        {
-            "name": "Lettuce",
-            "id": "Lettuce"
-        },
-        {
-            "name": "Tomato",
-            "id": "Tomato"
-        },
-        {
-            "name": "Mysterious Mushroom",
-            "id": "PoisonMushroom"
-        },
-        {
-            "name": "Cavern Mushroom",
-            "id": "CaveMushroom"
-        },
-        {
-            "name": "Red Berries",
-            "id": "Berries"
-        },
-        {
-            "name": "Egg",
-            "id": "Egg"
-        },
-        {
-            "name": "Galeclaw Poultry",
-            "id": "Meat_Eagle"
-        },
-        {
-            "name": "Raw Kelpsea",
-            "id": "Meat_Kelpie"
-        },
-        {
-            "name": "Chikipi Poultry",
-            "id": "Meat_ChickenPal"
-        },
-        {
-            "name": "Lamball Mutton",
-            "id": "Meat_SheepBall"
-        },
-        {
-            "name": "Rushoar Pork",
-            "id": "Meat_Boar"
-        },
-        {
-            "name": "Eikthyrdeer Venison",
-            "id": "Meat_Deer"
-        },
-        {
-            "name": "Raw Dumud",
-            "id": "Meat_LazyCatfish"
-        },
-        {
-            "name": "Mozzarina Meat",
-            "id": "Meat_CowPal"
-        },
-        {
-            "name": "Caprity Meat",
-            "id": "Meat_BerryGoat"
-        },
-        {
-            "name": "Reindrix Venison",
-            "id": "Meat_IceDeer"
-        },
-        {
-            "name": "Mammorest Meat",
-            "id": "Meat_GrassMammoth"
+            "name": "Mushroom Quiche",
+            "id": "Quiche"
         },
         {
             "name": "Broncherry Meat",
             "id": "Meat_SakuraSaurus"
         },
         {
+            "name": "Mammorest Meat",
+            "id": "Meat_GrassMammoth"
+        },
+        {
+            "name": "Eikthyrdeer Loco Moco",
+            "id": "DeerLocoMoco"
+        },
+        {
+            "name": "Dumud Chowder",
+            "id": "Chowder"
+        },
+        {
+            "name": "Rushoar Bacon 'n' Eggs",
+            "id": "BaconEggs"
+        },
+        {
+            "name": "Mozzarina Hamburger",
+            "id": "Hamburger_2"
+        },
+        {
+            "name": "Galeclaw Nikujaga",
+            "id": "MeatAndPotatoes"
+        },
+        {
+            "name": "Grilled Lamball",
+            "id": "GenghisKhan"
+        },
+        {
+            "name": "Minestrone",
+            "id": "Minestrone"
+        },
+        {
+            "name": "Rushoar Hot Dog",
+            "id": "HotDog_2"
+        },
+        {
+            "name": "Reindrix Stew",
+            "id": "StewedIceDeer"
+        },
+        {
+            "name": "Carbonara",
+            "id": "Carbonara"
+        },
+        {
+            "name": "Rushoar Gyoza",
+            "id": "Gyoza"
+        },
+        {
+            "name": "Spring Rolls",
+            "id": "SpringRolls"
+        },
+        {
+            "name": "Gratin",
+            "id": "Gratin"
+        },
+        {
+            "name": "Fried Chikipi",
+            "id": "FriedChicken"
+        },
+        {
+            "name": "Fried Kelpsea",
+            "id": "FriedKelpie"
+        },
+        {
+            "name": "Hot Dog",
+            "id": "HotDog"
+        },
+        {
+            "name": "Seafood Salad",
+            "id": "Seafood_Salada"
+        },
+        {
+            "name": "Herb Roasted Lamball",
+            "id": "GrilledSheepHerbs"
+        },
+        {
+            "name": "Chikipi Sauté",
+            "id": "ChickenSaute"
+        },
+        {
+            "name": "Stewed Galeclaw",
+            "id": "Eaglestew"
+        },
+        {
+            "name": "Stir-Fried Veggies",
+            "id": "FriedVegetables"
+        },
+        {
+            "name": "Munchill Steak",
+            "id": "BakedMeat_IceCrocodile"
+        },
+        {
+            "name": "Salad",
+            "id": "Salad"
+        },
+        {
+            "name": "Herb Roasted Caprity",
+            "id": "BakedMeat_BerryGoat"
+        },
+        {
+            "name": "Mozzarina Steak",
+            "id": "BakedMeat_CowPal"
+        },
+        {
+            "name": "Fried Gloopie Balls",
+            "id": "OctopusGirl_Takoyaki"
+        },
+        {
+            "name": "Broiled Dumud",
+            "id": "BakedMeat_LazyCatfish"
+        },
+        {
+            "name": "Roast Eikthyrdeer",
+            "id": "BakedMeat_Deer"
+        },
+        {
+            "name": "Omelet",
+            "id": "Omelet"
+        },
+        {
+            "name": "Reindrix Venison",
+            "id": "Meat_IceDeer"
+        },
+        {
+            "name": "Marinated Mushrooms",
+            "id": "MarinatedMushrooms"
+        },
+        {
+            "name": "Roast Rushoar",
+            "id": "BakedMeat_Boar"
+        },
+        {
+            "name": "Jellroy's Jolly Jelly",
+            "id": "JellyfishGhost_jelly"
+        },
+        {
+            "name": "Jelliette's Jiggly Jelly",
+            "id": "JellyfishFairy_jelly"
+        },
+        {
+            "name": "Caprity Meat",
+            "id": "Meat_BerryGoat"
+        },
+        {
+            "name": "Mozzarina Meat",
+            "id": "Meat_CowPal"
+        },
+        {
+            "name": "Stir-Fried Vegetables",
+            "id": "StirFriedVegetables"
+        },
+        {
+            "name": "Mushroom Soup",
+            "id": "MushroomSoup"
+        },
+        {
+            "name": "Lamball Kebab",
+            "id": "BakedMeat_SheepBall"
+        },
+        {
+            "name": "Jam-Filled Bun",
+            "id": "JamBun"
+        },
+        {
+            "name": "Raw Dumud",
+            "id": "Meat_LazyCatfish"
+        },
+        {
+            "name": "Eikthyrdeer Venison",
+            "id": "Meat_Deer"
+        },
+        {
+            "name": "Grilled Chikipi",
+            "id": "BakedMeat_ChickenPal"
+        },
+        {
+            "name": "Grilled Kelpsea",
+            "id": "BakedMeat_Kelpie"
+        },
+        {
+            "name": "Grilled Galeclaw",
+            "id": "BakedMeat_Eagle"
+        },
+        {
+            "name": "Rushoar Pork",
+            "id": "Meat_Boar"
+        },
+        {
+            "name": "Pancake",
+            "id": "Pancake"
+        },
+        {
+            "name": "Munchill Meat",
+            "id": "Meat_IceCrocodile"
+        },
+        {
             "name": "Gloopie Tentacle",
             "id": "Meat_OctopusGirl"
         },
         {
-            "name": "Jelliette Bell Flesh",
-            "id": "Meat_JellyfishFairy"
+            "name": "Lamball Mutton",
+            "id": "Meat_SheepBall"
         },
         {
             "name": "Jellroy Bell Flesh",
             "id": "Meat_JellyfishGhost"
         },
         {
-            "name": "Munchill Meat",
-            "id": "Meat_IceCrocodile"
+            "name": "Chikipi Poultry",
+            "id": "Meat_ChickenPal"
+        },
+        {
+            "name": "Raw Kelpsea",
+            "id": "Meat_Kelpie"
+        },
+        {
+            "name": "Galeclaw Poultry",
+            "id": "Meat_Eagle"
+        },
+        {
+            "name": "French Fries",
+            "id": "PotatoChips"
+        },
+        {
+            "name": "Jelliette Bell Flesh",
+            "id": "Meat_JellyfishFairy"
+        },
+        {
+            "name": "Bread",
+            "id": "Pan"
+        },
+        {
+            "name": "Fried Egg",
+            "id": "FriedEggs"
+        },
+        {
+            "name": "Baked Berries",
+            "id": "Baked_Berries"
+        },
+        {
+            "name": "Baked Mushroom",
+            "id": "BakedMushroom"
+        },
+        {
+            "name": "Egg",
+            "id": "Egg"
+        },
+        {
+            "name": "Hot Milk",
+            "id": "HotMilk"
+        },
+        {
+            "name": "Red Berries",
+            "id": "Berries"
+        },
+        {
+            "name": "Tomato",
+            "id": "Tomato"
+        },
+        {
+            "name": "Lettuce",
+            "id": "Lettuce"
+        },
+        {
+            "name": "Cavern Mushroom",
+            "id": "CaveMushroom"
+        },
+        {
+            "name": "Mushroom",
+            "id": "Mushroom"
+        },
+        {
+            "name": "Milk",
+            "id": "Milk"
+        },
+        {
+            "name": "Potato",
+            "id": "Potato"
+        },
+        {
+            "name": "Honey",
+            "id": "Honey"
+        },
+        {
+            "name": "Carrot",
+            "id": "Carrot"
+        },
+        {
+            "name": "Onion",
+            "id": "Onion"
+        },
+        {
+            "name": "Wheat",
+            "id": "Wheat"
+        },
+        {
+            "name": "Cotton Candy",
+            "id": "Sweet"
+        },
+        {
+            "name": "Flour",
+            "id": "Flour"
+        },
+        {
+            "name": "Mysterious Mushroom",
+            "id": "PoisonMushroom"
         },
         {
             "name": "Low Grade Medical Supplies",
@@ -3221,6 +3309,10 @@
             "id": "PalRevive"
         },
         {
+            "name": "Nutrient Tonic",
+            "id": "Supplement"
+        },
+        {
             "name": "Vital Remedy",
             "id": "Elixir_hp_01"
         },
@@ -3241,23 +3333,23 @@
             "id": "Elixir_weight_01"
         },
         {
-            "name": "Vital Elixir +1",
+            "name": "Vital Elixir",
             "id": "Elixir_hp_02"
         },
         {
-            "name": "Stamina Elixir +1",
+            "name": "Stamina Elixir",
             "id": "Elixir_stamina_02"
         },
         {
-            "name": "Might Elixir +1",
+            "name": "Might Elixir",
             "id": "Elixir_attack_02"
         },
         {
-            "name": "Speed Elixir +1",
+            "name": "Speed Elixir",
             "id": "Elixir_workspeed_02"
         },
         {
-            "name": "Burden Elixir +1",
+            "name": "Burden Elixir",
             "id": "Elixir_weight_02"
         },
         {
@@ -3267,6 +3359,10 @@
         {
             "name": "Kinship Peach",
             "id": "AffectionFruit_01"
+        },
+        {
+            "name": "Little Kinship Peach",
+            "id": "AffectionFruit_02"
         },
         {
             "name": "Scrapped Tissue Sample",
@@ -3293,23 +3389,23 @@
             "id": "Lotus_weight_01"
         },
         {
-            "name": "Life Lotus (L) +1",
+            "name": "Life Lotus (L)",
             "id": "Lotus_hp_02"
         },
         {
-            "name": "Stamina Lotus (L) +1",
+            "name": "Stamina Lotus (L)",
             "id": "Lotus_stamina_02"
         },
         {
-            "name": "Power Lotus (L) +1",
+            "name": "Power Lotus (L)",
             "id": "Lotus_attack_02"
         },
         {
-            "name": "Speed Lotus (L) +1",
+            "name": "Speed Lotus (L)",
             "id": "Lotus_workspeed_02"
         },
         {
-            "name": "Carrying Lotus (L) +1",
+            "name": "Carrying Lotus (L)",
             "id": "Lotus_weight_02"
         },
         {
@@ -3329,23 +3425,23 @@
             "id": "Homeward"
         },
         {
-            "name": "All-Purpose Pal Extract☆1",
+            "name": "Awakening Starfruit ☆1",
             "id": "Rankup_1"
         },
         {
-            "name": "All-Purpose Pal Extract☆2 +1",
+            "name": "Awakening Starfruit ☆2",
             "id": "Rankup_2"
         },
         {
-            "name": "All-Purpose Pal Extract☆3 +2",
+            "name": "Awakening Starfruit ☆3",
             "id": "Rankup_3"
         },
         {
-            "name": "All-Purpose Pal Extract☆4 +3",
+            "name": "Awakening Starfruit ☆4",
             "id": "Rankup_4"
         },
         {
-            "name": "Concentrated All-Purpose Pal Extract",
+            "name": "Ripe Awakening Starfruit",
             "id": "Rankup_Arbitrary"
         },
         {
@@ -3373,7 +3469,7 @@
             "id": "WorkSuitability_AddTicket_Collection"
         },
         {
-            "name": "Applied LumberingTechnique Ⅰ",
+            "name": "Applied Lumbering Technique Ⅰ",
             "id": "WorkSuitability_AddTicket_Deforest"
         },
         {
@@ -3397,15 +3493,15 @@
             "id": "ExpBoost_01"
         },
         {
-            "name": "Training Manual (M) +1",
+            "name": "Training Manual (M)",
             "id": "ExpBoost_02"
         },
         {
-            "name": "Training Manual (L) +2",
+            "name": "Training Manual (L)",
             "id": "ExpBoost_03"
         },
         {
-            "name": "Training Manual (XL) +3",
+            "name": "Training Manual (XL)",
             "id": "ExpBoost_04"
         },
         {
@@ -3693,7 +3789,7 @@
             "id": "PalEgg_Normal_04"
         },
         {
-            "name": "Huge Common Egg +4",
+            "name": "Huge Common Egg",
             "id": "PalEgg_Normal_05"
         },
         {
@@ -3713,7 +3809,7 @@
             "id": "PalEgg_Fire_04"
         },
         {
-            "name": "Huge Scorching Egg +4",
+            "name": "Huge Scorching Egg",
             "id": "PalEgg_Fire_05"
         },
         {
@@ -3733,7 +3829,7 @@
             "id": "PalEgg_Water_04"
         },
         {
-            "name": "Huge Damp Egg +4",
+            "name": "Huge Damp Egg",
             "id": "PalEgg_Water_05"
         },
         {
@@ -3753,7 +3849,7 @@
             "id": "PalEgg_Leaf_04"
         },
         {
-            "name": "Huge Verdant Egg +4",
+            "name": "Huge Verdant Egg",
             "id": "PalEgg_Leaf_05"
         },
         {
@@ -3773,7 +3869,7 @@
             "id": "PalEgg_Electricity_04"
         },
         {
-            "name": "Huge Electric Egg +4",
+            "name": "Huge Electric Egg",
             "id": "PalEgg_Electricity_05"
         },
         {
@@ -3793,7 +3889,7 @@
             "id": "PalEgg_Ice_04"
         },
         {
-            "name": "Huge Frozen Egg +4",
+            "name": "Huge Frozen Egg",
             "id": "PalEgg_Ice_05"
         },
         {
@@ -3813,7 +3909,7 @@
             "id": "PalEgg_Earth_04"
         },
         {
-            "name": "Huge Rocky Egg +4",
+            "name": "Huge Rocky Egg",
             "id": "PalEgg_Earth_05"
         },
         {
@@ -3833,7 +3929,7 @@
             "id": "PalEgg_Dark_04"
         },
         {
-            "name": "Huge Dark Egg +4",
+            "name": "Huge Dark Egg",
             "id": "PalEgg_Dark_05"
         },
         {
@@ -3853,7 +3949,7 @@
             "id": "PalEgg_Dragon_04"
         },
         {
-            "name": "Huge Dragon Egg +4",
+            "name": "Huge Dragon Egg",
             "id": "PalEgg_Dragon_05"
         },
         {
@@ -3877,19 +3973,19 @@
             "id": "PalItem_ToSell_01"
         },
         {
-            "name": "Precious Plume +1",
+            "name": "Precious Plume",
             "id": "PalItem_ToSell_02"
         },
         {
-            "name": "Precious Entrails +2",
+            "name": "Precious Entrails",
             "id": "PalItem_ToSell_03"
         },
         {
-            "name": "Precious Claw +3",
+            "name": "Precious Claw",
             "id": "PalItem_ToSell_04"
         },
         {
-            "name": "Precious Pelt +4",
+            "name": "Precious Pelt",
             "id": "PalItem_ToSell_05"
         },
         {
@@ -4013,7 +4109,7 @@
             "id": "SkillCard_DiversionLaser"
         },
         {
-            "name": "Water Skill Fruit: Wall Splash",
+            "name": "Water Skill Fruit: Curtain Splash",
             "id": "SkillCard_WallSplash"
         },
         {
@@ -4237,7 +4333,7 @@
             "id": "SkillCard_Apocalypse"
         },
         {
-            "name": "Dark Skill Fruit: Dark Wisp",
+            "name": "Dark Skill Fruit: Dark Whisp",
             "id": "SkillCard_DarkLegion"
         },
         {
@@ -4289,7 +4385,7 @@
             "id": "PalPassiveSkillChange_HatchingSpeed_Up"
         },
         {
-            "name": "Implant: Impatient +1",
+            "name": "Implant: Impatient",
             "id": "PalPassiveSkillChange_CoolTimeReduction_Up_2"
         },
         {
@@ -4297,7 +4393,7 @@
             "id": "PalPassiveSkillChange_CoolTimeReduction_Up_1"
         },
         {
-            "name": "Implant: Fit as a Fiddle +1",
+            "name": "Implant: Fit as a Fiddle",
             "id": "PalPassiveSkillChange_Stamina_Up_2"
         },
         {
@@ -4305,7 +4401,7 @@
             "id": "PalPassiveSkillChange_Stamina_Up_1"
         },
         {
-            "name": "Implant: Eternal Engine +2",
+            "name": "Implant: Eternal Engine",
             "id": "PalPassiveSkillChange_Stamina_Up_3"
         },
         {
@@ -4313,11 +4409,11 @@
             "id": "PalPassiveSkillChange_MoveSpeed_up_1"
         },
         {
-            "name": "Implant: Runner +1",
+            "name": "Implant: Runner",
             "id": "PalPassiveSkillChange_MoveSpeed_up_2"
         },
         {
-            "name": "Implant: Swift +2",
+            "name": "Implant: Swift",
             "id": "PalPassiveSkillChange_MoveSpeed_up_3"
         },
         {
@@ -4325,11 +4421,11 @@
             "id": "PalPassiveSkillChange_PAL_FullStomach_Down_1"
         },
         {
-            "name": "Implant: Diet Lover +1",
+            "name": "Implant: Diet Lover",
             "id": "PalPassiveSkillChange_PAL_FullStomach_Down_2"
         },
         {
-            "name": "Implant: Mastery of Fasting +2",
+            "name": "Implant: Mastery of Fasting",
             "id": "PalPassiveSkillChange_PAL_FullStomach_Down_3"
         },
         {
@@ -4337,11 +4433,11 @@
             "id": "PalPassiveSkillChange_PAL_Sanity_Down_1"
         },
         {
-            "name": "Implant: Workaholic +1",
+            "name": "Implant: Workaholic",
             "id": "PalPassiveSkillChange_PAL_Sanity_Down_2"
         },
         {
-            "name": "Implant: Heart of the Immovable King +2",
+            "name": "Implant: Heart of the Immovable King",
             "id": "PalPassiveSkillChange_PAL_Sanity_Down_3"
         },
         {
@@ -4385,6 +4481,46 @@
             "id": "PalPassiveSkillChange_Noukin"
         },
         {
+            "name": "Implant: Vanguard",
+            "id": "PalPassiveSkillChange_TrainerATK_UP_1"
+        },
+        {
+            "name": "Implant: Stronghold Strategist",
+            "id": "PalPassiveSkillChange_TrainerDEF_UP_1"
+        },
+        {
+            "name": "Implant: Motivational Leader",
+            "id": "PalPassiveSkillChange_TrainerWorkSpeed_UP_1"
+        },
+        {
+            "name": "Implant: Noble",
+            "id": "PalPassiveSkillChange_SalePrice_Up_1"
+        },
+        {
+            "name": "Implant: Ace Swimmer",
+            "id": "PalPassiveSkillChange_SwimSpeed_up_2"
+        },
+        {
+            "name": "Implant: Mine Foreman",
+            "id": "PalPassiveSkillChange_TrainerMining_up1"
+        },
+        {
+            "name": "Implant: Logging Foreman",
+            "id": "PalPassiveSkillChange_TrainerLogging_up1"
+        },
+        {
+            "name": "Implant: Fine Furs",
+            "id": "PalPassiveSkillChange_SalePrice_Up_2"
+        },
+        {
+            "name": "Implant: Sleek Stroke",
+            "id": "PalPassiveSkillChange_SwimSpeed_up_1"
+        },
+        {
+            "name": "Implant: Work Slave",
+            "id": "PalPassiveSkillChange_PAL_CorporateSlave"
+        },
+        {
             "name": "High Grade Technical Manual",
             "id": "TechnologyBook_G1"
         },
@@ -4419,6 +4555,10 @@
         {
             "name": "Repair Kit",
             "id": "RepairKit"
+        },
+        {
+            "name": "Unknown Item (WaterBuildKit)",
+            "id": "WaterBuildKit"
         },
         {
             "name": "Old Bow Schematic 1",
@@ -5041,6 +5181,38 @@
             "id": "Blueprint_YakushimaBlade003_5"
         },
         {
+            "name": "Marksman Revolver Schematic 1",
+            "id": "Blueprint_OctaviaRevolver_2"
+        },
+        {
+            "name": "Marksman Revolver Schematic 2",
+            "id": "Blueprint_OctaviaRevolver_3"
+        },
+        {
+            "name": "Marksman Revolver Schematic 3",
+            "id": "Blueprint_OctaviaRevolver_4"
+        },
+        {
+            "name": "Marksman Revolver Schematic 4",
+            "id": "Blueprint_OctaviaRevolver_5"
+        },
+        {
+            "name": "Core Eject Shotgun Schematic 1",
+            "id": "Blueprint_OctaviaShotgun_2"
+        },
+        {
+            "name": "Core Eject Shotgun Schematic 2",
+            "id": "Blueprint_OctaviaShotgun_3"
+        },
+        {
+            "name": "Core Eject Shotgun Schematic 3",
+            "id": "Blueprint_OctaviaShotgun_4"
+        },
+        {
+            "name": "Core Eject Shotgun Schematic 4",
+            "id": "Blueprint_OctaviaShotgun_5"
+        },
+        {
             "name": "Cloth Outfit Schematic 1",
             "id": "Blueprint_ClothArmor_2"
         },
@@ -5429,6 +5601,14 @@
             "id": "Blueprint_YakushimaArmor001_5"
         },
         {
+            "name": "V1 Armor Schematic 4",
+            "id": "Blueprint_Octavia001_Armor_5"
+        },
+        {
+            "name": "V2 Armor Schematic 4",
+            "id": "Blueprint_Octavia002_Armor_5"
+        },
+        {
             "name": "Feathered Hair Band Schematic 1",
             "id": "Blueprint_FurHelmet_2"
         },
@@ -5609,6 +5789,10 @@
             "id": "Blueprint_Head001_1"
         },
         {
+            "name": "Zoe's Halloween Costume Schematic",
+            "id": "Blueprint_Zoe_Halloweenskin_1"
+        },
+        {
             "name": "Monarch's Crown Schematic 2",
             "id": "Blueprint_Head001_2"
         },
@@ -5621,7 +5805,7 @@
             "id": "Blueprint_Head001_4"
         },
         {
-            "name": "Blueprint of the King's Crown 5 +4",
+            "name": "Blueprint of the King's Crown 5",
             "id": "Blueprint_Head001_5"
         },
         {
@@ -5641,7 +5825,7 @@
             "id": "Blueprint_Head002_4"
         },
         {
-            "name": "Blueprint for Golden Crown 5 +4",
+            "name": "Blueprint for Golden Crown 5",
             "id": "Blueprint_Head002_5"
         },
         {
@@ -5661,7 +5845,7 @@
             "id": "Blueprint_Head003_4"
         },
         {
-            "name": "5 Blueprints of Long-eared Headband +4",
+            "name": "5 Blueprints of Long-eared Headband",
             "id": "Blueprint_Head003_5"
         },
         {
@@ -5681,7 +5865,7 @@
             "id": "Blueprint_Head004_4"
         },
         {
-            "name": "Design of Witch Hat No. 5 +4",
+            "name": "Design of Witch Hat No. 5",
             "id": "Blueprint_Head004_5"
         },
         {
@@ -5701,7 +5885,7 @@
             "id": "Blueprint_Head005_4"
         },
         {
-            "name": "Blueprint of Soft Hat 5 +4",
+            "name": "Blueprint of Soft Hat 5",
             "id": "Blueprint_Head005_5"
         },
         {
@@ -5721,7 +5905,7 @@
             "id": "Blueprint_Head006_4"
         },
         {
-            "name": "Blueprint of Helmet 5 +4",
+            "name": "Blueprint of Helmet 5",
             "id": "Blueprint_Head006_5"
         },
         {
@@ -5761,7 +5945,7 @@
             "id": "Blueprint_Head008_4"
         },
         {
-            "name": "Blueprint of the Tricorn Hat 5 +4",
+            "name": "Blueprint of the Tricorn Hat 5",
             "id": "Blueprint_Head008_5"
         },
         {
@@ -5781,7 +5965,7 @@
             "id": "Blueprint_Head009_4"
         },
         {
-            "name": "Blueprint of Exploration Hat 5 +4",
+            "name": "Blueprint of Exploration Hat 5",
             "id": "Blueprint_Head009_5"
         },
         {
@@ -5801,7 +5985,7 @@
             "id": "Blueprint_Head010_4"
         },
         {
-            "name": "Blueprint 5 of University Hat +4",
+            "name": "Blueprint 5 of University Hat",
             "id": "Blueprint_Head010_5"
         },
         {
@@ -5821,7 +6005,7 @@
             "id": "Blueprint_Head011_4"
         },
         {
-            "name": "5 Diagrams of Agricultural Hat +4",
+            "name": "5 Diagrams of Agricultural Hat",
             "id": "Blueprint_Head011_5"
         },
         {
@@ -5841,7 +6025,7 @@
             "id": "Blueprint_Head012_4"
         },
         {
-            "name": "Blueprint of Bowler Hat 5 +4",
+            "name": "Blueprint of Bowler Hat 5",
             "id": "Blueprint_Head012_5"
         },
         {
@@ -5861,7 +6045,7 @@
             "id": "Blueprint_Head013_4"
         },
         {
-            "name": "Design Plan 5 for the Crutchli Hat +4",
+            "name": "Design Plan 5 for the Crutchli Hat",
             "id": "Blueprint_Head013_5"
         },
         {
@@ -5881,7 +6065,7 @@
             "id": "Blueprint_Head014_4"
         },
         {
-            "name": "Grinning Curly Hat Blueprint 5 +4",
+            "name": "Grinning Curly Hat Blueprint 5",
             "id": "Blueprint_Head014_5"
         },
         {
@@ -5901,7 +6085,7 @@
             "id": "Blueprint_Head015_4"
         },
         {
-            "name": "5 Blueprints of Naemochi Hat +4",
+            "name": "5 Blueprints of Naemochi Hat",
             "id": "Blueprint_Head015_5"
         },
         {
@@ -5921,7 +6105,7 @@
             "id": "Blueprint_Head016_4"
         },
         {
-            "name": "Blueprint of Capppen Hat 5 +4",
+            "name": "Blueprint of Capppen Hat 5",
             "id": "Blueprint_Head016_5"
         },
         {
@@ -5941,7 +6125,7 @@
             "id": "Blueprint_Head017_4"
         },
         {
-            "name": "Design Blueprint of Clemence Hat 5 +4",
+            "name": "Design Blueprint of Clemence Hat 5",
             "id": "Blueprint_Head017_5"
         },
         {
@@ -5961,7 +6145,7 @@
             "id": "Blueprint_HeadEquip025_4"
         },
         {
-            "name": "Unknown Item (Blueprint_HeadEquip025_5) +4",
+            "name": "Unknown Item (Blueprint_HeadEquip025_5)",
             "id": "Blueprint_HeadEquip025_5"
         },
         {
@@ -5981,7 +6165,7 @@
             "id": "Blueprint_HeadEquip026_4"
         },
         {
-            "name": "Unknown Item (Blueprint_HeadEquip026_5) +4",
+            "name": "Unknown Item (Blueprint_HeadEquip026_5)",
             "id": "Blueprint_HeadEquip026_5"
         },
         {
@@ -6001,7 +6185,7 @@
             "id": "Blueprint_HeadEquip028_4"
         },
         {
-            "name": "Unknown Item (Blueprint_HeadEquip028_5) +4",
+            "name": "Unknown Item (Blueprint_HeadEquip028_5)",
             "id": "Blueprint_HeadEquip028_5"
         },
         {
@@ -6021,7 +6205,7 @@
             "id": "Blueprint_HeadEquip031_4"
         },
         {
-            "name": "Unknown Item (Blueprint_HeadEquip031_5) +4",
+            "name": "Unknown Item (Blueprint_HeadEquip031_5)",
             "id": "Blueprint_HeadEquip031_5"
         },
         {
@@ -6041,7 +6225,7 @@
             "id": "Blueprint_HeadEquip032_4"
         },
         {
-            "name": "Unknown Item (Blueprint_HeadEquip032_5) +4",
+            "name": "Unknown Item (Blueprint_HeadEquip032_5)",
             "id": "Blueprint_HeadEquip032_5"
         },
         {
@@ -6061,16 +6245,24 @@
             "id": "PalSummon_DarkMechaDragon_Parts"
         },
         {
-            "name": "Bellanoir Libero (Ultra) Slab Fragment +1",
+            "name": "Hartalis Slab Fragment",
+            "id": "PalSummon_LegendDeer_Parts"
+        },
+        {
+            "name": "Bellanoir Libero (Ultra) Slab Fragment",
             "id": "PalSummon_NightLady_Dark_Parts_2"
         },
         {
-            "name": "Blazamut Ryu (Ultra) Slab Fragment +1",
+            "name": "Blazamut Ryu (Ultra) Slab Fragment",
             "id": "PalSummon_KingBahamut_Dragon_Parts_2"
         },
         {
-            "name": "Xenolord (Ultra) Slab Fragment +1",
+            "name": "Xenolord (Ultra) Slab Fragment",
             "id": "PalSummon_DarkMechaDragon_Parts_2"
+        },
+        {
+            "name": "Hartalis (Ultra) Slab Fragment",
+            "id": "PalSummon_LegendDeer_Parts_2"
         },
         {
             "name": "Bellanoir's Slab",
@@ -6089,20 +6281,32 @@
             "id": "PalSummon_DarkMechaDragon"
         },
         {
-            "name": "Bellanoir Libero (Ultra) Slab +1",
+            "name": "Celestial Sigil",
+            "id": "PalSummon_YakushimaBoss002"
+        },
+        {
+            "name": "Hartalis Slab",
+            "id": "PalSummon_LegendDeer"
+        },
+        {
+            "name": "Bellanoir Libero (Ultra) Slab",
             "id": "PalSummon_NightLady_Dark_2"
         },
         {
-            "name": "Blazamut Ryu (Ultra) Slab +1",
+            "name": "Blazamut Ryu (Ultra) Slab",
             "id": "PalSummon_KingBahamut_Dragon_2"
         },
         {
-            "name": "Xenolord (Ultra) Slab +1",
+            "name": "Xenolord (Ultra) Slab",
             "id": "PalSummon_DarkMechaDragon_2"
         },
         {
-            "name": "Celestial Sigil",
-            "id": "PalSummon_YakushimaBoss002"
+            "name": "Celestial Sigil [Master]",
+            "id": "PalSummon_YakushimaBoss002_2"
+        },
+        {
+            "name": "Hartalis (Ultra) Slab",
+            "id": "PalSummon_LegendDeer_2"
         },
         {
             "name": "Powerful Fishing Magnet",
@@ -6149,7 +6353,7 @@
             "id": "Blueprint_LanternTop"
         },
         {
-            "name": "Festival Lantern Schematic",
+            "name": "Red Wooden Lantern Schematic",
             "id": "Blueprint_Shrine_Lantern"
         },
         {
@@ -6163,6 +6367,10 @@
         {
             "name": "Laboratory Chair Schematic",
             "id": "Blueprint_SF_Chair"
+        },
+        {
+            "name": "Moon Lord Statue Schematic",
+            "id": "Blueprint_YakushimaBoss002_Relic"
         },
         {
             "name": "Celestial Sigil Schematic",
@@ -6209,6 +6417,18 @@
             "id": "TEST_CaptureItemModifier"
         },
         {
+            "name": "en Text",
+            "id": "ClawsPendant"
+        },
+        {
+            "name": "en Text",
+            "id": "ClothHat"
+        },
+        {
+            "name": "en Text",
+            "id": "FangNecklace"
+        },
+        {
             "name": "Hyper Glider",
             "id": "Glider_Legendary"
         },
@@ -6229,12 +6449,60 @@
             "id": "NightVisionGoggles"
         },
         {
+            "name": "en Text",
+            "id": "Berries2"
+        },
+        {
+            "name": "en Text",
+            "id": "EnergyDrink"
+        },
+        {
+            "name": "en Text",
+            "id": "FarmCrop_Tmp"
+        },
+        {
+            "name": "en Text",
+            "id": "FishMeat"
+        },
+        {
+            "name": "en Text",
+            "id": "FishMeat2"
+        },
+        {
             "name": "Grilled Meat",
             "id": "GrilledMeat"
         },
         {
             "name": "Raw Meat",
             "id": "Meat"
+        },
+        {
+            "name": "en Text",
+            "id": "Meat2"
+        },
+        {
+            "name": "en Text",
+            "id": "Seed_Tmp"
+        },
+        {
+            "name": "en Text",
+            "id": "VenisonBoiledInTomato"
+        },
+        {
+            "name": "en Text",
+            "id": "Potato_old"
+        },
+        {
+            "name": "en Text",
+            "id": "Corn"
+        },
+        {
+            "name": "en Text",
+            "id": "Pumpkin"
+        },
+        {
+            "name": "en Text",
+            "id": "Baked_Potato"
         },
         {
             "name": "Grape",
@@ -6305,28 +6573,96 @@
             "id": "SkillCard_Psychokinesis"
         },
         {
-            "name": "Nutrient Tonic",
-            "id": "Supplement"
+            "name": "Unknown Item (Sweet_Caramel)",
+            "id": "Sweet_Caramel"
         },
         {
             "name": "Animal Skin",
             "id": "AnimalSkin"
         },
         {
+            "name": "en Text",
+            "id": "AnimalSkin2"
+        },
+        {
+            "name": "en Text",
+            "id": "Scales"
+        },
+        {
+            "name": "en Text",
+            "id": "Scales2"
+        },
+        {
             "name": "Claw",
             "id": "Claws"
+        },
+        {
+            "name": "en Text",
+            "id": "Claws2"
+        },
+        {
+            "name": "en Text",
+            "id": "ElectronicCircuit"
         },
         {
             "name": "Fang",
             "id": "Fang"
         },
         {
+            "name": "en Text",
+            "id": "Fang2"
+        },
+        {
+            "name": "en Text",
+            "id": "Flint"
+        },
+        {
             "name": "Gunpowder",
             "id": "Gunpowder"
         },
         {
+            "name": "en Text",
+            "id": "IronOre"
+        },
+        {
+            "name": "en Text",
+            "id": "Kitsunebi_Fire"
+        },
+        {
+            "name": "en Text",
+            "id": "LargeBullet"
+        },
+        {
+            "name": "en Text",
+            "id": "Leather2"
+        },
+        {
+            "name": "en Text",
+            "id": "Sharkkid_Scale"
+        },
+        {
+            "name": "en Text",
+            "id": "SmallBullet"
+        },
+        {
             "name": "Paldium Clump",
             "id": "Pal_crystal_L"
+        },
+        {
+            "name": "en Text",
+            "id": "PAL_Growth_Stone_S"
+        },
+        {
+            "name": "en Text",
+            "id": "PAL_Growth_Stone_M"
+        },
+        {
+            "name": "en Text",
+            "id": "PAL_Growth_Stone_L"
+        },
+        {
+            "name": "en Text",
+            "id": "PAL_Growth_Stone_XL"
         },
         {
             "name": "Dung",
@@ -6337,12 +6673,48 @@
             "id": "Unko_L"
         },
         {
+            "name": "en Text",
+            "id": "WaterBucket"
+        },
+        {
             "name": "PotatoSeedPotatoes",
             "id": "PotatoSeedPotatoes"
         },
         {
             "name": "Computer",
             "id": "Computer"
+        },
+        {
+            "name": "en Text",
+            "id": "CashFang"
+        },
+        {
+            "name": "en Text",
+            "id": "CashScales"
+        },
+        {
+            "name": "Dragostrophe's Shotgun",
+            "id": "SkillUnlock_BlackFurDragon"
+        },
+        {
+            "name": "Boltmane Saddle",
+            "id": "SkillUnlock_ElecLion"
+        },
+        {
+            "name": "en_text's Power Converter",
+            "id": "SkillUnlock_DarkMutant"
+        },
+        {
+            "name": "en Text",
+            "id": "Sand"
+        },
+        {
+            "name": "en Text",
+            "id": "MonsterEquipWeapon_Dummy"
+        },
+        {
+            "name": "en Text",
+            "id": "MateItem01"
         },
         {
             "name": "Unknown Item (BlueprintTest)",
@@ -6377,12 +6749,76 @@
             "id": "PalPassiveSkillChangeTest2"
         },
         {
+            "name": "en Text",
+            "id": "Bat_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "CaptureRope"
+        },
+        {
+            "name": "en Text",
+            "id": "Handgun_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "LaserRifle_NPC"
+        },
+        {
             "name": "Radar Sphere",
             "id": "PalSphere_Robbery"
         },
         {
             "name": "Pal Sphere",
             "id": "PalSphere_Debug"
+        },
+        {
+            "name": "en Text",
+            "id": "PenguinLauncher"
+        },
+        {
+            "name": "en Text",
+            "id": "RocketLauncher_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "SniperRifle_Default"
+        },
+        {
+            "name": "en Text",
+            "id": "AssaultRifle_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "AssaultRifle_NPC_GrassBoss"
+        },
+        {
+            "name": "en Text",
+            "id": "BowGun_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "Shotgun_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "FlameThrower_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "GatlingGun_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "FragGrenade_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "ThrowStone"
+        },
+        {
+            "name": "en Text",
+            "id": "RecurveBow"
         },
         {
             "name": "Fishing Rod_Old",
@@ -6401,8 +6837,76 @@
             "id": "FishingRod_Legendary"
         },
         {
+            "name": "en Text",
+            "id": "Debug_Handgun_Poison"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_Burn"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_Wetness"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_Freeze"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_Electrical"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_Muddy"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_IvyCling"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_Darkness"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_Stun"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_AttackUp"
+        },
+        {
+            "name": "en Text",
+            "id": "Debug_Handgun_DefenseUp"
+        },
+        {
+            "name": "en Text",
+            "id": "AirGrapplingGun"
+        },
+        {
+            "name": "en Text",
+            "id": "MissileLauncher_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "GrenadeLauncher_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "Katana_NPC"
+        },
+        {
+            "name": "en Text",
+            "id": "BelieverFatCane"
+        },
+        {
             "name": "Unknown Item (FishingRod_Test)",
             "id": "FishingRod_Test"
+        },
+        {
+            "name": "en Text",
+            "id": "GatlingGun_NPC_GrassBoss"
         },
         {
             "name": "Lifmunk Effigy",
@@ -6441,7 +6945,7 @@
             "id": "UnlockEquipmentSlot_Accessory_01"
         },
         {
-            "name": "Box of Mystery Accessories +1",
+            "name": "Box of Mystery Accessories",
             "id": "UnlockEquipmentSlot_Accessory_02"
         },
         {
@@ -6457,76 +6961,104 @@
             "id": "Unlock_Picking_Tier3"
         },
         {
-            "name": "Dragostrophe's Shotgun",
-            "id": "SkillUnlock_BlackFurDragon"
-        },
-        {
-            "name": "Rushoar Saddle",
-            "id": "SkillUnlock_Boar"
-        },
-        {
-            "name": "Foxparks's Harness",
-            "id": "SkillUnlock_Kitsunebi"
-        },
-        {
-            "name": "Melpaca Saddle",
-            "id": "SkillUnlock_Alpaca"
-        },
-        {
-            "name": "Celaray's Gloves",
-            "id": "SkillUnlock_FlyingManta"
-        },
-        {
             "name": "Jolthog's Gloves",
             "id": "SkillUnlock_Hedgehog"
-        },
-        {
-            "name": "Daedream's Necklace",
-            "id": "SkillUnlock_DreamDemon"
-        },
-        {
-            "name": "Direhowl's Saddled Harness",
-            "id": "SkillUnlock_Garm"
-        },
-        {
-            "name": "Killamari's Gloves",
-            "id": "SkillUnlock_NegativeOctopus"
-        },
-        {
-            "name": "Surfent Saddle",
-            "id": "SkillUnlock_Serpent"
-        },
-        {
-            "name": "Lifmunk's Submachine Gun",
-            "id": "SkillUnlock_Carbunclo"
         },
         {
             "name": "Jolthog Cryst's Gloves",
             "id": "SkillUnlock_Hedgehog_Ice"
         },
         {
-            "name": "Tanzee's Assault Rifle",
-            "id": "SkillUnlock_Monkey"
+            "name": "Foxparks's Harness",
+            "id": "SkillUnlock_Kitsunebi"
         },
         {
-            "name": "Eikthyrdeer Saddle",
-            "id": "SkillUnlock_Deer"
+            "name": "Foxparks Cryst's Harness",
+            "id": "SkillUnlock_Kitsunebi_Ice"
         },
         {
-            "name": "Grintale Saddle",
-            "id": "SkillUnlock_NaughtyCat"
-        },
-        {
-            "name": "Chillet Saddle",
-            "id": "SkillUnlock_WeaselDragon"
+            "name": "Melpaca Saddle",
+            "id": "SkillUnlock_Alpaca"
         },
         {
             "name": "Sweepa Saddle",
             "id": "SkillUnlock_MopKing"
         },
         {
+            "name": "Rushoar Saddle",
+            "id": "SkillUnlock_Boar"
+        },
+        {
+            "name": "Celaray's Gloves",
+            "id": "SkillUnlock_FlyingManta"
+        },
+        {
+            "name": "Celaray Lux's Gloves",
+            "id": "SkillUnlock_FlyingManta_Thunder"
+        },
+        {
+            "name": "Lifmunk's Submachine Gun",
+            "id": "SkillUnlock_Carbunclo"
+        },
+        {
+            "name": "Direhowl's Saddled Harness",
+            "id": "SkillUnlock_Garm"
+        },
+        {
+            "name": "Tanzee's Assault Rifle",
+            "id": "SkillUnlock_Monkey"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_Monkey_Ice)",
+            "id": "SkillUnlock_Monkey_Ice"
+        },
+        {
+            "name": "Surfent Saddle",
+            "id": "SkillUnlock_Serpent"
+        },
+        {
+            "name": "Surfent Terra Saddle",
+            "id": "SkillUnlock_Serpent_Ground"
+        },
+        {
+            "name": "Eikthyrdeer Saddle",
+            "id": "SkillUnlock_Deer"
+        },
+        {
+            "name": "Eikthyrdeer Terra Saddle",
+            "id": "SkillUnlock_Deer_Ground"
+        },
+        {
+            "name": "Grintale Saddle",
+            "id": "SkillUnlock_NaughtyCat"
+        },
+        {
+            "name": "Herbil's Harness",
+            "id": "SkillUnlock_LeafMomonga"
+        },
+        {
+            "name": "Polapup Saddle",
+            "id": "SkillUnlock_IceSeal"
+        },
+        {
             "name": "Univolt Saddle",
             "id": "SkillUnlock_Kirin"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_Kirin_Ice)",
+            "id": "SkillUnlock_Kirin_Ice"
+        },
+        {
+            "name": "Killamari's Gloves",
+            "id": "SkillUnlock_NegativeOctopus"
+        },
+        {
+            "name": "Killamari Primo's Gloves",
+            "id": "SkillUnlock_NegativeOctopus_Neutral"
+        },
+        {
+            "name": "Tocotoco's Gloves",
+            "id": "SkillUnlock_ColorfulBird"
         },
         {
             "name": "Nitewing Saddle",
@@ -6537,208 +7069,256 @@
             "id": "SkillUnlock_FlameBuffalo"
         },
         {
-            "name": "Pengullet Rocket Launcher",
-            "id": "SkillUnlock_Penguin"
-        },
-        {
             "name": "Flopie's Necklace",
             "id": "SkillUnlock_FlowerRabbit"
-        },
-        {
-            "name": "Tocotoco's Gloves",
-            "id": "SkillUnlock_ColorfulBird"
-        },
-        {
-            "name": "Dinossom Saddle",
-            "id": "SkillUnlock_FlowerDinosaur"
-        },
-        {
-            "name": "Broncherry Saddle",
-            "id": "SkillUnlock_SakuraSaurus"
         },
         {
             "name": "Digtoise's Headband",
             "id": "SkillUnlock_DrillGame"
         },
         {
-            "name": "Hangyu's Gloves",
-            "id": "SkillUnlock_WindChimes"
+            "name": "Pengullet Rocket Launcher",
+            "id": "SkillUnlock_Penguin"
         },
         {
-            "name": "Elphidran Saddle",
-            "id": "SkillUnlock_FairyDragon"
+            "name": "Pengullet Lux's Rocket Launcher",
+            "id": "SkillUnlock_Penguin_Electric"
         },
         {
-            "name": "Vanwyrm Saddle",
-            "id": "SkillUnlock_BirdDragon"
-        },
-        {
-            "name": "Kingpaca Saddle",
-            "id": "SkillUnlock_KingAlpaca"
-        },
-        {
-            "name": "Dazzi's Necklace",
-            "id": "SkillUnlock_RaijinDaughter"
-        },
-        {
-            "name": "Dazemu Saddle",
-            "id": "SkillUnlock_FeatherOstrich"
-        },
-        {
-            "name": "Maraith Saddle",
-            "id": "SkillUnlock_GhostBeast"
-        },
-        {
-            "name": "Galeclaw's Gloves",
-            "id": "SkillUnlock_Eagle"
-        },
-        {
-            "name": "Foxparks Cryst's Harness",
-            "id": "SkillUnlock_Kitsunebi_Ice"
-        },
-        {
-            "name": "Mossanda's Grenade Launcher",
-            "id": "SkillUnlock_GrassPanda"
-        },
-        {
-            "name": "Azurobe Saddle",
-            "id": "SkillUnlock_BlueDragon"
-        },
-        {
-            "name": "Surfent Terra Saddle",
-            "id": "SkillUnlock_Serpent_Ground"
-        },
-        {
-            "name": "Eikthyrdeer Terra Saddle",
-            "id": "SkillUnlock_Deer_Ground"
-        },
-        {
-            "name": "Fenglope Saddle",
-            "id": "SkillUnlock_FengyunDeeper"
-        },
-        {
-            "name": "Mossanda Lux's Grenade Launcher",
-            "id": "SkillUnlock_GrassPanda_Electric"
-        },
-        {
-            "name": "Broncherry Aqua Saddle",
-            "id": "SkillUnlock_SakuraSaurus_Water"
-        },
-        {
-            "name": "Rayhound Saddle",
-            "id": "SkillUnlock_ThunderDog"
-        },
-        {
-            "name": "Elphidran Aqua Saddle",
-            "id": "SkillUnlock_FairyDragon_Water"
-        },
-        {
-            "name": "Tarantriss Saddle",
-            "id": "SkillUnlock_PurpleSpider"
-        },
-        {
-            "name": "Mammorest Saddle",
-            "id": "SkillUnlock_GrassMammoth"
-        },
-        {
-            "name": "Reindrix Saddle",
-            "id": "SkillUnlock_IceDeer"
-        },
-        {
-            "name": "Kitsun Saddle",
-            "id": "SkillUnlock_AmaterasuWolf"
-        },
-        {
-            "name": "Pyrin Saddle",
-            "id": "SkillUnlock_FireKirin"
+            "name": "Dinossom Saddle",
+            "id": "SkillUnlock_FlowerDinosaur"
         },
         {
             "name": "Dinossom Lux Saddle",
             "id": "SkillUnlock_FlowerDinosaur_Electric"
         },
         {
-            "name": "Reptyro Saddle",
-            "id": "SkillUnlock_VolcanicMonster"
+            "name": "Daedream's Necklace",
+            "id": "SkillUnlock_DreamDemon"
         },
         {
-            "name": "Hangyu Cryst's Glove",
-            "id": "SkillUnlock_WindChimes_Ice"
+            "name": "Broncherry Saddle",
+            "id": "SkillUnlock_SakuraSaurus"
         },
         {
-            "name": "Blazehowl Saddle",
-            "id": "SkillUnlock_Manticore"
+            "name": "Broncherry Aqua Saddle",
+            "id": "SkillUnlock_SakuraSaurus_Water"
         },
         {
-            "name": "Helzephyr Saddle",
-            "id": "SkillUnlock_HadesBird"
-        },
-        {
-            "name": "Beakon Saddle",
-            "id": "SkillUnlock_ThunderBird"
-        },
-        {
-            "name": "Pyrin Noct Saddle",
-            "id": "SkillUnlock_FireKirin_Dark"
-        },
-        {
-            "name": "Blazehowl Noct Saddle",
-            "id": "SkillUnlock_Manticore_Dark"
-        },
-        {
-            "name": "Quivern Saddle",
-            "id": "SkillUnlock_SkyDragon"
-        },
-        {
-            "name": "Ragnahawk Saddle",
-            "id": "SkillUnlock_RedArmorBird"
-        },
-        {
-            "name": "Reptyro Cryst Saddle",
-            "id": "SkillUnlock_VolcanicMonster_Ice"
-        },
-        {
-            "name": "Blazamut Saddle",
-            "id": "SkillUnlock_KingBahamut"
-        },
-        {
-            "name": "Faleris Saddle",
-            "id": "SkillUnlock_Horus"
-        },
-        {
-            "name": "Jormuntide Saddle",
-            "id": "SkillUnlock_Umihebi"
-        },
-        {
-            "name": "Suzaku Saddle",
-            "id": "SkillUnlock_Suzaku"
-        },
-        {
-            "name": "Grizzbolt's Minigun",
-            "id": "SkillUnlock_ElecPanda"
+            "name": "Vanwyrm Saddle",
+            "id": "SkillUnlock_BirdDragon"
         },
         {
             "name": "Vanwyrm Cryst Saddle",
             "id": "SkillUnlock_BirdDragon_Ice"
         },
         {
+            "name": "Chillet Saddle",
+            "id": "SkillUnlock_WeaselDragon"
+        },
+        {
+            "name": "Chillet Ignis Saddle",
+            "id": "SkillUnlock_WeaselDragon_Fire"
+        },
+        {
+            "name": "Hangyu's Gloves",
+            "id": "SkillUnlock_WindChimes"
+        },
+        {
+            "name": "Hangyu Cryst's Glove",
+            "id": "SkillUnlock_WindChimes_Ice"
+        },
+        {
+            "name": "Kingpaca Saddle",
+            "id": "SkillUnlock_KingAlpaca"
+        },
+        {
             "name": "Kingpaca Cryst Saddle",
             "id": "SkillUnlock_KingAlpaca_Ice"
         },
         {
-            "name": "Suzaku Aqua Saddle",
-            "id": "SkillUnlock_Suzaku_Water"
+            "name": "Elphidran Saddle",
+            "id": "SkillUnlock_FairyDragon"
+        },
+        {
+            "name": "Elphidran Aqua Saddle",
+            "id": "SkillUnlock_FairyDragon_Water"
+        },
+        {
+            "name": "Dazzi's Necklace",
+            "id": "SkillUnlock_RaijinDaughter"
+        },
+        {
+            "name": "Dazzi Noct's Necklace",
+            "id": "SkillUnlock_RaijinDaughter_Water"
+        },
+        {
+            "name": "Dazemu Saddle",
+            "id": "SkillUnlock_FeatherOstrich"
+        },
+        {
+            "name": "Galeclaw's Gloves",
+            "id": "SkillUnlock_Eagle"
+        },
+        {
+            "name": "Maraith Saddle",
+            "id": "SkillUnlock_GhostBeast"
+        },
+        {
+            "name": "Ghangler Saddle",
+            "id": "SkillUnlock_GhostAnglerfish"
+        },
+        {
+            "name": "Ghangler Ignis Saddle",
+            "id": "SkillUnlock_GhostAnglerfish_Fire"
+        },
+        {
+            "name": "Braloha Saddle",
+            "id": "SkillUnlock_Plesiosaur"
+        },
+        {
+            "name": "Palumba Saddle",
+            "id": "SkillUnlock_TropicalOstrich"
+        },
+        {
+            "name": "Mossanda's Grenade Launcher",
+            "id": "SkillUnlock_GrassPanda"
+        },
+        {
+            "name": "Mossanda Lux's Grenade Launcher",
+            "id": "SkillUnlock_GrassPanda_Electric"
+        },
+        {
+            "name": "Tarantriss Saddle",
+            "id": "SkillUnlock_PurpleSpider"
+        },
+        {
+            "name": "Reptyro Saddle",
+            "id": "SkillUnlock_VolcanicMonster"
+        },
+        {
+            "name": "Reptyro Cryst Saddle",
+            "id": "SkillUnlock_VolcanicMonster_Ice"
+        },
+        {
+            "name": "Pyrin Saddle",
+            "id": "SkillUnlock_FireKirin"
+        },
+        {
+            "name": "Pyrin Noct Saddle",
+            "id": "SkillUnlock_FireKirin_Dark"
+        },
+        {
+            "name": "Mammorest Saddle",
+            "id": "SkillUnlock_GrassMammoth"
+        },
+        {
+            "name": "Mammorest Cryst Saddle",
+            "id": "SkillUnlock_GrassMammoth_Ice"
+        },
+        {
+            "name": "Azurobe Saddle",
+            "id": "SkillUnlock_BlueDragon"
+        },
+        {
+            "name": "Azurobe Cryst Saddle",
+            "id": "SkillUnlock_BlueDragon_Ice"
+        },
+        {
+            "name": "Jormuntide Saddle",
+            "id": "SkillUnlock_Umihebi"
         },
         {
             "name": "Jormuntide Ignis Saddle",
             "id": "SkillUnlock_Umihebi_Fire"
         },
         {
+            "name": "Kitsun Saddle",
+            "id": "SkillUnlock_AmaterasuWolf"
+        },
+        {
+            "name": "Kitsun Noct Saddle",
+            "id": "SkillUnlock_AmaterasuWolf_Dark"
+        },
+        {
+            "name": "Rayhound Saddle",
+            "id": "SkillUnlock_ThunderDog"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_ThunderDog_Ice)",
+            "id": "SkillUnlock_ThunderDog_Ice"
+        },
+        {
+            "name": "Blazehowl Saddle",
+            "id": "SkillUnlock_Manticore"
+        },
+        {
+            "name": "Blazehowl Noct Saddle",
+            "id": "SkillUnlock_Manticore_Dark"
+        },
+        {
+            "name": "Reindrix Saddle",
+            "id": "SkillUnlock_IceDeer"
+        },
+        {
+            "name": "Beakon Saddle",
+            "id": "SkillUnlock_ThunderBird"
+        },
+        {
+            "name": "Ragnahawk Saddle",
+            "id": "SkillUnlock_RedArmorBird"
+        },
+        {
+            "name": "Faleris Saddle",
+            "id": "SkillUnlock_Horus"
+        },
+        {
+            "name": "Faleris Aqua Saddle",
+            "id": "SkillUnlock_Horus_Water"
+        },
+        {
+            "name": "Quivern Saddle",
+            "id": "SkillUnlock_SkyDragon"
+        },
+        {
+            "name": "Quivern Botan Saddle",
+            "id": "SkillUnlock_SkyDragon_Grass"
+        },
+        {
+            "name": "Helzephyr Saddle",
+            "id": "SkillUnlock_HadesBird"
+        },
+        {
+            "name": "Helzephyr Lux Saddle",
+            "id": "SkillUnlock_HadesBird_Electric"
+        },
+        {
+            "name": "Fenglope Saddle",
+            "id": "SkillUnlock_FengyunDeeper"
+        },
+        {
+            "name": "Fenglope Lux Saddle",
+            "id": "SkillUnlock_FengyunDeeper_Electric"
+        },
+        {
+            "name": "Suzaku Saddle",
+            "id": "SkillUnlock_Suzaku"
+        },
+        {
+            "name": "Suzaku Aqua Saddle",
+            "id": "SkillUnlock_Suzaku_Water"
+        },
+        {
             "name": "Yakumo Saddle",
             "id": "SkillUnlock_GuardianDog"
         },
         {
-            "name": "Relaxaurus's Missile Launcher",
-            "id": "SkillUnlock_LazyDragon"
+            "name": "Blazamut Saddle",
+            "id": "SkillUnlock_KingBahamut"
+        },
+        {
+            "name": "Blazamut Ryu Saddle",
+            "id": "SkillUnlock_KingBahamut_Dragon"
         },
         {
             "name": "Wumpo Saddle",
@@ -6749,12 +7329,48 @@
             "id": "SkillUnlock_Yeti_Grass"
         },
         {
-            "name": "Mammorest Cryst Saddle",
-            "id": "SkillUnlock_GrassMammoth_Ice"
+            "name": "Whalaska Saddle",
+            "id": "SkillUnlock_IceNarwhal"
         },
         {
-            "name": "Chillet Ignis Saddle",
-            "id": "SkillUnlock_WeaselDragon_Fire"
+            "name": "Whalaska Ignis Saddle",
+            "id": "SkillUnlock_IceNarwhal_Fire"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_GrassGolem)",
+            "id": "SkillUnlock_GrassGolem"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_GrassGolem_Dark)",
+            "id": "SkillUnlock_GrassGolem_Dark"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_PyramidTurtle)",
+            "id": "SkillUnlock_PyramidTurtle"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_KingSunfish)",
+            "id": "SkillUnlock_KingSunfish"
+        },
+        {
+            "name": "Unknown Item (SkillUnlock_SumoDog)",
+            "id": "SkillUnlock_SumoDog"
+        },
+        {
+            "name": "Grizzbolt's Minigun",
+            "id": "SkillUnlock_ElecPanda"
+        },
+        {
+            "name": "Shadowbeak Saddle",
+            "id": "SkillUnlock_BlackGriffon"
+        },
+        {
+            "name": "Astegon Saddle",
+            "id": "SkillUnlock_BlackMetalDragon"
+        },
+        {
+            "name": "Relaxaurus's Missile Launcher",
+            "id": "SkillUnlock_LazyDragon"
         },
         {
             "name": "Relaxaurus Lux's Missile Launcher",
@@ -6763,14 +7379,6 @@
         {
             "name": "Shroomer Saddle",
             "id": "SkillUnlock_MushroomDragon"
-        },
-        {
-            "name": "Astegon Saddle",
-            "id": "SkillUnlock_BlackMetalDragon"
-        },
-        {
-            "name": "Shadowbeak Saddle",
-            "id": "SkillUnlock_BlackGriffon"
         },
         {
             "name": "Shroomer Noct Saddle",
@@ -6793,10 +7401,6 @@
             "id": "SkillUnlock_BlackCentaur"
         },
         {
-            "name": "Quivern Botan Saddle",
-            "id": "SkillUnlock_SkyDragon_Grass"
-        },
-        {
             "name": "Jetragon's Missile Launcher",
             "id": "SkillUnlock_JetDragon"
         },
@@ -6805,60 +7409,44 @@
             "id": "SkillUnlock_WhiteAlienDragon"
         },
         {
-            "name": "Helzephyr Lux Saddle",
-            "id": "SkillUnlock_HadesBird_Electric"
-        },
-        {
-            "name": "Fenglope Lux Saddle",
-            "id": "SkillUnlock_FengyunDeeper_Electric"
-        },
-        {
-            "name": "Dazzi Noct's Necklace",
-            "id": "SkillUnlock_RaijinDaughter_Water"
-        },
-        {
             "name": "Selyne Saddle",
             "id": "SkillUnlock_MoonQueen"
-        },
-        {
-            "name": "Nyafia's Shotgun",
-            "id": "SkillUnlock_BadCatgirl"
-        },
-        {
-            "name": "Kitsun Noct Saddle",
-            "id": "SkillUnlock_AmaterasuWolf_Dark"
-        },
-        {
-            "name": "Gildane Saddle",
-            "id": "SkillUnlock_GoldenHorse"
-        },
-        {
-            "name": "Blazamut Ryu Saddle",
-            "id": "SkillUnlock_KingBahamut_Dragon"
-        },
-        {
-            "name": "Faleris Aqua Saddle",
-            "id": "SkillUnlock_Horus_Water"
-        },
-        {
-            "name": "Azurmane Saddle",
-            "id": "SkillUnlock_BlueThunderHorse"
         },
         {
             "name": "Smokie's Harness",
             "id": "SkillUnlock_BlackPuppy"
         },
         {
+            "name": "Unknown Item (SkillUnlock_BlackPuppy_Ice)",
+            "id": "SkillUnlock_BlackPuppy_Ice"
+        },
+        {
             "name": "Starryon Saddle",
             "id": "SkillUnlock_NightBlueHorse"
         },
         {
-            "name": "Silvegis Saddle",
-            "id": "SkillUnlock_WhiteShieldDragon"
+            "name": "Unknown Item (SkillUnlock_NightBlueHorse_Neutral)",
+            "id": "SkillUnlock_NightBlueHorse_Neutral"
+        },
+        {
+            "name": "Azurmane Saddle",
+            "id": "SkillUnlock_BlueThunderHorse"
+        },
+        {
+            "name": "Gildane Saddle",
+            "id": "SkillUnlock_GoldenHorse"
+        },
+        {
+            "name": "Nyafia's Shotgun",
+            "id": "SkillUnlock_BadCatgirl"
         },
         {
             "name": "Celesdir Saddle",
             "id": "SkillUnlock_WhiteDeer"
+        },
+        {
+            "name": "Silvegis Saddle",
+            "id": "SkillUnlock_WhiteShieldDragon"
         },
         {
             "name": "Bastigor's Hammer",
@@ -6869,79 +7457,31 @@
             "id": "SkillUnlock_DarkMechaDragon"
         },
         {
-            "name": "Whalaska Saddle",
-            "id": "SkillUnlock_IceNarwhal"
-        },
-        {
-            "name": "Ghangler Saddle",
-            "id": "SkillUnlock_GhostAnglerfish"
-        },
-        {
-            "name": "Herbil's Harness",
-            "id": "SkillUnlock_LeafMomonga"
-        },
-        {
-            "name": "Polapup's Harness",
-            "id": "SkillUnlock_IceSeal"
-        },
-        {
-            "name": "Braloha Saddle",
-            "id": "SkillUnlock_Plesiosaur"
-        },
-        {
-            "name": "Palumba Saddle",
-            "id": "SkillUnlock_TropicalOstrich"
-        },
-        {
             "name": "Neptilius Saddle",
             "id": "SkillUnlock_PoseidonOrca"
         },
         {
-            "name": "Killamari Primo's Gloves",
-            "id": "SkillUnlock_NegativeOctopus_Neutral"
+            "name": "Unknown Item (SkillUnlock_VolcanoDragon)",
+            "id": "SkillUnlock_VolcanoDragon"
         },
         {
-            "name": "Pengullet Lux's Rocket Launcher",
-            "id": "SkillUnlock_Penguin_Electric"
-        },
-        {
-            "name": "Celaray Lux's Gloves",
-            "id": "SkillUnlock_FlyingManta_Thunder"
-        },
-        {
-            "name": "Azurobe Cryst Saddle",
-            "id": "SkillUnlock_BlueDragon_Ice"
-        },
-        {
-            "name": "Ghangler Ignis Saddle",
-            "id": "SkillUnlock_GhostAnglerfish_Fire"
-        },
-        {
-            "name": "Whalaska Ignis Saddle",
-            "id": "SkillUnlock_IceNarwhal_Fire"
-        },
-        {
-            "name": "Boltmane Saddle",
-            "id": "SkillUnlock_ElecLion"
-        },
-        {
-            "name": "en_text's Power Converter",
-            "id": "SkillUnlock_DarkMutant"
+            "name": "Hartalis Saddle",
+            "id": "SkillUnlock_LegendDeer"
         },
         {
             "name": "Small Pouch",
             "id": "AdditionalInventory_001"
         },
         {
-            "name": "Medium Pouch +1",
+            "name": "Medium Pouch",
             "id": "AdditionalInventory_002"
         },
         {
-            "name": "Large Pouch +2",
+            "name": "Large Pouch",
             "id": "AdditionalInventory_003"
         },
         {
-            "name": "Giant Pouch +3",
+            "name": "Giant Pouch",
             "id": "AdditionalInventory_004"
         },
         {
@@ -7261,6 +7801,10 @@
             "id": "QuestItem_Zoe_1"
         },
         {
+            "name": "Zoe's Halloween Costume",
+            "id": "QuestItem_Zoe_Halloweenskin_1"
+        },
+        {
             "name": "Breeder's Precious Pal",
             "id": "QuestItem_Breeder_1"
         },
@@ -7285,8 +7829,8 @@
             "id": "TreasureMap05"
         },
         {
-            "name": "Gold Coin",
-            "id": "Money"
+            "name": "Champion's Emblem",
+            "id": "PlayerDropItem"
         }
     ]
 }
