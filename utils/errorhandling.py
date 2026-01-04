@@ -24,7 +24,7 @@ def setup_logging():
     root_logger.handlers = []
     root_logger.addHandler(log_handler)
 
-    clean_old_logs('logs', 10)
+    clean_old_logs('logs', 5)
 
 def clean_old_logs(directory, max_logs):
     log_files = sorted(
