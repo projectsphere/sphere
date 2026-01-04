@@ -14,6 +14,7 @@ from utils.database import (
     fetch_logchannel
 )
 from palworld_api import PalworldAPI
+from utils.apicache import api_cache
 import logging
 
 class WhitelistCog(commands.Cog):
@@ -36,8 +37,8 @@ class WhitelistCog(commands.Cog):
             log_channel = self.bot.get_channel(log_channel_id) if log_channel_id else None
 
             try:
+                player_list = await api_cache.get_player_list(host, api_port, password)
                 api = PalworldAPI(f"http://{host}:{api_port}", password)
-                player_list = await api.get_player_list()
                 for player in player_list['players']:
                     playerid = player['userId']
                     if not await is_whitelisted(playerid):

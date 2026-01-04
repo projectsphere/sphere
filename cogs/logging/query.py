@@ -10,6 +10,7 @@ from utils.database import (
     fetch_all_servers
 )
 from palworld_api import PalworldAPI
+from utils.apicache import api_cache
 import utils.constants as c
 import logging
 import asyncio
@@ -37,10 +38,7 @@ class ServerQueryCog(commands.Cog):
                         if not server_config:
                             continue
 
-                        api = PalworldAPI(f"http://{host}:{api_port}", password)
-                        server_info = await api.get_server_info()
-                        server_metrics = await api.get_server_metrics()
-                        player_list = await api.get_player_list()
+                        server_info, server_metrics, player_list = await api_cache.get_all_server_data(host, api_port, password)
 
                         server_embed = self.create_server_embed(server_name, server_info, server_metrics)
                         player_embed = self.create_player_embed(player_list)
@@ -115,10 +113,7 @@ class ServerQueryCog(commands.Cog):
             password = server_config[3]
             api_port = server_config[4]
 
-            api = PalworldAPI(f"http://{host}:{api_port}", password)
-            server_info = await api.get_server_info()
-            server_metrics = await api.get_server_metrics()
-            player_list = await api.get_player_list()
+            server_info, server_metrics, player_list = await api_cache.get_all_server_data(host, api_port, password)
 
             server_embed = self.create_server_embed(server, server_info, server_metrics)
             player_embed = self.create_player_embed(player_list)

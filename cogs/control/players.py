@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord import app_commands
 from utils.database import fetch_server_details, server_autocomplete
 from palworld_api import PalworldAPI
+from utils.apicache import api_cache
 import logging
 
 class PlayersCog(commands.Cog):
@@ -35,12 +36,16 @@ class PlayersCog(commands.Cog):
     async def player_list(self, interaction: discord.Interaction, server: str):
         await interaction.response.defer(thinking=True, ephemeral=True)
         try:
-            api, error = await self.get_api_instance(interaction.guild.id, server)
-            if error:
-                await interaction.followup.send(error, ephemeral=True)
+            server_config = await fetch_server_details(interaction.guild.id, server)
+            if not server_config:
+                await interaction.followup.send(f"Server '{server}' configuration not found.", ephemeral=True)
                 return
             
-            player_list = await api.get_player_list()
+            host = server_config[2]
+            password = server_config[3]
+            api_port = server_config[4]
+            
+            player_list = await api_cache.get_player_list(host, api_port, password)
             if player_list and 'players' in player_list:
                 embed = self.playerlist_embed(server, player_list['players'])
                 await interaction.followup.send(embed=embed, ephemeral=True)

@@ -9,6 +9,7 @@ from utils.database import (
     server_autocomplete
 )
 from palworld_api import PalworldAPI
+from utils.apicache import api_cache
 import logging
 
 class EventsCog(commands.Cog):
@@ -30,8 +31,7 @@ class EventsCog(commands.Cog):
                 channel = self.bot.get_channel(log_channel_id)
                 if channel:
                     try:
-                        api = PalworldAPI(f"http://{host}:{api_port}", password)
-                        player_list = await api.get_player_list()
+                        player_list = await api_cache.get_player_list(host, api_port, password)
                         current_players = {(player['userId'], player['accountName']) for player in player_list['players']}
 
                         if server_name not in self.player_cache:

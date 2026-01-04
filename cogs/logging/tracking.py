@@ -3,6 +3,7 @@ from discord.ext import commands, tasks
 from discord import app_commands
 from utils.database import fetch_all_servers, get_tracking, set_tracking
 from palworld_api import PalworldAPI
+from utils.apicache import api_cache
 import logging
 
 class PlayerTrackerCog(commands.Cog):
@@ -28,8 +29,7 @@ class PlayerTrackerCog(commands.Cog):
                     guild_id, _, host, password, api_port, _ = server
                     if guild_id not in guilds:
                         continue
-                    api = PalworldAPI(f"http://{host}:{api_port}", password)
-                    metrics = await api.get_server_metrics()
+                    metrics = await api_cache.get_server_metrics(host, api_port, password)
                     total_players += metrics.get('currentplayernum', 0)
                 except Exception as e:
                     logging.error(f"Error fetching metrics from {server[1]}: {e}")

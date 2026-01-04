@@ -12,6 +12,7 @@ from utils.database import (
 )
 from utils.whitelist import is_whitelisted
 from palworld_api import PalworldAPI
+from utils.apicache import api_cache
 import logging
 
 class PlayerLoggingCog(commands.Cog):
@@ -33,8 +34,7 @@ class PlayerLoggingCog(commands.Cog):
         for server in servers:
             guild_id, server_name, host, password, api_port, rcon_port = server
             try:
-                api = PalworldAPI(f"http://{host}:{api_port}", password)
-                player_list = await api.get_player_list()
+                player_list = await api_cache.get_player_list(host, api_port, password)
                 current_online = set(player['userId'] for player in player_list['players'])
                 previous_online = self.server_online_cache.get(server_name, set())
                 self.server_online_cache[server_name] = current_online

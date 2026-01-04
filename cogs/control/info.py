@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord import app_commands
 from utils.database import server_autocomplete, fetch_server_details
 from palworld_api import PalworldAPI
+from utils.apicache import api_cache
 import logging
 
 class ServerInfoCog(commands.Cog):
@@ -33,9 +34,7 @@ class ServerInfoCog(commands.Cog):
             password = server_config[3]
             api_port = server_config[4]
             
-            api = PalworldAPI(f"http://{host}:{api_port}", password)
-            server_info = await api.get_server_info()
-            server_metrics = await api.get_server_metrics()
+            server_info, server_metrics, _ = await api_cache.get_all_server_data(host, api_port, password)
             
             embed = discord.Embed(title=f"{server_info.get('servername', server)}", description=f"{server_info.get('description', 'N/A')}", color=discord.Color.blurple())
             embed.add_field(name="Players", value=f"{server_metrics.get('currentplayernum', 'N/A')}/{server_metrics.get('maxplayernum', 'N/A')}", inline=True)

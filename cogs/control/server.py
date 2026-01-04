@@ -12,13 +12,13 @@ from utils.database import (
     remove_logchannel
 )
 from utils.servermodal import AddServerModal
+from palworld_api import PalworldAPI
 import logging
 
 class ServerManagementCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # The devs need a "health" api endpoint to check if RESTAPI is up...
     @app_commands.command(name="addserver", description="Add a server configuration")
     @app_commands.default_permissions(administrator=True)
     @app_commands.guild_only()
@@ -35,6 +35,13 @@ class ServerManagementCog(commands.Cog):
             rcon_port = int(modal.children[4].value) if modal.children[4].value else None
 
             try:
+                api = PalworldAPI(f"http://{host}:{api_port}", password)
+                server_info = await api.get_server_info()
+                
+                if not server_info or 'version' not in server_info:
+                    await modal_interaction.followup.send("Failed to connect to server: Invalid response from API.", ephemeral=True)
+                    return
+                
                 await add_server(
                     interaction.guild_id,
                     server_name,
@@ -43,7 +50,7 @@ class ServerManagementCog(commands.Cog):
                     api_port,
                     rcon_port
                 )
-                await modal_interaction.followup.send("Server added successfully.", ephemeral=True)
+                await modal_interaction.followup.send(f"Server added successfully. Version: {server_info.get('version', 'Unknown')}", ephemeral=True)
             except Exception as e:
                 await modal_interaction.followup.send(f"Failed to add server: {e}", ephemeral=True)
                 logging.error(f"Failed to add server: {e}")
