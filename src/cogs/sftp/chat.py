@@ -10,7 +10,7 @@ import yaml
 from utils.database import fetch_server_details
 from palworld_api import PalworldAPI
 
-CONFIG_FILE = os.path.join("data", "sftp.yml")
+CONFIG_FILE = os.path.join("config", "sftp.yml")
 
 def load_yaml_config():
     if not os.path.exists(CONFIG_FILE):

@@ -21,12 +21,12 @@ class PalDefenderCog(commands.Cog):
         self.servers = []
 
     def load_pals(self):
-        path = os.path.join("gamedata", "paldata.json")
+        path = os.path.join("src", "gamedata", "paldata.json")
         with open(path, "r", encoding="utf-8") as f:
             self.pals = json.load(f).get("pals", [])
 
     def load_items(self):
-        path = os.path.join("gamedata", "itemdata.json")
+        path = os.path.join("src", "gamedata", "itemdata.json")
         with open(path, "r", encoding="utf-8") as f:
             self.items = json.load(f).get("items", [])
 

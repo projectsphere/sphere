@@ -36,7 +36,7 @@ echo [Sphere Bot] Installing/upgrading dependencies...
 %PYTHON_CMD% -m pip install -r requirements.txt
 
 echo [Sphere Bot] Starting bot...
-%PYTHON_CMD% main.py
+%PYTHON_CMD% run.py
 
 ENDLOCAL
 pause

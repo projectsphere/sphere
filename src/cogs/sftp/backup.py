@@ -11,7 +11,7 @@ import shutil
 import stat
 from paramiko import SSHClient, AutoAddPolicy
 
-CONFIG_FILE = os.path.join("data", "sftp.yml")
+CONFIG_FILE = os.path.join("config", "sftp.yml")
 
 def load_yaml_config():
     if not os.path.exists(CONFIG_FILE):
