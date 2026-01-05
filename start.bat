@@ -1,6 +1,16 @@
 @echo off
 SETLOCAL
 
+echo  ____            __
+echo /\  _`\         /\ \
+echo \ \,\L\_\  _____\ \ \___      __   _ __    __
+echo  \/_\__ \ /\ '__`\ \  _ `\  /'__`\/\`'__\/'__`\
+echo    /\ \L\ \ \ \L\ \ \ \ \ \/\  __/\ \ \//\  __/
+echo    \ `\____\ \ ,__/\ \_\ \_\ \____\\ \_\\ \____\
+echo     \/_____/\ \ \/  \/_/\/_/\/____/ \/_/ \/____/
+echo              \ \_\
+echo               \/_/
+
 SET PYTHON_CMD=python
 
 where python >nul 2>&1
@@ -16,27 +26,7 @@ IF NOT %ERRORLEVEL%==0 (
     )
 )
 
-IF NOT EXIST "venv" (
-    echo [Sphere Bot] Creating virtual environment...
-    %PYTHON_CMD% -m venv venv
-)
-
-echo [Sphere Bot] Activating virtual environment...
-call venv\Scripts\activate.bat
-
-echo ------------------------------------------
-echo [Sphere Bot] Virtual Environment Ready
-echo ------------------------------------------
-
-title Sphere Bot
-
-echo [Sphere Bot] Installing/upgrading dependencies...
-%PYTHON_CMD% -m pip install --upgrade pip
-%PYTHON_CMD% -m pip install setuptools
-%PYTHON_CMD% -m pip install -r requirements.txt
-
-echo [Sphere Bot] Starting bot...
-%PYTHON_CMD% main.py
+%PYTHON_CMD% setup.py
 
 ENDLOCAL
 pause
