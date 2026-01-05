@@ -26,9 +26,13 @@
 - `API_KEY`: The API Key you set for your banlist. This key is used to access the endpoints securely.
 
 ## Installation
- 1. Create a `.env` file and fill out your `BOT_TOKEN` and `BOT_PREFIX`
- 2. Run the bot with `python main.py`
- 3. Use `/help` to see all available commands on the bot.
+ 1. Run the bot using:
+    - Windows: `start.bat`
+    - Linux/Mac: `chmod +x start.sh && ./start.sh`
+
+   The startup script will automatically handle virtual environment creation, dependency installation, and `.env` file setup on first run.
+ 2. Use `/help` to see all available commands on the bot.
+
 
 ## Example YML Configuration
 SFTP configuration is done through a yaml file named `sftp.yml`. Below is an example configuration for multiple servers. 
