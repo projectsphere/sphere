@@ -180,5 +180,75 @@ class KitsCog(commands.Cog):
         await delete_kit(kit_name)
         await interaction.followup.send(f"Kit '{kit_name}' has been deleted.", ephemeral=True)
 
+    @app_commands.command(name="importkits", description="Import multiple kits from a JSON file.")
+    @app_commands.describe(file="JSON file containing kits to import")
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
+    async def importkits(self, interaction: discord.Interaction, file: discord.Attachment):
+        await interaction.response.defer(ephemeral=True)
+        
+        if not file.filename.endswith('.json'):
+            await interaction.followup.send("Please upload a JSON file.", ephemeral=True)
+            return
+        
+        try:
+            content = await file.read()
+            kits_data = json.loads(content.decode('utf-8'))
+            
+            if not isinstance(kits_data, list):
+                await interaction.followup.send("JSON must be an array of kit objects.", ephemeral=True)
+                return
+            
+            imported = 0
+            errors = []
+            
+            for kit in kits_data:
+                if not isinstance(kit, dict):
+                    errors.append(f"Skipped invalid kit entry (not an object)")
+                    continue
+                
+                kit_name = kit.get('kit_name', '').strip()
+                commands = kit.get('commands')
+                description = kit.get('description', '').strip()
+                
+                if not kit_name:
+                    errors.append(f"Skipped kit with missing name")
+                    continue
+                
+                if not commands:
+                    errors.append(f"Skipped '{kit_name}': missing commands")
+                    continue
+                
+                try:
+                    if isinstance(commands, list):
+                        commands_str = json.dumps(commands)
+                    elif isinstance(commands, str):
+                        json.loads(commands)
+                        commands_str = commands
+                    else:
+                        errors.append(f"Skipped '{kit_name}': invalid commands format")
+                        continue
+                    
+                    await save_kit(kit_name, commands_str, description)
+                    imported += 1
+                    
+                except json.JSONDecodeError:
+                    errors.append(f"Skipped '{kit_name}': commands not valid JSON")
+                except Exception as e:
+                    errors.append(f"Skipped '{kit_name}': {str(e)}")
+            
+            response = f"Successfully imported {imported} kit(s)."
+            if errors:
+                response += f"\n\nErrors:\n" + "\n".join(errors[:10])
+                if len(errors) > 10:
+                    response += f"\n... and {len(errors) - 10} more errors"
+            
+            await interaction.followup.send(response, ephemeral=True)
+            
+        except json.JSONDecodeError:
+            await interaction.followup.send("Invalid JSON file.", ephemeral=True)
+        except Exception as e:
+            await interaction.followup.send(f"Error importing kits: {str(e)}", ephemeral=True)
+
 async def setup(bot):
     await bot.add_cog(KitsCog(bot))

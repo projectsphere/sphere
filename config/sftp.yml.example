@@ -1,0 +1,12 @@
+ servers:
+  - name: "Palworld Server"
+    host: "192.168.1.10"
+    port: 2022
+    username: "user1"
+    password: "password1"
+    path: "Pal/Binaries/Win64/PalDefender/Logs"
+    webhook: "https://discord.com/api/webhooks/111111111111111111/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    channel: 111111111111111111
+    save_path: "Pal/Saved/SaveGames/0/0000000000000001"
+    backup_channel: 111111111111111111
+    backup_interval: 300
