@@ -18,6 +18,7 @@
  - **Cross Server Chat**: Send and receive chats from the server to discord and vice versa.
  - **Scheduled Backups**: Create backups of your server and send them to a discord channel at timed intervals.
  - **SFTP Support**: Securely connect to your servers via SFTP for automated save checks, remote file transfers, and backup uploads.
+ - **Link Support**: Link your discord to your in-game account.
 
 ## Environment Variables
 - `BOT_TOKEN`: Your discord bot token generated on the [Discord Developer Portal](https://discord.com/developers/applications).
@@ -46,7 +47,6 @@ SFTP configuration is done through a yaml file named `sftp.yml`. Below is an exa
     backup_channel: 111111111111111111
     backup_interval: 300
  ```
-
 
 ## This project runs my libaries.
  - **Palworld API** - A python library that acts as a wrapper for the Palworld server REST API.

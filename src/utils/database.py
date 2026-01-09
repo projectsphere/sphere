@@ -88,6 +88,17 @@ async def initialize_db():
             total_time INTEGER NOT NULL DEFAULT 0,
             session_start TIMESTAMP,
             last_session INTEGER NOT NULL DEFAULT 0
+        )""",
+        """CREATE TABLE IF NOT EXISTS link_codes (
+            discord_id INTEGER PRIMARY KEY,
+            code TEXT NOT NULL,
+            timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )""",
+        """CREATE TABLE IF NOT EXISTS linked_players (
+            discord_id INTEGER PRIMARY KEY,
+            player_userid TEXT NOT NULL,
+            player_name TEXT NOT NULL,
+            linked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )"""
     ]
     conn = await db_connection()
@@ -392,6 +403,65 @@ async def get_player_session(user_id: str):
         row = await cursor.fetchone()
         await conn.close()
         return row
+
+async def create_link_code(discord_id: int, code: str):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("""
+            INSERT OR REPLACE INTO link_codes (discord_id, code, timestamp)
+            VALUES (?, ?, CURRENT_TIMESTAMP)
+        """, (discord_id, code))
+        await conn.commit()
+        await conn.close()
+
+async def get_link_code(discord_id: int):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT code FROM link_codes WHERE discord_id = ?", (discord_id,))
+        row = await cursor.fetchone()
+        await conn.close()
+        return row[0] if row else None
+
+async def verify_link_code(code: str):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT discord_id FROM link_codes WHERE code = ?", (code,))
+        row = await cursor.fetchone()
+        await conn.close()
+        return row[0] if row else None
+
+async def link_player(discord_id: int, player_userid: str, player_name: str):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("""
+            INSERT OR REPLACE INTO linked_players (discord_id, player_userid, player_name, linked_at)
+            VALUES (?, ?, ?, CURRENT_TIMESTAMP)
+        """, (discord_id, player_userid, player_name))
+        await cursor.execute("DELETE FROM link_codes WHERE discord_id = ?", (discord_id,))
+        await conn.commit()
+        await conn.close()
+
+async def get_linked_player(discord_id: int):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT player_userid, player_name FROM linked_players WHERE discord_id = ?", (discord_id,))
+        row = await cursor.fetchone()
+        await conn.close()
+        return row
+
+async def get_discord_from_userid(player_userid: str):
+    conn = await db_connection()
+    if conn:
+        cursor = await conn.cursor()
+        await cursor.execute("SELECT discord_id FROM linked_players WHERE player_userid = ?", (player_userid,))
+        row = await cursor.fetchone()
+        await conn.close()
+        return row[0] if row else None
 
 if __name__ == "__main__":
     import asyncio

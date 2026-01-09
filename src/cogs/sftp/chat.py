@@ -7,7 +7,7 @@ import logging
 import os
 import asyncio
 import yaml
-from utils.database import fetch_server_details
+from utils.database import fetch_server_details, verify_link_code, link_player, fetch_player
 from palworld_api import PalworldAPI
 
 CONFIG_FILE = os.path.join("config", "sftp.yml")
@@ -29,6 +29,7 @@ class SFTPChatCog(commands.Cog):
         self.interval = 15
         self.blocked_phrases = ["/adminpassword", "/creativemenu", "/", "!"]
         self._chat_regex = re.compile(r"\[Chat::(?:Global|Local)\]\['([^']+)'.*\]: (.*)")
+        self._link_regex = re.compile(r"\[Chat::(?:Global|Local)\]\['([^']+)'.*\]:\s*[!/]link\s+([A-Z0-9]+)", re.IGNORECASE)
 
     async def cog_load(self):
         for cfg in self.config:
@@ -110,6 +111,8 @@ class SFTPChatCog(commands.Cog):
                 else:
                     for line in lines:
                         await self.process_and_send(cfg, line)
+                        if "link_channel" in cfg:
+                            await self.process_link_command(cfg, line)
                         await asyncio.sleep(1)
                     self.last_processed_line[name] = new_last
                     self.first_check_done[name] = first_done
@@ -130,6 +133,58 @@ class SFTPChatCog(commands.Cog):
                         logging.info(f"[{cfg['name']}] Webhook error: {response.status} - {await response.text()}")
         except Exception as e:
             logging.error(f"[{cfg['name']}] Error processing line: {e}")
+
+    async def process_link_command(self, cfg, line):
+        try:
+            match = self._link_regex.search(line)
+            if match:
+                player_name, code = match.groups()
+                code = code.upper()
+                
+                discord_id = await verify_link_code(code)
+                if discord_id:
+                    player_data = await fetch_player(player_name)
+                    
+                    if player_data:
+                        player_userid = player_data[0]
+                        await link_player(discord_id, player_userid, player_name)
+                        
+                        try:
+                            user = await self.bot.fetch_user(discord_id)
+                            embed = discord.Embed(
+                                title="Account Linked Successfully!",
+                                description="Your Discord account has been linked to your in-game player.",
+                                color=discord.Color.green()
+                            )
+                            embed.add_field(name="Player Name", value=player_name, inline=True)
+                            embed.add_field(name="User ID", value=f"`{player_userid}`", inline=True)
+                            await user.send(embed=embed)
+                        except discord.Forbidden:
+                            logging.warning(f"Could not DM user {discord_id} - DMs may be disabled")
+                        except Exception as e:
+                            logging.error(f"Error sending DM to {discord_id}: {e}")
+                        
+                        if "link_channel" in cfg:
+                            try:
+                                channel = self.bot.get_channel(int(cfg["link_channel"]))
+                                if channel:
+                                    embed = discord.Embed(
+                                        title="Player Linked",
+                                        description=f"**{player_name}** has linked their account",
+                                        color=discord.Color.green()
+                                    )
+                                    embed.add_field(name="User ID", value=f"`{player_userid}`", inline=True)
+                                    embed.add_field(name="Discord", value=f"<@{discord_id}>", inline=True)
+                                    embed.add_field(name="Server", value=cfg["name"], inline=False)
+                                    await channel.send(embed=embed)
+                            except Exception as e:
+                                logging.error(f"Error sending link notification to channel: {e}")
+                    else:
+                        logging.warning(f"Player {player_name} not found in database for linking")
+                else:
+                    logging.info(f"Invalid link code attempted: {code} by {player_name}")
+        except Exception as e:
+            logging.error(f"[{cfg['name']}] Error processing link command: {e}")
 
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
