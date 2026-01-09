@@ -29,7 +29,7 @@ class SFTPChatCog(commands.Cog):
         self.interval = 15
         self.blocked_phrases = ["/adminpassword", "/creativemenu", "/", "!"]
         self._chat_regex = re.compile(r"\[Chat::(?:Global|Local)\]\['([^']+)'.*\]: (.*)")
-        self._link_regex = re.compile(r"\[Chat::(?:Global|Local)\]\['([^']+)'.*\]:\s*[!/]link\s+([A-Z0-9]+)", re.IGNORECASE)
+        self._link_regex = re.compile(r"\[Chat::(?:Global|Local)\]\['([^']+)'\s*\(UserId=([^,]+),.*\]:\s*[!/]link\s+([A-Z0-9]+)", re.IGNORECASE)
 
     async def cog_load(self):
         for cfg in self.config:
@@ -138,12 +138,12 @@ class SFTPChatCog(commands.Cog):
         try:
             match = self._link_regex.search(line)
             if match:
-                player_name, code = match.groups()
+                player_name, user_id, code = match.groups()
                 code = code.upper()
                 
                 discord_id = await verify_link_code(code)
                 if discord_id:
-                    player_data = await fetch_player(player_name)
+                    player_data = await fetch_player(user_id)
                     
                     if player_data:
                         player_userid = player_data[0]
