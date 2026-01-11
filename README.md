@@ -46,6 +46,7 @@ SFTP configuration is done through a yaml file named `sftp.yml`. Below is an exa
     save_path: "Pal/Saved/SaveGames/0/0000000000000001"
     backup_channel: 111111111111111111
     backup_interval: 300
+    link_channel: 222222222222222222
  ```
 
 ## This project runs my libaries.

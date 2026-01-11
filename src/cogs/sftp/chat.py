@@ -188,17 +188,20 @@ class SFTPChatCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
-        if message.author.bot or not message.guild or not message.content:
-            return
-        for cfg in self.config:
-            if "channel" in cfg and str(message.channel.id) == str(cfg["channel"]) and "name" in cfg:
-                details = await fetch_server_details(message.guild.id, cfg["name"])
-                if details:
-                    host = details[2]
-                    password = details[3]
-                    api_port = details[4]
-                    api = PalworldAPI(f"http://{host}:{api_port}", password)
-                    await api.make_announcement(f"[{message.author.name}]: {message.content}")
+        try:
+            if message.author.bot or not message.guild or not message.content:
+                return
+            for cfg in self.config:
+                if "channel" in cfg and str(message.channel.id) == str(cfg["channel"]) and "name" in cfg:
+                    details = await fetch_server_details(message.guild.id, cfg["name"])
+                    if details:
+                        host = details[2]
+                        password = details[3]
+                        api_port = details[4]
+                        api = PalworldAPI(f"http://{host}:{api_port}", password)
+                        await api.make_announcement(f"[{message.author.name}]: {message.content}")
+        except Exception as e:
+            logging.error(f"Error in on_message: {e}", exc_info=True)
 
 async def setup(bot):
     if not os.path.exists(CONFIG_FILE):
