@@ -99,6 +99,13 @@ async def initialize_db():
             player_userid TEXT NOT NULL,
             player_name TEXT NOT NULL,
             linked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )""",
+        """CREATE TABLE IF NOT EXISTS economy (
+            discord_id INTEGER NOT NULL,
+            guild_id INTEGER NOT NULL,
+            gold INTEGER DEFAULT 0,
+            last_work TIMESTAMP,
+            PRIMARY KEY (discord_id, guild_id)
         )"""
     ]
     conn = await db_connection()

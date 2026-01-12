@@ -1,6 +1,6 @@
 # Project Sphere Palworld
  > [!WARNING]  
- > This bot is still in development, but it's in a usable state. No support will be provided unless it's for bug reports or feature requests.
+ > This bot is still in development. Please use [latest releases](https://github.com/projectsphere/sphere/releases) and not the latest commits. I will not provide support for the latest commits.
 
  Sphere is a Discord bot for Palworld servers. It lets you control servers, log players, manage bans and whitelists, cross-server chat, backups, and more. The SFTP branch adds support for reading server logs and chat directly over SFTP.
 

@@ -1,0 +1,37 @@
+shop:
+  - name: "Starter Kit"
+    description: "Basic starter equipment and armor for new players"
+    price: 100
+    items:
+      - "ClothArmor_5:1"
+      - "Shield_02:1"
+      - "FurHelmet_5:1"
+      - "Pickaxe_Tier_00:1"
+      - "Axe_Tier_00:1"
+    
+  - name: "Assault Rifle Pack"
+    description: "Assault rifle with ammunition"
+    price: 150
+    items:
+      - "AssaultRifle_Default5:1"
+      - "AssaultRifleBullet:500"
+    
+  - name: "Viking Helmet"
+    description: "Legendary Viking helmet"
+    price: 250
+    items:
+      - "GYM_Head_Viking:1"
+    
+  - name: "Food Bundle"
+    description: "Large food supply"
+    price: 50
+    items:
+      - "BLT:50"
+      - "Cake:10
+    
+  - name: "Pal Sphere Bundle"
+    description: "Collection of Ultimate and Exotic Pal Spheres"
+    price: 200
+    items:
+      - "PalSphere_Ultimate:50"
+      - "PalSphere_Exotic:10"

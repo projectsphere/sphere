@@ -11,3 +11,9 @@
     backup_channel: 111111111111111111
     backup_interval: 300
     link_channel: 222222222222222222
+
+economy:
+  currency_name: "gold"
+  work_cooldown: 3600
+  work_minamount: 10
+  work_maxamount: 50
