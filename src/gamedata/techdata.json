@@ -1,0 +1,2012 @@
+{
+    "technology": [
+        {
+            "name": "Primitive Workbench",
+            "asset": "Workbench"
+        },
+        {
+            "name": "Stone Axe",
+            "asset": "Product_Axe_Grade_01"
+        },
+        {
+            "name": "Stone Pickaxe",
+            "asset": "Product_Pickaxe_Grade_01"
+        },
+        {
+            "name": "Hand-Held Torch",
+            "asset": "HandTorch"
+        },
+        {
+            "name": "Wooden Club",
+            "asset": "Battle_MeleeWeapon_Bat"
+        },
+        {
+            "name": "Pal Dressing Facility",
+            "asset": "SkinChange"
+        },
+        {
+            "name": "Global Palbox",
+            "asset": "GlobalPalStorage"
+        },
+        {
+            "name": "Palbox",
+            "asset": "PALBOX"
+        },
+        {
+            "name": "Pal Sphere",
+            "asset": "Special_PalSphere_Grade_01"
+        },
+        {
+            "name": "Campfire",
+            "asset": "Product_Cooking_Grade_01"
+        },
+        {
+            "name": "Wooden Chest",
+            "asset": "Infra_ItemChest_Grade_01"
+        },
+        {
+            "name": "Repair Bench",
+            "asset": "RepairBench"
+        },
+        {
+            "name": "Wooden Structure Set",
+            "asset": "Wooden_houseset"
+        },
+        {
+            "name": "Old Bow",
+            "asset": "Battle_RangeWeapon_Bow1"
+        },
+        {
+            "name": "Arrow",
+            "asset": "Arrow"
+        },
+        {
+            "name": "Shoddy Bed",
+            "asset": "Infra_PlayerBed_Grade_01"
+        },
+        {
+            "name": "Straw Pal Bed",
+            "asset": "Infra_PalBed_Grade_01"
+        },
+        {
+            "name": "Repair Kit",
+            "asset": "RepairKit"
+        },
+        {
+            "name": "Cloth",
+            "asset": "Battle_Cloth"
+        },
+        {
+            "name": "Common Shield",
+            "asset": "Shield_01"
+        },
+        {
+            "name": "Stone Spear",
+            "asset": "Spear"
+        },
+        {
+            "name": "Cloth Outfit",
+            "asset": "Battle_Armor_Grade_01_Cloth"
+        },
+        {
+            "name": "Feed Box",
+            "asset": "PalFoodBox"
+        },
+        {
+            "name": "Alarm Bell",
+            "asset": "BaseCampBattleDirector"
+        },
+        {
+            "name": "Hanging Trap",
+            "asset": "Trap_Noose"
+        },
+        {
+            "name": "Berry Plantation",
+            "asset": "Product_Farm_Berries"
+        },
+        {
+            "name": "Ranch",
+            "asset": "MonsterFarm"
+        },
+        {
+            "name": "Normal Parachute",
+            "asset": "Battle_Glider_Grade_01"
+        },
+        {
+            "name": "Fire Bow",
+            "asset": "Battle_RangeWeapon_Bow_Fire"
+        },
+        {
+            "name": "Fire Arrow",
+            "asset": "Arrow_Fire"
+        },
+        {
+            "name": "Pal Gear Workbench",
+            "asset": "Product_WorkBench_SkillUnlock"
+        },
+        {
+            "name": "Statue of Power",
+            "asset": "BuildableGoddessStatue"
+        },
+        {
+            "name": "Mounted Torch",
+            "asset": "Torch"
+        },
+        {
+            "name": "Rushoar Saddle",
+            "asset": "SkillUnlock_Boar"
+        },
+        {
+            "name": "Foxparks's Harness",
+            "asset": "SkillUnlock_Kitsunebi"
+        },
+        {
+            "name": "Logging Site",
+            "asset": "Product_StationDeforest"
+        },
+        {
+            "name": "Stone Pit",
+            "asset": "Product_StonePit"
+        },
+        {
+            "name": "Sign",
+            "asset": "Signboard"
+        },
+        {
+            "name": "Bat",
+            "asset": "Battle_MeleeWeapon_Bat2"
+        },
+        {
+            "name": "Melpaca Saddle",
+            "asset": "SkillUnlock_Alpaca"
+        },
+        {
+            "name": "Celaray's Gloves",
+            "asset": "SkillUnlock_FlyingManta"
+        },
+        {
+            "name": "Egg Incubator",
+            "asset": "Special_HatchingPalEgg"
+        },
+        {
+            "name": "Crusher",
+            "asset": "Crusher"
+        },
+        {
+            "name": "Poison Bow",
+            "asset": "Battle_RangeWeapon_Bow_Poison"
+        },
+        {
+            "name": "Poison Arrow",
+            "asset": "Arrow_Poison"
+        },
+        {
+            "name": "Jolthog's Gloves",
+            "asset": "SkillUnlock_Hedgehog"
+        },
+        {
+            "name": "Daedream's Necklace",
+            "asset": "SkillUnlock_DreamDemon"
+        },
+        {
+            "name": "Tropical Outfit",
+            "asset": "Battle_Armor_Grade_01_Cloth_Heat"
+        },
+        {
+            "name": "Tundra Outfit",
+            "asset": "Battle_Armor_Grade_01_Cloth_Cold"
+        },
+        {
+            "name": "Hot Spring",
+            "asset": "Spa"
+        },
+        {
+            "name": "Sandbag",
+            "asset": "DefenseWait"
+        },
+        {
+            "name": "Direhowl's Saddled Harness",
+            "asset": "SkillUnlock_Garm"
+        },
+        {
+            "name": "Killamari's Gloves",
+            "asset": "SkillUnlock_NegativeOctopus"
+        },
+        {
+            "name": "Three Shot Bow",
+            "asset": "Battle_RangeWeapon_Bow3"
+        },
+        {
+            "name": "Primitive Furnace",
+            "asset": "Product_Ingot_Grade_01_Copper"
+        },
+        {
+            "name": "Feathered Hair Band",
+            "asset": "Battle_Helm_Grade_02_Fur"
+        },
+        {
+            "name": "Ladder",
+            "asset": "Wooden_ladder"
+        },
+        {
+            "name": "Bear Trap (Small)",
+            "asset": "Trap_LegHold"
+        },
+        {
+            "name": "Nail",
+            "asset": "Infra_MachineParts"
+        },
+        {
+            "name": "Surfent Saddle",
+            "asset": "SkillUnlock_Serpent"
+        },
+        {
+            "name": "Small Feed Bag",
+            "asset": "AutoMealPouch_Tier1"
+        },
+        {
+            "name": "Metal Axe",
+            "asset": "Product_Axe_Grade_02"
+        },
+        {
+            "name": "Metal Pickaxe",
+            "asset": "Product_Pickaxe_Grade_02"
+        },
+        {
+            "name": "High-Quality Workbench",
+            "asset": "Product_Factory_Hard_Grade_01"
+        },
+        {
+            "name": "Heavy Weight Module",
+            "asset": "SphereModule_Heavy"
+        },
+        {
+            "name": "Wooden Gate",
+            "asset": "Wood_Gate"
+        },
+        {
+            "name": "Lifmunk's Submachine Gun",
+            "asset": "SkillUnlock_Carbunclo"
+        },
+        {
+            "name": "Jolthog Cryst's Gloves",
+            "asset": "SkillUnlock_Hedgehog_Ice"
+        },
+        {
+            "name": "Pelt Armor",
+            "asset": "Battle_Armor_Grade_02_Fur"
+        },
+        {
+            "name": "Meat Cleaver",
+            "asset": "MeatCutterKnife"
+        },
+        {
+            "name": "Medieval Medicine Workbench",
+            "asset": "Product_Medicine_Grade_01"
+        },
+        {
+            "name": "Tanzee's Assault Rifle",
+            "asset": "SkillUnlock_Monkey"
+        },
+        {
+            "name": "Eikthyrdeer Saddle",
+            "asset": "SkillUnlock_Deer"
+        },
+        {
+            "name": "Grintale Saddle",
+            "asset": "SkillUnlock_NaughtyCat"
+        },
+        {
+            "name": "GrapplingGun",
+            "asset": "GrapplingGun"
+        },
+        {
+            "name": "Crossbow",
+            "asset": "Battle_RangeWeapon_BowGun"
+        },
+        {
+            "name": "Metal Spear",
+            "asset": "Spear_2"
+        },
+        {
+            "name": "Human-Powered Generator",
+            "asset": "ManualElectricGenerator"
+        },
+        {
+            "name": "Training Dummy",
+            "asset": "DamagedScarecrow"
+        },
+        {
+            "name": "Cooler Box",
+            "asset": "CoolerBox"
+        },
+        {
+            "name": "Chillet Saddle",
+            "asset": "SkillUnlock_WeaselDragon"
+        },
+        {
+            "name": "Mega Sphere",
+            "asset": "Special_PalSphere_Grade_02"
+        },
+        {
+            "name": "Sphere Workbench",
+            "asset": "Special_SphereFactory_Black_Grade_01"
+        },
+        {
+            "name": "Monitoring Stand",
+            "asset": "BaseCampWorkHard"
+        },
+        {
+            "name": "Wall Torch",
+            "asset": "WallTorch"
+        },
+        {
+            "name": "Sweepa Saddle",
+            "asset": "SkillUnlock_MopKing"
+        },
+        {
+            "name": "Univolt Saddle",
+            "asset": "SkillUnlock_Kirin"
+        },
+        {
+            "name": "Pal Essence Condenser",
+            "asset": "Special_PalRankUp"
+        },
+        {
+            "name": "Beginner Fishing Set",
+            "asset": "FishingSet1"
+        },
+        {
+            "name": "Fire Arrow Crossbow",
+            "asset": "Battle_RangeWeapon_BowGun_Fire"
+        },
+        {
+            "name": "Pal Expedition Station",
+            "asset": "Expedition"
+        },
+        {
+            "name": "Wheat Plantation",
+            "asset": "Product_Farm_wheat"
+        },
+        {
+            "name": "Mill",
+            "asset": "FlourMill"
+        },
+        {
+            "name": "Viewing Cage",
+            "asset": "DisplayCharacter"
+        },
+        {
+            "name": "Nitewing Saddle",
+            "asset": "SkillUnlock_HawkBird"
+        },
+        {
+            "name": "Hip Lantern",
+            "asset": "Lantern"
+        },
+        {
+            "name": "Mega Shield",
+            "asset": "Shield_02"
+        },
+        {
+            "name": "Heat Resistant Pelt Armor",
+            "asset": "Battle_Armor_Grade_02_Fur_Heat"
+        },
+        {
+            "name": "Metal Chest",
+            "asset": "Infra_ItemChest_Grade_02"
+        },
+        {
+            "name": "Wooden Defensive Wall",
+            "asset": "DefenseWall_Wood"
+        },
+        {
+            "name": "Arsox Saddle",
+            "asset": "SkillUnlock_FlameBuffalo"
+        },
+        {
+            "name": "Lockpicking Tool v1",
+            "asset": "Unlock_Picking_Tier1"
+        },
+        {
+            "name": "Poison Arrow Crossbow",
+            "asset": "Battle_RangeWeapon_BowGun_Poison"
+        },
+        {
+            "name": "Cooking Pot",
+            "asset": "Product_Cooking_Grade_02"
+        },
+        {
+            "name": "Heater",
+            "asset": "Heater"
+        },
+        {
+            "name": "Tombstone",
+            "asset": "Headstone"
+        },
+        {
+            "name": "Pengullet Rocket Launcher",
+            "asset": "SkillUnlock_Penguin"
+        },
+        {
+            "name": "Flopie's Necklace",
+            "asset": "SkillUnlock_FlowerRabbit"
+        },
+        {
+            "name": "GrapplingGun2",
+            "asset": "GrapplingGun2"
+        },
+        {
+            "name": "Mega Glider",
+            "asset": "Battle_Glider_Grade_02"
+        },
+        {
+            "name": "Cold Resistant Pelt Armor",
+            "asset": "Battle_Armor_Grade_02_Fur_Cold"
+        },
+        {
+            "name": "Stone Structure Set",
+            "asset": "Stone_houseset"
+        },
+        {
+            "name": "Cooler",
+            "asset": "Cooler"
+        },
+        {
+            "name": "Tocotoco's Gloves",
+            "asset": "SkillUnlock_ColorfulBird"
+        },
+        {
+            "name": "Ring of Mercy",
+            "asset": "Accessory_Nonkilling"
+        },
+        {
+            "name": "Breeding Farm",
+            "asset": "BreedFarm"
+        },
+        {
+            "name": "Cement",
+            "asset": "Cement"
+        },
+        {
+            "name": "Wall-Mounted Sign",
+            "asset": "WallSignboard"
+        },
+        {
+            "name": "Dinossom Saddle",
+            "asset": "SkillUnlock_FlowerDinosaur"
+        },
+        {
+            "name": "Broncherry Saddle",
+            "asset": "SkillUnlock_SakuraSaurus"
+        },
+        {
+            "name": "Digtoise's Headband",
+            "asset": "SkillUnlock_DrillGame"
+        },
+        {
+            "name": "Average Feed Bag",
+            "asset": "AutoMealPouch_Tier2"
+        },
+        {
+            "name": "Giga Sphere",
+            "asset": "Special_PalSphere_Grade_03"
+        },
+        {
+            "name": "Weapon Workbench",
+            "asset": "Product_WeaponFactory_Dirty_Grade_01"
+        },
+        {
+            "name": "Pal Labor Research Laboratory",
+            "asset": "Lab"
+        },
+        {
+            "name": "Large Toolbox",
+            "asset": "ToolBoxV1"
+        },
+        {
+            "name": "Hangyu's Gloves",
+            "asset": "SkillUnlock_WindChimes"
+        },
+        {
+            "name": "Elphidran Saddle",
+            "asset": "SkillUnlock_FairyDragon"
+        },
+        {
+            "name": "Dimensional Pal Storage",
+            "asset": "DimensionPalStorage"
+        },
+        {
+            "name": "Musket",
+            "asset": "Musket"
+        },
+        {
+            "name": "Gunpowder",
+            "asset": "Battle_GunPowder_Grade_02"
+        },
+        {
+            "name": "Coarse Ammo",
+            "asset": "RoughBullet"
+        },
+        {
+            "name": "Tomato Plantation",
+            "asset": "Product_Farm_tomato"
+        },
+        {
+            "name": "Flame Cauldron",
+            "asset": "OlympicCauldron"
+        },
+        {
+            "name": "Vanwyrm Saddle",
+            "asset": "SkillUnlock_BirdDragon"
+        },
+        {
+            "name": "Kingpaca Saddle",
+            "asset": "SkillUnlock_KingAlpaca"
+        },
+        {
+            "name": "Antique Dresser",
+            "asset": "TableDresser01_Stone"
+        },
+        {
+            "name": "Stun Baton",
+            "asset": "ElecBaton"
+        },
+        {
+            "name": "High Quality Bait",
+            "asset": "FishingBait_2"
+        },
+        {
+            "name": "Flea Market (Items)",
+            "asset": "ItemBooth"
+        },
+        {
+            "name": "Flea Market (Pals)",
+            "asset": "PalBooth"
+        },
+        {
+            "name": "Bear Trap (Large)",
+            "asset": "Trap_LegHold_Big"
+        },
+        {
+            "name": "Dazzi's Necklace",
+            "asset": "SkillUnlock_RaijinDaughter"
+        },
+        {
+            "name": "Dazemu Saddle",
+            "asset": "SkillUnlock_FeatherOstrich"
+        },
+        {
+            "name": "Homeward Thundercloud",
+            "asset": "Homeward"
+        },
+        {
+            "name": "Metal Armor",
+            "asset": "Battle_Armor_Grade_03_Copper"
+        },
+        {
+            "name": "Metal Helm",
+            "asset": "Battle_Helm_Grade_03_Copper"
+        },
+        {
+            "name": "Curve Module",
+            "asset": "SphereModule_Curve"
+        },
+        {
+            "name": "Water Fountain",
+            "asset": "Fountain"
+        },
+        {
+            "name": "Maraith Saddle",
+            "asset": "SkillUnlock_GhostBeast"
+        },
+        {
+            "name": "Galeclaw's Gloves",
+            "asset": "SkillUnlock_Eagle"
+        },
+        {
+            "name": "Killamari Primo's Gloves",
+            "asset": "SkillUnlock_NegativeOctopus_Neutral"
+        },
+        {
+            "name": "Large Feed Bag",
+            "asset": "AutoMealPouch_Tier3"
+        },
+        {
+            "name": "Makeshift Handgun",
+            "asset": "MakeshiftHandgun"
+        },
+        {
+            "name": "Fluffy Pal Bed",
+            "asset": "Infra_PalBed_Grade_02"
+        },
+        {
+            "name": "Medicine Rack",
+            "asset": "PalMedicineBox"
+        },
+        {
+            "name": "Flower Bed",
+            "asset": "FlowerBed"
+        },
+        {
+            "name": "Foxparks Cryst's Harness",
+            "asset": "SkillUnlock_Kitsunebi_Ice"
+        },
+        {
+            "name": "Mossanda's Grenade Launcher",
+            "asset": "SkillUnlock_GrassPanda"
+        },
+        {
+            "name": "Azurobe Saddle",
+            "asset": "SkillUnlock_BlueDragon"
+        },
+        {
+            "name": "Ore Mining Site",
+            "asset": "Product_CopperPit"
+        },
+        {
+            "name": "Boost Gun",
+            "asset": "PalDopingShot"
+        },
+        {
+            "name": "Boost Gun Ammo",
+            "asset": "PalDopingShotBullet"
+        },
+        {
+            "name": "Frag Grenade",
+            "asset": "FragGrenade"
+        },
+        {
+            "name": "Heat Resistant Metal Armor",
+            "asset": "Battle_Armor_Grade_03_Copper_Heat"
+        },
+        {
+            "name": "Lettuce Plantation",
+            "asset": "Product_Farm_Lettuce"
+        },
+        {
+            "name": "Silo",
+            "asset": "Silo"
+        },
+        {
+            "name": "Surfent Terra Saddle",
+            "asset": "SkillUnlock_Serpent_Ground"
+        },
+        {
+            "name": "Eikthyrdeer Terra Saddle",
+            "asset": "SkillUnlock_Deer_Ground"
+        },
+        {
+            "name": "Lockpicking Tool v2",
+            "asset": "Unlock_Picking_Tier2"
+        },
+        {
+            "name": "Makeshift SMG",
+            "asset": "MakeshiftSubmachineGun"
+        },
+        {
+            "name": "Power Generator",
+            "asset": "Infra_ElectricGenerator_Grade_01"
+        },
+        {
+            "name": "Lamp",
+            "asset": "Lamp"
+        },
+        {
+            "name": "Mounted Crossbow",
+            "asset": "Battle_Defense_BowGun"
+        },
+        {
+            "name": "Fenglope Saddle",
+            "asset": "SkillUnlock_FengyunDeeper"
+        },
+        {
+            "name": "Mossanda Lux's Grenade Launcher",
+            "asset": "SkillUnlock_GrassPanda_Electric"
+        },
+        {
+            "name": "Celaray Lux's Gloves",
+            "asset": "SkillUnlock_FlyingManta_Thunder"
+        },
+        {
+            "name": "Single-Shot Sphere Launcher",
+            "asset": "Battle_RangeWeapon_SphereLauncher_Once"
+        },
+        {
+            "name": "Hyper Sphere",
+            "asset": "Special_PalSphere_Grade_04"
+        },
+        {
+            "name": "Sphere Assembly Line",
+            "asset": "Special_SphereFactory_Black_Grade_02"
+        },
+        {
+            "name": "Shock Grenade",
+            "asset": "FragGrenade_Elec"
+        },
+        {
+            "name": "Cold Resistant Metal Armor",
+            "asset": "Battle_Armor_Grade_03_Copper_Cold"
+        },
+        {
+            "name": "Ceiling Lamp",
+            "asset": "CeilingLamp"
+        },
+        {
+            "name": "Broncherry Aqua Saddle",
+            "asset": "SkillUnlock_SakuraSaurus_Water"
+        },
+        {
+            "name": "Rayhound Saddle",
+            "asset": "SkillUnlock_ThunderDog"
+        },
+        {
+            "name": "Herbil's Harness",
+            "asset": "SkillUnlock_LeafMomonga"
+        },
+        {
+            "name": "Small Pouch",
+            "asset": "AdditionalInventory_001"
+        },
+        {
+            "name": "Handgun",
+            "asset": "Battle_RangeWeapon_HandGun"
+        },
+        {
+            "name": "Handgun Ammo",
+            "asset": "HandgunBullet"
+        },
+        {
+            "name": "Giga Shield",
+            "asset": "Shield_03"
+        },
+        {
+            "name": "Production Assembly Line",
+            "asset": "Product_Factory_Hard_Grade_02"
+        },
+        {
+            "name": "Stump and Axe",
+            "asset": "Stump"
+        },
+        {
+            "name": "Stone Defensive Wall",
+            "asset": "DefenseWall"
+        },
+        {
+            "name": "Elphidran Aqua Saddle",
+            "asset": "SkillUnlock_FairyDragon_Water"
+        },
+        {
+            "name": "Tarantriss Saddle",
+            "asset": "SkillUnlock_PurpleSpider"
+        },
+        {
+            "name": "Anti-Gravity Belt",
+            "asset": "Accessory_JumpPower_Increase"
+        },
+        {
+            "name": "Intermediate Fishing Rod (Cattiva)",
+            "asset": "FishingRod_02_1"
+        },
+        {
+            "name": "Sword",
+            "asset": "Battle_MeleeWeapon_Sword"
+        },
+        {
+            "name": "Ice Grenade",
+            "asset": "FragGrenade_Ice"
+        },
+        {
+            "name": "Potato Plantation",
+            "asset": "Product_Farm_Potato"
+        },
+        {
+            "name": "Fine Bed",
+            "asset": "Infra_PlayerBed_Grade_02"
+        },
+        {
+            "name": "Mammorest Saddle",
+            "asset": "SkillUnlock_GrassMammoth"
+        },
+        {
+            "name": "Reindrix Saddle",
+            "asset": "SkillUnlock_IceDeer"
+        },
+        {
+            "name": "Azurobe Cryst Saddle",
+            "asset": "SkillUnlock_BlueDragon_Ice"
+        },
+        {
+            "name": "Enhanced Hip Lantern",
+            "asset": "Lantern_High"
+        },
+        {
+            "name": "Makeshift Shotgun",
+            "asset": "MakeshiftShotgun"
+        },
+        {
+            "name": "Mine",
+            "asset": "Trap_MineAttack"
+        },
+        {
+            "name": "Metal Structure Set",
+            "asset": "Metal_houseset"
+        },
+        {
+            "name": "Mining Cart",
+            "asset": "MiningTool"
+        },
+        {
+            "name": "Kitsun Saddle",
+            "asset": "SkillUnlock_AmaterasuWolf"
+        },
+        {
+            "name": "Vanwyrm Cryst Saddle",
+            "asset": "SkillUnlock_BirdDragon_Ice"
+        },
+        {
+            "name": "Dinossom Lux Saddle",
+            "asset": "SkillUnlock_FlowerDinosaur_Electric"
+        },
+        {
+            "name": "Meowmere",
+            "asset": "YakushimaBlade"
+        },
+        {
+            "name": "Makeshift Assault Rifle",
+            "asset": "MakeshiftAssaultRifle"
+        },
+        {
+            "name": "Incendiary Grenade",
+            "asset": "FragGrenade_Fire"
+        },
+        {
+            "name": "Sniper Module",
+            "asset": "SphereModule_Sniper"
+        },
+        {
+            "name": "Fishing Pond",
+            "asset": "FishingPond1"
+        },
+        {
+            "name": "High Quality Hot Spring",
+            "asset": "Spa2"
+        },
+        {
+            "name": "Stone Gate",
+            "asset": "Stone_Gate"
+        },
+        {
+            "name": "Pyrin Saddle",
+            "asset": "SkillUnlock_FireKirin"
+        },
+        {
+            "name": "Hangyu Cryst's Glove",
+            "asset": "SkillUnlock_WindChimes_Ice"
+        },
+        {
+            "name": "GrapplingGun3",
+            "asset": "GrapplingGun3"
+        },
+        {
+            "name": "ULTRAKILL Collab Set 1",
+            "asset": "OctaviaSet01"
+        },
+        {
+            "name": "Compound Bow",
+            "asset": "Battle_RangeWeapon_CompoundBow"
+        },
+        {
+            "name": "Reinforced Arrow",
+            "asset": "ReinforcedArrow"
+        },
+        {
+            "name": "Pal Recovery Grenade",
+            "asset": "PalHealingGrenade"
+        },
+        {
+            "name": "Weapon Assembly Line",
+            "asset": "Product_WeaponFactory_Dirty_Grade_02"
+        },
+        {
+            "name": "Carrot Plantation",
+            "asset": "Product_Farm_Carrot"
+        },
+        {
+            "name": "Witch Cauldron",
+            "asset": "Cauldron"
+        },
+        {
+            "name": "Palbox Control Device",
+            "asset": "BaseCampWorkerExtraStation"
+        },
+        {
+            "name": "Reptyro Saddle",
+            "asset": "SkillUnlock_VolcanicMonster"
+        },
+        {
+            "name": "Summoning Altar",
+            "asset": "Altar"
+        },
+        {
+            "name": "Old Revolver",
+            "asset": "Battle_RangeWeapon_OldRevolver"
+        },
+        {
+            "name": "Water Grenade",
+            "asset": "FragGrenade_Water"
+        },
+        {
+            "name": "Polymer",
+            "asset": "Polymer"
+        },
+        {
+            "name": "Electric Mine",
+            "asset": "Trap_MineElecShock"
+        },
+        {
+            "name": "Snowman",
+            "asset": "Snowman"
+        },
+        {
+            "name": "Helzephyr Saddle",
+            "asset": "SkillUnlock_HadesBird"
+        },
+        {
+            "name": "Blazehowl Saddle",
+            "asset": "SkillUnlock_Manticore"
+        },
+        {
+            "name": "Ability Glasses",
+            "asset": "Accessory_TalentChecker"
+        },
+        {
+            "name": "Improved Furnace",
+            "asset": "Product_Ingot_Grade_02_Iron"
+        },
+        {
+            "name": "Refined Metal Axe",
+            "asset": "Product_Axe_Grade_03"
+        },
+        {
+            "name": "Refined Metal Pickaxe",
+            "asset": "Product_Pickaxe_Grade_03"
+        },
+        {
+            "name": "Refined Metal Spear",
+            "asset": "Spear_3"
+        },
+        {
+            "name": "Beakon Saddle",
+            "asset": "SkillUnlock_ThunderBird"
+        },
+        {
+            "name": "Pyrin Noct Saddle",
+            "asset": "SkillUnlock_FireKirin_Dark"
+        },
+        {
+            "name": "Polapup Saddle",
+            "asset": "SkillUnlock_IceSeal"
+        },
+        {
+            "name": "Air Dash Boots",
+            "asset": "Accessory_AirDash1"
+        },
+        {
+            "name": "Ultra Sphere",
+            "asset": "Special_PalSphere_Grade_05"
+        },
+        {
+            "name": "Sphere Assembly Line II",
+            "asset": "Special_SphereFactory_Black_Grade_03"
+        },
+        {
+            "name": "Grass Grenade",
+            "asset": "FragGrenade_Leaf"
+        },
+        {
+            "name": "Circuit Board",
+            "asset": "Infra_ElectronicCircuit"
+        },
+        {
+            "name": "Carbon Fiber",
+            "asset": "CarbonFiber"
+        },
+        {
+            "name": "Whalaska Saddle",
+            "asset": "SkillUnlock_IceNarwhal"
+        },
+        {
+            "name": "Blazehowl Noct Saddle",
+            "asset": "SkillUnlock_Manticore_Dark"
+        },
+        {
+            "name": "Huge Feed Bag",
+            "asset": "AutoMealPouch_Tier4"
+        },
+        {
+            "name": "Single-Shot Rifle",
+            "asset": "Battle_RangeWeapon_Rifle"
+        },
+        {
+            "name": "Rifle Ammo",
+            "asset": "RifleBullet"
+        },
+        {
+            "name": "Pal Surgery Table",
+            "asset": "OperatingTable"
+        },
+        {
+            "name": "Onion Plantation",
+            "asset": "Product_Farm_Onion"
+        },
+        {
+            "name": "High Quality Cloth",
+            "asset": "Cloth2"
+        },
+        {
+            "name": "Large Pal Bed",
+            "asset": "MedicalPalBed_04"
+        },
+        {
+            "name": "Quivern Saddle",
+            "asset": "SkillUnlock_SkyDragon"
+        },
+        {
+            "name": "Electric Egg Incubator",
+            "asset": "Special_ElectricHatchingPalEgg"
+        },
+        {
+            "name": "SMG",
+            "asset": "Battle_RangeWeapon_SubmachineGun"
+        },
+        {
+            "name": "Refined Metal Armor",
+            "asset": "Battle_Armor_Grade_03_Iron"
+        },
+        {
+            "name": "Refined Metal Helm",
+            "asset": "Battle_Helm_Grade_04_Iron"
+        },
+        {
+            "name": "Accumulator",
+            "asset": "EnergyStorage_Electric"
+        },
+        {
+            "name": "Ragnahawk Saddle",
+            "asset": "SkillUnlock_RedArmorBird"
+        },
+        {
+            "name": "Ghangler Saddle",
+            "asset": "SkillUnlock_GhostAnglerfish"
+        },
+        {
+            "name": "Scatter Sphere Launcher",
+            "asset": "Battle_RangeWeapon_SphereLauncher"
+        },
+        {
+            "name": "Meteor Launcher",
+            "asset": "Launcher_Meteor"
+        },
+        {
+            "name": "Ground Grenade",
+            "asset": "FragGrenade_Ground"
+        },
+        {
+            "name": "Deluxe Bait",
+            "asset": "FishingBait_3"
+        },
+        {
+            "name": "Refrigerator",
+            "asset": "Refrigerator"
+        },
+        {
+            "name": "Ice Mine",
+            "asset": "Trap_MineFreeze"
+        },
+        {
+            "name": "Reptyro Cryst Saddle",
+            "asset": "SkillUnlock_VolcanicMonster_Ice"
+        },
+        {
+            "name": "Faleris Saddle",
+            "asset": "SkillUnlock_Horus"
+        },
+        {
+            "name": "Ore Mining Site II",
+            "asset": "Product_CopperPit_2"
+        },
+        {
+            "name": "Double-Barreled Shotgun",
+            "asset": "Battle_RangeWeapon_ShotGun"
+        },
+        {
+            "name": "Shotgun Shell",
+            "asset": "ShotGunBullet"
+        },
+        {
+            "name": "Slider Module",
+            "asset": "SphereModule_Curve2"
+        },
+        {
+            "name": "Glass Structure Set",
+            "asset": "Glass_houseset"
+        },
+        {
+            "name": "Refined Metal Chest",
+            "asset": "Infra_ItemChest_Grade_03"
+        },
+        {
+            "name": "Pengullet Lux's Rocket Launcher",
+            "asset": "SkillUnlock_Penguin_Electric"
+        },
+        {
+            "name": "Jormuntide Saddle",
+            "asset": "SkillUnlock_Umihebi"
+        },
+        {
+            "name": "Double Jump Boots",
+            "asset": "Accessory_JumpCount_Increase1"
+        },
+        {
+            "name": "Dark Grenade",
+            "asset": "FragGrenade_Dark"
+        },
+        {
+            "name": "Heat Resistant Refined Metal Armor",
+            "asset": "Battle_Armor_Grade_03_Iron_Heat"
+        },
+        {
+            "name": "Giga Glider",
+            "asset": "Battle_Glider_Grade_03"
+        },
+        {
+            "name": "Mounted Machine Gun",
+            "asset": "Battle_Defense_MachineGun"
+        },
+        {
+            "name": "Blazamut Saddle",
+            "asset": "SkillUnlock_KingBahamut"
+        },
+        {
+            "name": "Grizzbolt's Minigun",
+            "asset": "SkillUnlock_ElecPanda"
+        },
+        {
+            "name": "Guild Chest",
+            "asset": "GuildChest"
+        },
+        {
+            "name": "Semi-Auto Rifle",
+            "asset": "Battle_RangeWeapon_SemiAutoRifle"
+        },
+        {
+            "name": "Cold Resistant Refined Metal Armor",
+            "asset": "Battle_Armor_Grade_03_Iron_Cold"
+        },
+        {
+            "name": "Electric Kitchen",
+            "asset": "Product_Cooking_Grade_03"
+        },
+        {
+            "name": "Alpha Wave Generator",
+            "asset": "SanityDecrease1"
+        },
+        {
+            "name": "Electric Heater",
+            "asset": "ElectricHeater"
+        },
+        {
+            "name": "Suzaku Saddle",
+            "asset": "SkillUnlock_Suzaku"
+        },
+        {
+            "name": "Coal Mine",
+            "asset": "Product_CoalPit"
+        },
+        {
+            "name": "Dragon Grenade",
+            "asset": "FragGrenade_Dragon"
+        },
+        {
+            "name": "Production Assembly Line II",
+            "asset": "Product_Factory_Hard_Grade_03"
+        },
+        {
+            "name": "Electric Cooler",
+            "asset": "ElectricCooler"
+        },
+        {
+            "name": "Iron Gate",
+            "asset": "Metal_Gate"
+        },
+        {
+            "name": "Kingpaca Cryst Saddle",
+            "asset": "SkillUnlock_KingAlpaca_Ice"
+        },
+        {
+            "name": "Palumba Saddle",
+            "asset": "SkillUnlock_TropicalOstrich"
+        },
+        {
+            "name": "Medium Pouch",
+            "asset": "AdditionalInventory_002"
+        },
+        {
+            "name": "Pump-Action Shotgun",
+            "asset": "Battle_RangeWeapon_ShotGun_Multi"
+        },
+        {
+            "name": "Hyper Shield",
+            "asset": "Shield_04"
+        },
+        {
+            "name": "Electric Medicine Workbench",
+            "asset": "Product_Medicine_Grade_02"
+        },
+        {
+            "name": "Metal Defensive Wall",
+            "asset": "DefenseWall_Metal"
+        },
+        {
+            "name": "Suzaku Aqua Saddle",
+            "asset": "SkillUnlock_Suzaku_Water"
+        },
+        {
+            "name": "Jormuntide Ignis Saddle",
+            "asset": "SkillUnlock_Umihebi_Fire"
+        },
+        {
+            "name": "Yakumo Saddle",
+            "asset": "SkillUnlock_GuardianDog"
+        },
+        {
+            "name": "Lily's Spear",
+            "asset": "Spear_ForestBoss"
+        },
+        {
+            "name": "Legendary Sphere",
+            "asset": "Special_PalSphere_Grade_06"
+        },
+        {
+            "name": "Electric Furnace",
+            "asset": "Product_Ingot_Grade_03_Steal"
+        },
+        {
+            "name": "Katana",
+            "asset": "Katana"
+        },
+        {
+            "name": "Pal Metal Pickaxe",
+            "asset": "Battle_MeleeWeapon_Pickaxe_Steal"
+        },
+        {
+            "name": "Pal Metal Axe",
+            "asset": "Battle_MeleeWeapon_Axe_Steal"
+        },
+        {
+            "name": "Relaxaurus's Missile Launcher",
+            "asset": "SkillUnlock_LazyDragon"
+        },
+        {
+            "name": "Wumpo Saddle",
+            "asset": "SkillUnlock_Yeti"
+        },
+        {
+            "name": "Decal Gun Set",
+            "asset": "DecalGunSet"
+        },
+        {
+            "name": "Assault Rifle",
+            "asset": "Battle_RangeWeapon_AssaultRifle"
+        },
+        {
+            "name": "Assault Rifle Ammo",
+            "asset": "AssaultRifleBullet"
+        },
+        {
+            "name": "Advanced Fishing Rod (Pengullet)",
+            "asset": "FishingRod_03_1"
+        },
+        {
+            "name": "Drafting Table",
+            "asset": "CompositeDesk"
+        },
+        {
+            "name": "Wumpo Botan Saddle",
+            "asset": "SkillUnlock_Yeti_Grass"
+        },
+        {
+            "name": "Mammorest Cryst Saddle",
+            "asset": "SkillUnlock_GrassMammoth_Ice"
+        },
+        {
+            "name": "Chillet Ignis Saddle",
+            "asset": "SkillUnlock_WeaselDragon_Fire"
+        },
+        {
+            "name": "Sulfur Mine",
+            "asset": "Product_SulfurPit"
+        },
+        {
+            "name": "Pal Metal Armor",
+            "asset": "Battle_Armor_Grade_04_Steal"
+        },
+        {
+            "name": "Pal Metal Helm",
+            "asset": "Battle_Helm_Grade_05_Steal"
+        },
+        {
+            "name": "Beta Wave Generator",
+            "asset": "WorkSpeedIncrease1"
+        },
+        {
+            "name": "Large Mounted Lamp",
+            "asset": "LargeLamp"
+        },
+        {
+            "name": "Relaxaurus Lux's Missile Launcher",
+            "asset": "SkillUnlock_LazyDragon_Electric"
+        },
+        {
+            "name": "Shroomer Saddle",
+            "asset": "SkillUnlock_MushroomDragon"
+        },
+        {
+            "name": "Braloha Saddle",
+            "asset": "SkillUnlock_Plesiosaur"
+        },
+        {
+            "name": "Giant Feed Bag",
+            "asset": "AutoMealPouch_Tier5"
+        },
+        {
+            "name": "Semi-Auto Shotgun",
+            "asset": "Battle_RangeWeapon_SemiAutoShotgun"
+        },
+        {
+            "name": "Weapon Assembly Line II",
+            "asset": "Product_WeaponFactory_Dirty_Grade_03"
+        },
+        {
+            "name": "Sniper Module Ⅱ",
+            "asset": "SphereModule_Sniper2"
+        },
+        {
+            "name": "Large Ceiling Lamp",
+            "asset": "LargeCeilingLamp"
+        },
+        {
+            "name": "Astegon Saddle",
+            "asset": "SkillUnlock_BlackMetalDragon"
+        },
+        {
+            "name": "Shadowbeak Saddle",
+            "asset": "SkillUnlock_BlackGriffon"
+        },
+        {
+            "name": "Shroomer Noct Saddle",
+            "asset": "SkillUnlock_MushroomDragon_Dark"
+        },
+        {
+            "name": "Large Incubator",
+            "asset": "MultiHatchingPalEgg"
+        },
+        {
+            "name": "Heat Resistant Pal Metal Armor",
+            "asset": "Battle_Armor_Grade_04_Steal_Heat"
+        },
+        {
+            "name": "Skillfruit Orchard",
+            "asset": "Farm_SkillFruits"
+        },
+        {
+            "name": "Gold Coin Assembly Line",
+            "asset": "Factory_Money"
+        },
+        {
+            "name": "Electric Pylon",
+            "asset": "TransmissionTower"
+        },
+        {
+            "name": "Frostallion Saddle",
+            "asset": "SkillUnlock_IceHorse"
+        },
+        {
+            "name": "Frostallion Noct Saddle",
+            "asset": "SkillUnlock_IceHorse_Dark"
+        },
+        {
+            "name": "GrapplingGun4",
+            "asset": "GrapplingGun4"
+        },
+        {
+            "name": "Rocket Launcher",
+            "asset": "Battle_RangeWeapon_RocketLauncher"
+        },
+        {
+            "name": "Rocket Ammo",
+            "asset": "LauncherBullet"
+        },
+        {
+            "name": "Item Retrieval Machine",
+            "asset": "BaseCampItemDispenser"
+        },
+        {
+            "name": "Large-Scale Stone Oven",
+            "asset": "HugeKitchen"
+        },
+        {
+            "name": "Paladius Saddle",
+            "asset": "SkillUnlock_SaintCentaur"
+        },
+        {
+            "name": "Necromus Saddle",
+            "asset": "SkillUnlock_BlackCentaur"
+        },
+        {
+            "name": "Quivern Botan Saddle",
+            "asset": "SkillUnlock_SkyDragon_Grass"
+        },
+        {
+            "name": "Large Power Generator",
+            "asset": "ElectricGenerator_Large"
+        },
+        {
+            "name": "Cold Resistant Pal Metal Armor",
+            "asset": "Battle_Armor_Grade_04_Steal_Cold"
+        },
+        {
+            "name": "Mounted Missile Launcher",
+            "asset": "Battle_Defense_Missile"
+        },
+        {
+            "name": "Plasteel",
+            "asset": "Plastic"
+        },
+        {
+            "name": "Crude Oil Extractor",
+            "asset": "OilPump"
+        },
+        {
+            "name": "Japanese-Style Structure Set",
+            "asset": "JapaneseStyle_houseset"
+        },
+        {
+            "name": "Jetragon's Missile Launcher",
+            "asset": "SkillUnlock_JetDragon"
+        },
+        {
+            "name": "Xenogard Saddle",
+            "asset": "SkillUnlock_WhiteAlienDragon"
+        },
+        {
+            "name": "Pure Quartz Mine",
+            "asset": "Product_QuartzPit"
+        },
+        {
+            "name": "Ultimate Sphere",
+            "asset": "Special_PalSphere_Grade_07"
+        },
+        {
+            "name": "Plasteel Armor",
+            "asset": "Battle_Armor_Grade_05_Plastic"
+        },
+        {
+            "name": "Plasteel Helmet",
+            "asset": "Battle_Helm_Grade_06_Plastic"
+        },
+        {
+            "name": "Laser Rifle",
+            "asset": "Battle_RangeWeapon_LaserRifle"
+        },
+        {
+            "name": "Energy Cartridge",
+            "asset": "LaserBullet"
+        },
+        {
+            "name": "Cold Food Box",
+            "asset": "CoolerPalFoodBox"
+        },
+        {
+            "name": "Dazzi Noct's Necklace",
+            "asset": "SkillUnlock_RaijinDaughter_Water"
+        },
+        {
+            "name": "Lockpicking Tool v3",
+            "asset": "Unlock_Picking_Tier3"
+        },
+        {
+            "name": "Glider_Tera",
+            "asset": "Battle_Glider_Grade_04"
+        },
+        {
+            "name": "Flamethrower",
+            "asset": "Battle_RangeWeapon_FlameThrower"
+        },
+        {
+            "name": "Flamethrower Fuel",
+            "asset": "FlamethrowerBullet"
+        },
+        {
+            "name": "Alluring Bait",
+            "asset": "FishingBait_3_A"
+        },
+        {
+            "name": "Refrigerated Crusher",
+            "asset": "IceCrusher"
+        },
+        {
+            "name": "Helzephyr Lux Saddle",
+            "asset": "SkillUnlock_HadesBird_Electric"
+        },
+        {
+            "name": "Fenglope Lux Saddle",
+            "asset": "SkillUnlock_FengyunDeeper_Electric"
+        },
+        {
+            "name": "Large Pouch",
+            "asset": "AdditionalInventory_003"
+        },
+        {
+            "name": "Large Fishing Pond",
+            "asset": "FishingPond2"
+        },
+        {
+            "name": "Heat Resistant Plasteel Armor",
+            "asset": "Battle_Armor_Grade_05_Plastic_Heat"
+        },
+        {
+            "name": "Grenade Launcher",
+            "asset": "Battle_RangeWeapon_GrenadeLauncher"
+        },
+        {
+            "name": "Grenade Ammo",
+            "asset": "GrenadeBullet"
+        },
+        {
+            "name": "Frag Grenade Mk2",
+            "asset": "FragGrenade_Super"
+        },
+        {
+            "name": "Selyne Saddle",
+            "asset": "SkillUnlock_MoonQueen"
+        },
+        {
+            "name": "Nyafia's Shotgun",
+            "asset": "SkillUnlock_BadCatgirl"
+        },
+        {
+            "name": "Kitsun Noct Saddle",
+            "asset": "SkillUnlock_AmaterasuWolf_Dark"
+        },
+        {
+            "name": "Cold Resistant Plasteel Armor",
+            "asset": "Battle_Armor_Grade_05_Plastic_Cold"
+        },
+        {
+            "name": "Gatling Gun",
+            "asset": "Battle_RangeWeapon_GatlingGun"
+        },
+        {
+            "name": "Gatling Gun Ammo",
+            "asset": "GatlingBullet"
+        },
+        {
+            "name": "Pal Disassembly Conveyor",
+            "asset": "DismantlingConveyor"
+        },
+        {
+            "name": "Double Air Dash Boots",
+            "asset": "Accessory_AirDash2"
+        },
+        {
+            "name": "Gildane Saddle",
+            "asset": "SkillUnlock_GoldenHorse"
+        },
+        {
+            "name": "Shield_Ultra",
+            "asset": "Shield_05"
+        },
+        {
+            "name": "Lightweight Plasteel Armor",
+            "asset": "Battle_Armor_Grade_05_Plastic_Weight"
+        },
+        {
+            "name": "Guided Missile Launcher",
+            "asset": "Battle_RangeWeapon_GuidedMissileLauncher"
+        },
+        {
+            "name": "Missile Ammo",
+            "asset": "MissileBullet"
+        },
+        {
+            "name": "Blazamut Ryu Saddle",
+            "asset": "SkillUnlock_KingBahamut_Dragon"
+        },
+        {
+            "name": "Faleris Aqua Saddle",
+            "asset": "SkillUnlock_Horus_Water"
+        },
+        {
+            "name": "Homing Sphere Launcher",
+            "asset": "Battle_RangeWeapon_HomingSphereLauncher"
+        },
+        {
+            "name": "Exotic Sphere",
+            "asset": "PalSphere_Exotic"
+        },
+        {
+            "name": "Advanced Sphere Assembly Line",
+            "asset": "SphereFactory_Black_04"
+        },
+        {
+            "name": "Hexolite",
+            "asset": "StainlessSteel"
+        },
+        {
+            "name": "Gigantic Furnace",
+            "asset": "BlastFurnace4"
+        },
+        {
+            "name": "Metal Detector",
+            "asset": "MetalDetector"
+        },
+        {
+            "name": "Azurmane Saddle",
+            "asset": "SkillUnlock_BlueThunderHorse"
+        },
+        {
+            "name": "Smokie's Harness",
+            "asset": "SkillUnlock_BlackPuppy"
+        },
+        {
+            "name": "ULTRAKILL Collab Set 2",
+            "asset": "OctaviaSet02"
+        },
+        {
+            "name": "Advanced Bow",
+            "asset": "SFBow"
+        },
+        {
+            "name": "Advanced Arrow",
+            "asset": "SFArrow"
+        },
+        {
+            "name": "Hexolite Armor",
+            "asset": "SFArmor"
+        },
+        {
+            "name": "Beam Sword",
+            "asset": "BeamSword"
+        },
+        {
+            "name": "Homing Module",
+            "asset": "SphereModule_Homing"
+        },
+        {
+            "name": "Pal Pod",
+            "asset": "MedicalPalBed_05"
+        },
+        {
+            "name": "Starryon Saddle",
+            "asset": "SkillUnlock_NightBlueHorse"
+        },
+        {
+            "name": "Giant Pouch",
+            "asset": "AdditionalInventory_004"
+        },
+        {
+            "name": "Advanced Chest",
+            "asset": "ItemChest_04"
+        },
+        {
+            "name": "Laser Gatling Gun",
+            "asset": "LaserGatlingGun"
+        },
+        {
+            "name": "Laser Gatling Cartridge",
+            "asset": "LaserGatlingBullet"
+        },
+        {
+            "name": "Hexolite Helmet",
+            "asset": "SFHelmet"
+        },
+        {
+            "name": "Silvegis Saddle",
+            "asset": "SkillUnlock_WhiteShieldDragon"
+        },
+        {
+            "name": "Celesdir Saddle",
+            "asset": "SkillUnlock_WhiteDeer"
+        },
+        {
+            "name": "Triple Jump Boots",
+            "asset": "Accessory_JumpCount_Increase2"
+        },
+        {
+            "name": "Advanced Recovery Meds",
+            "asset": "Potion_Extreme"
+        },
+        {
+            "name": "Revival Potion",
+            "asset": "PalRevive"
+        },
+        {
+            "name": "Advanced Medicine Workbench",
+            "asset": "MedicineFacility_03"
+        },
+        {
+            "name": "Heat Resistant Hexolite Armor",
+            "asset": "SFArmorHeat"
+        },
+        {
+            "name": "Cold Resistant Hexolite Armor",
+            "asset": "SFArmorCold"
+        },
+        {
+            "name": "Bastigor's Hammer",
+            "asset": "SkillUnlock_SnowTigerBeastman"
+        },
+        {
+            "name": "Plasma Cannon",
+            "asset": "EnergyRocketLauncher"
+        },
+        {
+            "name": "Plasma Cartridge",
+            "asset": "EnergyLauncherBullet"
+        },
+        {
+            "name": "Advanced Shield",
+            "asset": "Shield_SF"
+        },
+        {
+            "name": "Lightweight Hexolite Armor",
+            "asset": "SFArmorWeight"
+        },
+        {
+            "name": "Xenolord Saddle",
+            "asset": "SkillUnlock_DarkMechaDragon"
+        },
+        {
+            "name": "Large-Scale Electric Egg Incubator",
+            "asset": "MultiElectricHatchingPalEgg"
+        },
+        {
+            "name": "Powerful Fishing Magnet",
+            "asset": "Salvage_TreasureBoxKey02"
+        },
+        {
+            "name": "Coralum Ingot",
+            "asset": "ManganeseIngot"
+        },
+        {
+            "name": "Advanced Workshop",
+            "asset": "Factory_Hard_04"
+        },
+        {
+            "name": "Futuristic Structure Set",
+            "asset": "SF_houseset"
+        },
+        {
+            "name": "Ghangler Ignis Saddle",
+            "asset": "SkillUnlock_GhostAnglerfish_Fire"
+        },
+        {
+            "name": "Hexolite Quartz Mine",
+            "asset": "CrystalPit"
+        },
+        {
+            "name": "Energy Shotgun",
+            "asset": "EnergyShotgun"
+        },
+        {
+            "name": "Energy Shotgun Ammo",
+            "asset": "EnergyShotgunBullet"
+        },
+        {
+            "name": "Advanced Weapon Assembly Line",
+            "asset": "WeaponFactory_Dirty_04"
+        },
+        {
+            "name": "Japanese-Style Hot Spring",
+            "asset": "Spa3"
+        },
+        {
+            "name": "Whalaska Ignis Saddle",
+            "asset": "SkillUnlock_IceNarwhal_Fire"
+        },
+        {
+            "name": "Triple Air Dash Boots",
+            "asset": "Accessory_AirDash3"
+        },
+        {
+            "name": "Megaboost Gun",
+            "asset": "PalDopingShot_2"
+        },
+        {
+            "name": "Rayne Syndicate Flag Set",
+            "asset": "HunterFlagSet"
+        },
+        {
+            "name": "Free Pal Alliance Flag Set",
+            "asset": "BelieverFlagSet"
+        },
+        {
+            "name": "Neptilius Saddle",
+            "asset": "SkillUnlock_PoseidonOrca"
+        },
+        {
+            "name": "GrapplingGun5",
+            "asset": "GrapplingGun5"
+        },
+        {
+            "name": "Overheat Rifle",
+            "asset": "OverheatRifle"
+        },
+        {
+            "name": "Overheat Rifle Ammo",
+            "asset": "OverheatRifleBullet"
+        },
+        {
+            "name": "Brothers of the Eternal Pyre Flag Set",
+            "asset": "FireCultFlagSet"
+        },
+        {
+            "name": "PIDF Flag Set",
+            "asset": "PoliceFlagSet"
+        },
+        {
+            "name": "Charge Rifle",
+            "asset": "ChargeLaserRifle"
+        },
+        {
+            "name": "Charge Rifle Ammo",
+            "asset": "ChargeLaserRifleBullet"
+        },
+        {
+            "name": "PAL Genetic Research Unit Flag Set",
+            "asset": "ScientistFlagSet"
+        },
+        {
+            "name": "Moonflower Flag Set",
+            "asset": "NinjaFlagSet"
+        },
+        {
+            "name": "Hartalis Saddle",
+            "asset": "SkillUnlock_LegendDeer"
+        },
+        {
+            "name": "Wooden Living Room Furniture Set",
+            "asset": "FurnitureSet_1"
+        },
+        {
+            "name": "Wooden Tavern Furniture Set",
+            "asset": "FurnitureSet_3"
+        },
+        {
+            "name": "Wooden Tavern Cabinet Furniture Set",
+            "asset": "FurnitureSet_2"
+        },
+        {
+            "name": "Houseplant Set",
+            "asset": "FurnitureSet_9"
+        },
+        {
+            "name": "Wall-Mounted Houseplant Set",
+            "asset": "FurnitureSet_4"
+        },
+        {
+            "name": "Antique Storage Set",
+            "asset": "FurnitureSet_21"
+        },
+        {
+            "name": "Fireplace Set",
+            "asset": "FurnitureSet_28"
+        },
+        {
+            "name": "Carpet Set",
+            "asset": "FurnitureSet_17"
+        },
+        {
+            "name": "Antique Chair Set",
+            "asset": "FurnitureSet_19"
+        },
+        {
+            "name": "Antique Storage Cabinet Set",
+            "asset": "FurnitureSet_22"
+        },
+        {
+            "name": "Antique Desk Set",
+            "asset": "FurnitureSet_24"
+        },
+        {
+            "name": "Antique Bath Set",
+            "asset": "FurnitureSet_20"
+        },
+        {
+            "name": "Antique Mirror Set",
+            "asset": "FurnitureSet_16"
+        },
+        {
+            "name": "Piano Furniture Set",
+            "asset": "FurnitureSet_15"
+        },
+        {
+            "name": "Metal Shelf Set",
+            "asset": "FurnitureSet_30"
+        },
+        {
+            "name": "Bathroom Set",
+            "asset": "FurnitureSet_25"
+        },
+        {
+            "name": "Antique High Quality Furniture Set",
+            "asset": "FurnitureSet_32"
+        },
+        {
+            "name": "Antique Couch Set",
+            "asset": "FurnitureSet_18"
+        },
+        {
+            "name": "Clock Set",
+            "asset": "FurnitureSet_23"
+        },
+        {
+            "name": "Storage Container Set",
+            "asset": "FurnitureSet_6"
+        },
+        {
+            "name": "Metal Chair and Desk Set",
+            "asset": "FurnitureSet_13"
+        },
+        {
+            "name": "Antique Lamp Set",
+            "asset": "FurnitureSet_29"
+        },
+        {
+            "name": "Ironwood Table Set",
+            "asset": "FurnitureSet_14"
+        },
+        {
+            "name": "Outdoor Furniture Set",
+            "asset": "FurnitureSet_31"
+        },
+        {
+            "name": "Metal Barrel Set",
+            "asset": "FurnitureSet_5"
+        },
+        {
+            "name": "Leather Chair Set",
+            "asset": "FurnitureSet_7"
+        },
+        {
+            "name": "Street Lamp Set",
+            "asset": "FurnitureSet_27"
+        },
+        {
+            "name": "Amusement Furniture Set",
+            "asset": "FurnitureSet_26"
+        },
+        {
+            "name": "Emergency Exit Sign Set",
+            "asset": "FurnitureSet_8"
+        },
+        {
+            "name": "Traffic Control Set",
+            "asset": "FurnitureSet_11"
+        },
+        {
+            "name": "Road Sign Set",
+            "asset": "FurnitureSet_12"
+        },
+        {
+            "name": "Barricade Set",
+            "asset": "FurnitureSet_10"
+        },
+        {
+            "name": "Japanese-Style Furniture Set",
+            "asset": "FurnitureSet_Japanese"
+        }
+    ]
+}
