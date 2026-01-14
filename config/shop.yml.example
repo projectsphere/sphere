@@ -2,6 +2,7 @@ shop:
   - name: "Starter Kit"
     description: "Basic starter equipment and armor for new players"
     price: 100
+    server: null
     items:
       - "ClothArmor_5:1"
       - "Shield_02:1"
@@ -12,6 +13,7 @@ shop:
   - name: "Assault Rifle Pack"
     description: "Assault rifle with ammunition"
     price: 150
+    server: null
     items:
       - "AssaultRifle_Default5:1"
       - "AssaultRifleBullet:500"
@@ -19,19 +21,22 @@ shop:
   - name: "Viking Helmet"
     description: "Legendary Viking helmet"
     price: 250
+    server: "Koz Dev"
     items:
       - "GYM_Head_Viking:1"
     
   - name: "Food Bundle"
     description: "Large food supply"
     price: 50
+    server: null
     items:
       - "BLT:50"
-      - "Cake:10
+      - "Cake:10"
     
   - name: "Pal Sphere Bundle"
     description: "Collection of Ultimate and Exotic Pal Spheres"
     price: 200
+    server: null
     items:
       - "PalSphere_Ultimate:50"
       - "PalSphere_Exotic:10"

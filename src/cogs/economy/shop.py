@@ -52,34 +52,54 @@ class ShopCog(commands.Cog):
         return results[:25]
 
     @app_commands.command(name="shop", description="View available shop items.")
+    @app_commands.describe(server="Server to view shop for (optional)")
+    @app_commands.autocomplete(server=autocomplete_server)
     @app_commands.guild_only()
-    async def shop(self, interaction: discord.Interaction):
+    async def shop(self, interaction: discord.Interaction, server: str = None):
         await interaction.response.defer(ephemeral=True)
         
         if not self.shop_items:
             await interaction.followup.send("The shop is currently empty.", ephemeral=True)
             return
         
+        filtered_items = []
+        for item in self.shop_items:
+            item_server = item.get("server")
+            if server is None:
+                if item_server is None:
+                    filtered_items.append(item)
+            else:
+                if item_server is None or item_server == server:
+                    filtered_items.append(item)
+        
+        if not filtered_items:
+            await interaction.followup.send(f"No items available for server '{server}'.", ephemeral=True)
+            return
+        
         currency = self.economy_config.get("currency_name", "gold")
         
+        title = "🛒 Shop" if not server else f"🛒 Shop - {server}"
         embed = discord.Embed(
-            title="🛒 Shop",
+            title=title,
             description=f"Use `/buy <item_name> <server>` to purchase items",
             color=discord.Color.blue()
         )
         
-        for item in self.shop_items:
+        for item in filtered_items:
             name = item.get("name", "Unknown")
             description = item.get("description", "No description")
             price = item.get("price", 0)
             items_list = item.get("items", [])
+            item_server = item.get("server")
             
             items_preview = ", ".join(items_list[:3])
             if len(items_list) > 3:
                 items_preview += f" (+{len(items_list) - 3} more)"
             
+            server_tag = "" if item_server is None else f" [{item_server} only]"
+            
             embed.add_field(
-                name=f"{name} - {price} {currency}",
+                name=f"{name} - {price} {currency}{server_tag}",
                 value=f"{description}\n*Items: {items_preview}*",
                 inline=False
             )
@@ -110,6 +130,14 @@ class ShopCog(commands.Cog):
         shop_item = next((item for item in self.shop_items if item.get("name", "").lower() == item_name.lower()), None)
         if not shop_item:
             await interaction.followup.send(f"Item '{item_name}' not found in shop.", ephemeral=True)
+            return
+        
+        item_server = shop_item.get("server")
+        if item_server is not None and item_server != server:
+            await interaction.followup.send(
+                f"'{item_name}' is only available on server '{item_server}'.",
+                ephemeral=True
+            )
             return
         
         price = shop_item.get("price", 0)
