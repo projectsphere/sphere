@@ -15,6 +15,7 @@ class PalDefenderCog(commands.Cog):
         self.items = []
         self.load_pals()
         self.load_items()
+        self.load_tech()
         bot.loop.create_task(self.load_servers())
 
     async def load_servers(self):
@@ -29,6 +30,11 @@ class PalDefenderCog(commands.Cog):
         path = os.path.join("src", "gamedata", "itemdata.json")
         with open(path, "r", encoding="utf-8") as f:
             self.items = json.load(f).get("items", [])
+
+    def load_tech(self):
+        path = os.path.join("src", "gamedata", "techdata.json")
+        with open(path, "r", encoding="utf-8") as f:
+            self.tech = json.load(f).get("technology", [])
 
     async def get_server_info(self, guild_id: int, server_name: str):
         details = await fetch_server_details(guild_id, server_name)
@@ -48,7 +54,7 @@ class PalDefenderCog(commands.Cog):
             if current.lower() in name.lower() or current.lower() in dev_name.lower():
                 display = f"{name} ({dev_name})"
                 results.append(app_commands.Choice(name=display, value=dev_name))
-        return results[:15]
+        return results[:10]
 
     async def autocomplete_item(self, interaction: discord.Interaction, current: str):
         results = []
@@ -58,8 +64,20 @@ class PalDefenderCog(commands.Cog):
             if current.lower() in name.lower() or current.lower() in item_id.lower():
                 display = f"{name} ({item_id})"
                 results.append(app_commands.Choice(name=display, value=item_id))
-        return results[:15]
+        return results[:10]
 
+    async def autocomplete_tech(self, interaction: discord.Interaction, current: str):
+        results = []
+        for tech in self.tech:
+            name = tech.get("name", "")
+            asset = tech.get("asset", "")
+            if current.lower() in name.lower() or current.lower() in asset.lower():
+                display = f"{name} ({asset})"
+                results.append(app_commands.Choice(name=display, value=asset))
+        return results[:10]
+
+    # Reload Config
+    # RCON: reloadcfg
     @app_commands.command(name="reloadcfg", description="Reload server config")
     @app_commands.describe(server="Server name")
     @app_commands.autocomplete(server=autocomplete_server)
@@ -77,6 +95,8 @@ class PalDefenderCog(commands.Cog):
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], "reloadcfg")
         await interaction.followup.send(response, ephemeral=True)
 
+    # Destroy Base
+    # RCON: killnearestbase [X] [Y] [Z]
     @app_commands.command(name="destroybase", description="Kill nearest base")
     @app_commands.describe(radius="Radius", server="Server")
     @app_commands.autocomplete(server=autocomplete_server)
@@ -94,6 +114,8 @@ class PalDefenderCog(commands.Cog):
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], f"killnearestbase {radius}")
         await interaction.followup.send(response, ephemeral=True)
 
+    # Get Nearest Base
+    # RCON: getnearestbase <Radius>
     @app_commands.command(name="getbase", description="Get nearest base")
     @app_commands.describe(radius="Radius", server="Server")
     @app_commands.autocomplete(server=autocomplete_server)
@@ -111,6 +133,8 @@ class PalDefenderCog(commands.Cog):
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], f"getnearestbase {radius}")
         await interaction.followup.send(response, ephemeral=True)
 
+    # Give Pal
+    # RCON: givepal <UserId> <PalId> <Level>
     @app_commands.command(name="givepal", description="Give a Pal")
     @app_commands.describe(userid="User ID", palid="Pal name", level="Level", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, palid=autocomplete_pal)
@@ -135,6 +159,8 @@ class PalDefenderCog(commands.Cog):
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
+    # Give Item
+    # RCON: give <UserId> <ItemId> <Amount>
     @app_commands.command(name="giveitem", description="Give an item")
     @app_commands.describe(userid="User ID", itemid="Item name", amount="Amount", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, itemid=autocomplete_item)
@@ -159,6 +185,8 @@ class PalDefenderCog(commands.Cog):
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
+    # Delete Item
+    # RCON: delitem <UserId> <ItemId> <Amount>
     @app_commands.command(name="deleteitem", description="Delete an item")
     @app_commands.describe(userid="User ID", itemid="Item name", amount="Amount.", server="Server")
     @app_commands.autocomplete(server=autocomplete_server, itemid=autocomplete_item)
@@ -183,6 +211,8 @@ class PalDefenderCog(commands.Cog):
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
+    # Give Experience
+    # RCON: give_exp <UserId> <Amount>
     @app_commands.command(name="givexp", description="Give experience")
     @app_commands.describe(userid="User ID", amount="Amount", server="Server")
     @app_commands.autocomplete(server=autocomplete_server)
@@ -203,7 +233,8 @@ class PalDefenderCog(commands.Cog):
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
-    # export pals player userid
+    # Export Pals
+    # RCON: ExportPals <UserId>
     @app_commands.command(name="exportpals", description="Export pals")
     @app_commands.describe(userid="User ID", server="Server")
     @app_commands.autocomplete(server=autocomplete_server)
@@ -223,6 +254,8 @@ class PalDefenderCog(commands.Cog):
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
+    # Export Guilds
+    # RCON: ExportGuilds
     @app_commands.command(name="exportguilds", description="Export guilds")
     @app_commands.describe(server="Server")
     @app_commands.autocomplete(server=autocomplete_server)
@@ -239,6 +272,28 @@ class PalDefenderCog(commands.Cog):
             return
         response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], "exportguilds")
         embed = discord.Embed(title=f"ExportGuilds on {server}")
+        embed.description = response
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
+    # Learn Technology
+    # RCON: learntech <UserId> <TechID>
+    @app_commands.command(name="learntech", description="Learn tech")
+    @app_commands.describe(userid="User ID", tech="Tech", server="Server")
+    @app_commands.autocomplete(server=autocomplete_server)
+    @app_commands.autocomplete(tech=autocomplete_tech)
+    @app_commands.default_permissions(administrator=True)
+    @app_commands.guild_only()
+    async def learntech(self, interaction: discord.Interaction, userid: str, tech: str, server: str):
+        await interaction.response.defer(ephemeral=True)
+        if not interaction.guild:
+            await interaction.followup.send("No guild.", ephemeral=True)
+            return
+        info = await self.get_server_info(interaction.guild.id, server)
+        if not info:
+            await interaction.followup.send(f"Server not found: {server}", ephemeral=True)
+            return
+        response = await self.rcon.rcon_command(info["host"], info["port"], info["password"], f"learntech {userid} {tech}")
+        embed = discord.Embed(title=f"LearnTech on {server}")
         embed.description = response
         await interaction.followup.send(embed=embed, ephemeral=True)
 
