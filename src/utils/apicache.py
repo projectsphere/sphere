@@ -12,7 +12,7 @@ class CachedServerData:
         self.timestamp = timestamp
 
 class APICache:
-    def __init__(self, cache_duration: int = 25):
+    def __init__(self, cache_duration: int = 15):
         self.cache: Dict[str, CachedServerData] = {}
         self.cache_duration = cache_duration
         self.locks: Dict[str, asyncio.Lock] = {}

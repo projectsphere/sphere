@@ -362,6 +362,8 @@ async def del_backup(guild_id, server_name):
         await conn.close()
 
 # Player Time Tracking
+SESSION_TIMEOUT_SECONDS = 300
+
 async def track_sessions(current_online: set, previous_online: set, timestamp: str):
     conn = await db_connection()
     if not conn:
@@ -370,7 +372,8 @@ async def track_sessions(current_online: set, previous_online: set, timestamp: s
     cursor = await conn.cursor()
     now = datetime.datetime.fromisoformat(timestamp)
 
-    for uid in current_online:
+    newly_joined = current_online - previous_online
+    for uid in newly_joined:
         await cursor.execute("SELECT session_start, total_time FROM player_sessions WHERE user_id = ?", (uid,))
         row = await cursor.fetchone()
         if row is None:
@@ -378,16 +381,14 @@ async def track_sessions(current_online: set, previous_online: set, timestamp: s
                 "INSERT INTO player_sessions (user_id, total_time, session_start, last_session) VALUES (?, 0, ?, 0)",
                 (uid, timestamp)
             )
-        elif row[0]:
-            dt_start = datetime.datetime.fromisoformat(row[0])
-            delta = int((now - dt_start).total_seconds())
-            new_total = row[1] + delta
+        else:
             await cursor.execute(
-                "UPDATE player_sessions SET total_time = ?, session_start = ?, last_session = ? WHERE user_id = ?",
-                (new_total, timestamp, delta, uid)
+                "UPDATE player_sessions SET session_start = ? WHERE user_id = ?",
+                (timestamp, uid)
             )
 
-    for uid in previous_online - current_online:
+    disconnected = previous_online - current_online
+    for uid in disconnected:
         await cursor.execute("SELECT session_start, total_time FROM player_sessions WHERE user_id = ?", (uid,))
         row = await cursor.fetchone()
         if row and row[0]:
@@ -398,6 +399,24 @@ async def track_sessions(current_online: set, previous_online: set, timestamp: s
                 "UPDATE player_sessions SET total_time = ?, session_start = NULL, last_session = ? WHERE user_id = ?",
                 (new_total, delta, uid)
             )
+
+    await cursor.execute(
+        "SELECT user_id, session_start FROM player_sessions WHERE session_start IS NOT NULL"
+    )
+    all_active = await cursor.fetchall()
+    for uid, session_start in all_active:
+        if uid not in current_online:
+            dt_start = datetime.datetime.fromisoformat(session_start)
+            age = int((now - dt_start).total_seconds())
+            if age > SESSION_TIMEOUT_SECONDS:
+                await cursor.execute("SELECT total_time FROM player_sessions WHERE user_id = ?", (uid,))
+                row = await cursor.fetchone()
+                if row:
+                    new_total = row[0] + age
+                    await cursor.execute(
+                        "UPDATE player_sessions SET total_time = ?, session_start = NULL, last_session = ? WHERE user_id = ?",
+                        (new_total, age, uid)
+                    )
 
     await conn.commit()
     await conn.close()

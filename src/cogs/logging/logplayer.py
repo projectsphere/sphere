@@ -45,10 +45,7 @@ class PlayerLoggingCog(commands.Cog):
                 await track_sessions(current_online, previous_online, now)
 
             except Exception as e:
-                if server_name in self.server_online_cache:
-                    await track_sessions(set(), self.server_online_cache[server_name], now)
-                    del self.server_online_cache[server_name]
-                logging.error(f"API unreachable for '{server_name}', sessions ended for tracked users: {str(e)}")
+                logging.error(f"API unreachable for '{server_name}': {str(e)}")
 
     async def player_autocomplete(self, interaction: discord.Interaction, current: str):
         players = await player_autocomplete(current)

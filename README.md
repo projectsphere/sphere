@@ -19,6 +19,7 @@
  - **Scheduled Backups**: Create backups of your server and send them to a discord channel at timed intervals.
  - **SFTP Support**: Securely connect to your servers via SFTP for automated save checks, remote file transfers, and backup uploads.
  - **Link Support**: Link your discord to your in-game account.
+ - **Shop System**: A shop system that allows you to sell items to players.
 
 ## Environment Variables
 - `BOT_TOKEN`: Your discord bot token generated on the [Discord Developer Portal](https://discord.com/developers/applications).
